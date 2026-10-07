@@ -1285,6 +1285,13 @@ html { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .ordb { flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--bg); font-size: 18px; color: var(--fg); }
 .ordb[disabled] { opacity: .25; }
 .gordl { float: right; font-size: 13px; color: var(--fg); font-weight: 600; margin-left: 10px; }
+.rdays { display: flex; gap: 6px; }
+.rdays button { flex: 1; height: 40px; border-radius: 12px; background: var(--card); font-size: 14px; font-weight: 600; color: var(--muted); position: relative; isolation: isolate; }
+.rdays button[aria-pressed="true"] { color: var(--bg); background: transparent; }
+.rdays button[aria-pressed="true"]::before { content: ''; position: absolute; inset: 0; background: var(--fg); z-index: -1; -webkit-mask-box-image: var(--m-pill) 40 fill / 12px stretch; mask-border: var(--m-pill) 40 fill / 12px stretch; }
+.rdays button i { position: absolute; left: 50%; bottom: 5px; width: 4px; height: 4px; margin-left: -2px; border-radius: 50%; background: var(--accent); }
+.rdt { font-size: 11px; color: var(--fg); letter-spacing: .02em; }
+.gweek button em { font-style: normal; font-size: 9px; line-height: 1.1; color: var(--muted); height: 20px; max-width: 100%; overflow: hidden; text-align: center; word-break: break-word; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .bkrem { display: flex; align-items: center; gap: 14px; margin: 26px 0 0; padding: 12px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 13px; color: var(--muted); }
 .bkrem span { flex: 1; }
 .bkrem button { font-size: 13px; color: var(--fg); font-weight: 600; padding: 4px 0; }
@@ -1703,6 +1710,7 @@ textarea.nbta { min-height: 200px; }
     }
     var tdk = function (n) { return dk(addD(now, n)); };
     st.rit = { on: 1, mh: 12, nh: 21, d: {} }; st.rit.d[dk(now)] = { m: 1, focus: 'Terminar el guion del vídeo del jueves' };
+    (st.gym.rut || []).forEach(function (r, i) { r.days = [[0], [1], [3], [4]][i] || []; });
     st.ev = [
       { id: 'e1', title: 'Dentista', date: tdk(1), time: '10:30', place: 'Clínica Sonríe', rep: 'no', note: '' },
       { id: 'e2', title: 'Cena con los del equipo', date: dk(addD(mon(now), 4)), time: '21:00', place: '', rep: 'no', note: '' },
@@ -4050,7 +4058,13 @@ textarea.nbta { min-height: 200px; }
     return [];
   }
   function ago(k) { var n = Math.round((parseDay(dk(new Date())) - parseDay(k)) / 864e5); return n <= 0 ? 'hoy' : n === 1 ? 'ayer' : 'hace ' + n + ' días'; }
+  var DNS = ['lun', 'mar', 'mié', 'jue', 'vie', 'sáb', 'dom'];
+  function rutDays(r) { return (r && Array.isArray(r.days)) ? r.days : []; }
+  function rutOnDay(i) { return S.gym.rut.filter(function (r) { return rutDays(r).indexOf(i) >= 0; }); }
+  function rutDaysTxt(r) { var d = rutDays(r).slice().sort(); return d.length === 7 ? 'todos los días' : d.map(function (i) { return DNS[i]; }).join(' · '); }
   function nextRut() {
+    var ti = (new Date().getDay() + 6) % 7, td0 = rutOnDay(ti);
+    if (td0.length) return td0[0];
     var last = {}, b = null;
     gymStats().list.forEach(function (x) { if (x.rut) last[x.rut] = x.start; });
     S.gym.rut.forEach(function (r) { var t = last[r.id] || 0; if (!b || t < b.t) b = { r: r, t: t }; });
@@ -4077,11 +4091,12 @@ textarea.nbta { min-height: 200px; }
     var wkD = mon(new Date()), td = dk(new Date()), sel = ui.pick.gw || td, out = '<div class="gweek" aria-label="Sesiones de esta semana">';
     for (var i = 0; i < 7; i++) {
       var k = dk(addD(wkD, i)), on = list.some(function (x) { return x.date === k; });
-      out += '<button class="' + (on ? 'on' : '') + '" data-act="pick" data-c="gw" data-k="' + k + '" aria-pressed="' + (k === sel) + '"><span>' + DL[i] + '</span>' + ast() + '</button>';
+      var rd = rutOnDay(i);
+      out += '<button class="' + (on ? 'on' : '') + '" data-act="pick" data-c="gw" data-k="' + k + '" aria-pressed="' + (k === sel) + '"><span>' + DL[i] + '</span>' + ast() + '<em>' + (rd.length ? esc(rd[0].name) : '') + '</em></button>';
     }
     out += '</div>';
-    var ss = list.filter(function (x) { return x.date === sel; }), d = parseDay(sel), o = gymObj(), planned = o && planFor(o, dk(wkD)).indexOf((d.getDay() + 6) % 7) >= 0;
-    out += '<div class="selp" style="border-top:0;padding-top:4px"><div class="sh"><b>' + (sel === td ? 'hoy' : DN[(d.getDay() + 6) % 7] + ' ' + d.getDate()) + '</b><span>' + (ss.length ? ss.length + ' sesión' + (ss.length > 1 ? 'es' : '') : sel > td ? (planned ? 'previsto' : 'sin plan') : planned ? 'previsto, sin registrar' : 'descanso') + '</span></div>' + (ss.length ? ss.map(sesRow).join('') : '') + '</div>';
+    var ss = list.filter(function (x) { return x.date === sel; }), d = parseDay(sel), o = gymObj(), rdS = rutOnDay((d.getDay() + 6) % 7), planned = rdS.length > 0 || (o && planFor(o, dk(wkD)).indexOf((d.getDay() + 6) % 7) >= 0);
+    out += '<div class="selp" style="border-top:0;padding-top:4px"><div class="sh"><b>' + (sel === td ? 'hoy' : DN[(d.getDay() + 6) % 7] + ' ' + d.getDate()) + '</b><span>' + (ss.length ? ss.length + ' sesión' + (ss.length > 1 ? 'es' : '') : sel > td ? (rdS.length ? 'toca ' + esc(rdS.map(function (r) { return r.name; }).join(' o ')) : planned ? 'previsto' : 'sin plan') : sel === td && rdS.length ? 'hoy toca ' + esc(rdS.map(function (r) { return r.name; }).join(' o ')) : planned ? 'previsto, sin registrar' : 'descanso') + '</span></div>' + (ss.length ? ss.map(sesRow).join('') : '') + '</div>';
     return out;
   }
   function subnav(sp, pages) {
@@ -4109,7 +4124,7 @@ textarea.nbta { min-height: 200px; }
       st.list.forEach(function (x) { if (x.rut) last[x.rut] = x.date; });
       out += '<div class="sec"><span>empezar</span><span>toca una rutina</span></div><div class="rcards">';
       g.rut.forEach(function (r) {
-        out += '<div class="rcard' + (nx && nx.id === r.id ? ' next' : '') + '"><button class="rgo" data-act="gstart" data-id="' + r.id + '"><b>' + esc(r.name) + '</b><span>' + r.items.length + ' ejercicios<br>' + (nx && nx.id === r.id ? '<span class="rtag">te toca</span>' : (last[r.id] ? ago(last[r.id]) : 'sin estrenar')) + '</span></button><button class="red" data-act="geditrut" data-id="' + r.id + '" aria-label="Editar ' + esc(r.name) + '">editar</button></div>';
+        out += '<div class="rcard' + (nx && nx.id === r.id ? ' next' : '') + '"><button class="rgo" data-act="gstart" data-id="' + r.id + '"><b>' + esc(r.name) + '</b><span>' + r.items.length + ' ejercicios<br>' + (rutDays(r).length ? '<span class="rdt">' + rutDaysTxt(r) + '</span><br>' : '') + (nx && nx.id === r.id ? '<span class="rtag">' + (rutDays(r).indexOf((now.getDay() + 6) % 7) >= 0 ? 'hoy toca' : 'te toca') + '</span>' : (last[r.id] ? ago(last[r.id]) : 'sin estrenar')) + '</span></button><button class="red" data-act="geditrut" data-id="' + r.id + '" aria-label="Editar ' + esc(r.name) + '">editar</button></div>';
       });
       out += '</div><button class="btn" style="width:100%;margin-top:8px" data-act="gstart" data-id="">Sesión libre</button>';
     }
@@ -4354,6 +4369,9 @@ textarea.nbta { min-height: 200px; }
   function sheetRut() {
     var d = ui.rdraft, isNew = !d.id;
     var h = '<h2>' + (isNew ? 'nueva rutina' : 'editar rutina') + '</h2><label class="field"><span>Nombre</span><input type="text" id="r-name" maxlength="40" value="' + esc(d.name) + '" placeholder="Torso A, Empuje, Full body…"></label>';
+    var dd0 = d.days || [], taken = {};
+    S.gym.rut.forEach(function (r0) { if (r0.id !== d.id) rutDays(r0).forEach(function (i) { taken[i] = (taken[i] ? taken[i] + ', ' : '') + r0.name; }); });
+    h += '<div class="field"><span>Qué días toca <small>opcional</small></span><div class="rdays">' + DL.map(function (l, i) { return '<button data-act="grday" data-k="' + i + '" aria-pressed="' + (dd0.indexOf(i) >= 0) + '" aria-label="' + DN[i] + '">' + l + (taken[i] ? '<i></i>' : '') + '</button>'; }).join('') + '</div><p class="cap" style="margin:6px 0 0">' + (dd0.length ? 'Te tocará los ' + dd0.slice().sort().map(function (i) { return /s$/.test(DN[i]) ? DN[i] : DN[i] + 's'; }).join(', ').replace(/, ([^,]*)$/, ' y $1') + '.' : 'Sin días fijos: Hibi te la propone por turnos.') + (Object.keys(taken).length ? ' El puntito marca días que ya tienen otra rutina.' : '') + '</p></div>';
     h += '<div class="field"><span>Ejercicios · series × repeticiones (o segundos)</span><div class="card" style="padding:4px 14px">' + (d.items.length ? d.items.map(function (it, i) {
       return '<div class="rit"><button class="ritn" data-act="geditex" data-id="' + it.ex + '" data-ret="rut" aria-label="Editar ' + esc(exById(it.ex).name) + '">' + esc(exById(it.ex).name) + '</button><input type="number" inputmode="numeric" min="1" max="12" value="' + it.sets + '" data-ri="' + i + '" data-rk="sets" aria-label="Series"><span class="mul">×</span><input type="number" inputmode="numeric" min="1" value="' + it.reps + '" data-ri="' + i + '" data-rk="reps" aria-label="Repeticiones"><button class="x" data-act="grmit" data-i="' + i + '" aria-label="Quitar">×</button></div>';
     }).join('') : '<p class="cap" style="margin:10px 0">Todavía no hay ejercicios.</p>') + '</div></div>';
@@ -4464,6 +4482,7 @@ textarea.nbta { min-height: 200px; }
       ss.items.splice(+t.dataset.i, 1); save(); render(); return true;
     }
     if (a === 'gaddex') { sheetPickEx('live'); return true; }
+    if (a === 'grday' && ui.rdraft) { syncRut(); var di = +t.dataset.k, dl = ui.rdraft.days = ui.rdraft.days || [], ix = dl.indexOf(di); if (ix >= 0) dl.splice(ix, 1); else dl.push(di); sheetRut(); return true; }
     if (a === 'gorder') { if (t.dataset.k === 'rut') syncRut(); sheetOrder(t.dataset.k); return true; }
     if (a === 'gordmv') {
       var L2 = ui.gord === 'rut' ? (ui.rdraft && ui.rdraft.items) : (ss && ss.items), i2 = +t.dataset.i, j2 = i2 + (+t.dataset.d);
@@ -4499,14 +4518,14 @@ textarea.nbta { min-height: 200px; }
       if (!t.dataset.armed) { t.dataset.armed = '1'; t.textContent = 'Toca otra vez'; return true; }
       S.gym.ses = S.gym.ses.filter(function (x) { return x !== ss; }); S.gym.live = null; ui.restEnd = 0; ui.tab = 'gym'; save(); render(); window.scrollTo(0, 0); return true;
     }
-    if (a === 'gnewrut') { ui.rdraft = { id: null, name: '', items: [] }; sheetRut(); return true; }
-    if (a === 'geditrut') { var r = rutById(t.dataset.id); ui.rdraft = { id: r.id, name: r.name, items: r.items.map(function (q) { return { ex: q.ex, sets: q.sets, reps: q.reps }; }) }; sheetRut(); return true; }
+    if (a === 'gnewrut') { ui.rdraft = { id: null, name: '', items: [], days: [] }; sheetRut(); return true; }
+    if (a === 'geditrut') { var r = rutById(t.dataset.id); ui.rdraft = { id: r.id, name: r.name, days: rutDays(r).slice(), items: r.items.map(function (q) { return { ex: q.ex, sets: q.sets, reps: q.reps }; }) }; sheetRut(); return true; }
     if (a === 'grmit') { syncRut(); ui.rdraft.items.splice(+t.dataset.i, 1); sheetRut(); return true; }
     if (a === 'gsaverut') {
       syncRut(); var d = ui.rdraft, nm = (d.name || '').trim();
       if (!nm) { var ni = $('#r-name'); if (ni) { ni.focus(); ni.placeholder = 'Ponle un nombre'; } return true; }
-      if (d.id) { var rr = rutById(d.id); rr.name = nm; rr.items = d.items; }
-      else S.gym.rut.push({ id: nid('r'), name: nm, items: d.items });
+      if (d.id) { var rr = rutById(d.id); rr.name = nm; rr.items = d.items; rr.days = (d.days || []).slice(); }
+      else S.gym.rut.push({ id: nid('r'), name: nm, items: d.items, days: (d.days || []).slice() });
       ui.rdraft = null; save(); closeSheet(); render(); return true;
     }
     if (a === 'gdelrut') {
