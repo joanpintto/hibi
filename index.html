@@ -1055,7 +1055,8 @@ svg.bars rect:not([fill="transparent"]), .chart svg rect[fill^="var"], .wkd i, .
 .tskip { font-size: 13px; color: var(--muted); padding: 8px 2px; }
 .tnext { background: var(--fg); color: var(--bg); border-radius: 999px; padding: 10px 18px; font-size: 14px; font-weight: 600; }
 .toff { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; padding: 4px 0; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--faint); }
-@media (prefers-reduced-motion: no-preference) { .tbub.in { animation: onbin .3s ease-out both; } }
+@media (prefers-reduced-motion: no-preference) { .tbub.in { animation: onbin .3s ease-out both; }
+#tour .tspot, #tour .tbub { position: absolute; } }
 @media (prefers-reduced-motion: reduce) { .tspot, .tbub { transition: none; } }
 /* inicio en calma */
 .home2 .date2 { font-size: 15px; color: var(--muted); margin: 16px 0 0; }
@@ -5174,7 +5175,7 @@ textarea.nbta { min-height: 200px; }
   function tourPaint(el, st, first) {
     var T = ui.tour; if (!T) return;
     var box = $('#tour');
-    if (!box) { box = document.createElement('div'); box.id = 'tour'; box.innerHTML = '<div class="tspot none"></div><div class="tbub" role="dialog" aria-modal="true" aria-live="polite"></div>'; document.body.appendChild(box); box.addEventListener('click', tourClick); box.addEventListener('touchmove', function (e) { e.preventDefault(); }, { passive: false }); }
+    if (!box) { box = document.createElement('div'); box.id = 'tour'; box.innerHTML = '<div class="tspot none"></div><div class="tbub" role="dialog" aria-modal="true" aria-live="polite"></div>'; document.body.appendChild(box); box.addEventListener('click', tourClick); box.addEventListener('touchstart', function () { ui._tpTouch = Date.now(); }, { passive: true }); box.addEventListener('touchend', function (e) { var t = e.target.closest && e.target.closest('[data-tour]'); if (t) { e.preventDefault(); tourAct(t); } }, { passive: false }); box.addEventListener('touchmove', function (e) { e.preventDefault(); }, { passive: false }); }
     var sp = box.querySelector('.tspot'), b = box.querySelector('.tbub'), H = window.innerHeight, pad = 8;
     var n = T.L.length, idx = T.i + 1, last = idx === n;
     b.innerHTML = '<div class="tk2">' + ast() + '<span>' + idx + ' de ' + n + '</span></div><b>' + st[1] + '</b><p>' + st[2] + '</p>' +
@@ -5185,33 +5186,36 @@ textarea.nbta { min-height: 200px; }
     clearTimeout(ui._tpT1); clearTimeout(ui._tpT2);
     ui._tpT1 = setTimeout(function () { if (ui.tour) tourPlace(el); }, 350);
     ui._tpT2 = setTimeout(function () { if (ui.tour) tourPlace(el); }, 900);
-    if (!ui._tpL) { ui._tpL = 1; var rp = function () { if (ui.tour && ui._tpEl !== undefined) tourPlace(ui._tpEl); }; window.addEventListener('resize', rp); window.addEventListener('scroll', rp, { passive: true }); if (window.visualViewport) visualViewport.addEventListener('resize', rp); }
+    if (!ui._tpL) { ui._tpL = 1; var rq = 0, rp = function () { if (rq) return; rq = requestAnimationFrame(function () { rq = 0; if (ui.tour && ui._tpEl !== undefined) tourPlace(ui._tpEl, true); }); }; window.addEventListener('resize', rp); if (window.visualViewport) visualViewport.addEventListener('resize', rp); }
     var nx = b.querySelector('.tnext'); if (nx && first) nx.focus({ preventScroll: true });
   }
-  function tourPlace(el) {
+  function tourPlace(el, soft) {
     var box = $('#tour'); if (!box) return; ui._tpEl = el;
-    var sp = box.querySelector('.tspot'), b = box.querySelector('.tbub'), H = window.innerHeight, pad = 8;
-    var bh = b.offsetHeight;
-    if (!el) { sp.className = 'tspot none'; sp.style.cssText = 'left:50%;top:50%;width:0;height:0'; b.style.top = Math.round(H / 2 - bh / 2) + 'px'; }
+    var sp = box.querySelector('.tspot'), b = box.querySelector('.tbub'), br = box.getBoundingClientRect(), H = br.height || window.innerHeight, pad = 8;
+    var bh = b.offsetHeight, oldTop = parseFloat(b.style.top) || 0, setTop = function (v) { v = Math.round(v); if (soft && ui._tpTouch && Date.now() - ui._tpTouch < 800) return; if (!b.style.top || Math.abs(v - oldTop) > 4) b.style.top = v + 'px'; };
+    if (!el) { sp.className = 'tspot none'; sp.style.cssText = 'left:50%;top:50%;width:0;height:0'; setTop(H / 2 - bh / 2); }
     else {
-      var r = el.getBoundingClientRect(), top = Math.max(6, r.top - pad), bot = Math.min(H - 6, r.bottom + pad);
+      var r0 = el.getBoundingClientRect(), r = { top: r0.top - br.top, bottom: r0.bottom - br.top, left: r0.left - br.left, width: r0.width }, top = Math.max(6, r.top - pad), bot = Math.min(H - 6, r.bottom + pad);
       var rad = parseFloat(getComputedStyle(el).borderTopLeftRadius) || 10;
       sp.className = 'tspot';
       sp.style.cssText = 'left:' + Math.round(r.left - pad) + 'px;top:' + Math.round(top) + 'px;width:' + Math.round(r.width + pad * 2) + 'px;height:' + Math.round(bot - top) + 'px;border-radius:' + Math.min(999, rad + pad) + 'px';
-      if (H - bot - 14 > bh + 16) b.style.top = Math.round(bot + 14) + 'px';
-      else if (top - 14 > bh + 16) b.style.top = Math.round(top - 14 - bh) + 'px';
-      else b.style.top = Math.round(Math.max(16, H - bh - 120)) + 'px';
+      if (H - bot - 14 > bh + 16) setTop(bot + 14);
+      else if (top - 14 > bh + 16) setTop(top - 14 - bh);
+      else setTop(Math.max(16, H - bh - 120));
     }
   }
   function tourClick(e) {
     var t = e.target.closest('[data-tour]'); if (!t || !ui.tour) return;
-    e.stopPropagation();
+    e.stopPropagation(); tourAct(t);
+  }
+  try { if (localStorage.getItem('hibi:debug')) window.__hibiTour = function () { return ui.tour ? { k: ui.tour.k, i: ui.tour.i, n: ui.tour.L.length, sel: ui.tour.L[ui.tour.i][0] } : null; }; } catch (er) {}
+  function tourAct(t) {
+    if (!ui.tour || Date.now() - (ui._tpAct || 0) < 300) return; ui._tpAct = Date.now();
     var a = t.dataset.tour;
     if (a === 'next') { if (ui.tour.i >= ui.tour.L.length - 1) return tourEnd(); ui.tour.i++; tourShow(); }
     else if (a === 'skip') tourEnd();
     else if (a === 'off') tourEnd(true);
   }
-  window.addEventListener('resize', function () { if (ui.tour) tourShow(); });
   document.addEventListener('keydown', function (e) { if (!ui.tour) return; if (e.key === 'Escape') tourEnd(); if (e.key === 'ArrowRight' || e.key === 'Enter') { e.preventDefault(); if (ui.tour.i >= ui.tour.L.length - 1) tourEnd(); else { ui.tour.i++; tourShow(); } } });
   var PPAGES = [['nivel', 'nivel'], ['semana', 'semana'], ['misiones', 'misiones'], ['historial', 'historial']];
   function viewProgreso() {
