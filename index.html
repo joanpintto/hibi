@@ -1273,6 +1273,18 @@ html { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .gxn { display: inline-flex; align-items: center; gap: 7px; text-align: left; color: var(--fg); padding: 0; }
 .gxn svg { color: var(--faint); flex: none; }
 .ritn { text-align: left; font-size: 14px; color: var(--fg); text-decoration: underline; text-decoration-color: var(--faint); text-underline-offset: 3px; overflow: hidden; text-overflow: ellipsis; padding: 0; min-width: 0; }
+.ordl { display: flex; flex-direction: column; margin-top: 6px; }
+.ordr { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-top: 1px solid var(--line); }
+.ordr:first-child { border-top: 0; }
+.ordr.just { animation: ordin .35s ease-out; }
+@keyframes ordin { from { background: color-mix(in srgb, var(--accent) 12%, transparent); } to { background: transparent; } }
+.ordn { width: 20px; flex: none; font-size: 12px; color: var(--muted); text-align: center; font-variant-numeric: tabular-nums; }
+.ordt { flex: 1; min-width: 0; }
+.ordt b { display: block; font-size: 15px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ordt small { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; }
+.ordb { flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--bg); font-size: 18px; color: var(--fg); }
+.ordb[disabled] { opacity: .25; }
+.gordl { float: right; font-size: 13px; color: var(--fg); font-weight: 600; margin-left: 10px; }
 .bkrem { display: flex; align-items: center; gap: 14px; margin: 26px 0 0; padding: 12px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 13px; color: var(--muted); }
 .bkrem span { flex: 1; }
 .bkrem button { font-size: 13px; color: var(--fg); font-weight: 600; padding: 4px 0; }
@@ -4291,7 +4303,7 @@ textarea.nbta { min-height: 200px; }
     var st = gymStats(), c = sesSets(ss);
     var out = '<button class="back" data-act="tab" data-tab="gym">‹ gimnasio</button>';
     out += '<div class="hoyhead"><h1>' + esc(ss.name.toLowerCase()) + '</h1><span class="cap" style="margin:0" id="gtime">' + Math.max(0, Math.floor((Date.now() - ss.start) / 60000)) + ' min</span></div>';
-    out += '<div class="cap">' + c[0] + ' de ' + c[1] + ' series · ' + th(sesVol(ss)) + ' kg' + info('Toca el asterisco al terminar cada serie. Toca el número de una serie para marcarla como calentamiento (C) o al fallo (F); los calentamientos no cuentan para récords ni volumen. «discos» te dice qué poner en la barra.') + '</div>';
+    out += '<div class="cap">' + (ss.items.length > 1 ? '<button class="gordl" data-act="gorder" data-k="live">⇅ ordenar</button>' : '') + c[0] + ' de ' + c[1] + ' series · ' + th(sesVol(ss)) + ' kg' + info('Toca el asterisco al terminar cada serie. Toca el número de una serie para marcarla como calentamiento (C) o al fallo (F); los calentamientos no cuentan para récords ni volumen. «discos» te dice qué poner en la barra.') + '</div>';
     ss.items.forEach(function (it, i) {
       var x = exById(it.ex), prev = lastSets(it.ex), top = -1, tsc = -1;
       it.sets.forEach(function (z, j) { if (z.done && z.r > 0 && z.t !== 'C') { var sc = setScore(x, z); if (sc > tsc) { tsc = sc; top = j; } } });
@@ -4308,7 +4320,7 @@ textarea.nbta { min-height: 200px; }
       });
       out += '<div class="gx-f"><button data-act="gaddset" data-i="' + i + '">+ serie</button>' + (it.sets.length > 1 ? '<button data-act="gdelset" data-i="' + i + '">− serie</button>' : '') + '</div></div>';
     });
-    out += '<button class="btn" style="width:100%;margin-top:12px" data-act="gaddex">+ añadir ejercicio</button>';
+    out += '<div class="btns" style="margin-top:12px"><button class="btn" data-act="gaddex">+ añadir ejercicio</button>' + (ss.items.length > 1 ? '<button class="btn" data-act="gorder" data-k="live">⇅ ordenar</button>' : '') + '</div>';
     out += '<div class="btns" style="margin-top:30px"><button class="btn pri" data-act="gfinish">Terminar entreno</button><button class="btn warn" data-act="gdiscard">Descartar</button></div><div style="height:72px" aria-hidden="true"></div>';
     return out;
   }
@@ -4345,7 +4357,7 @@ textarea.nbta { min-height: 200px; }
     h += '<div class="field"><span>Ejercicios · series × repeticiones (o segundos)</span><div class="card" style="padding:4px 14px">' + (d.items.length ? d.items.map(function (it, i) {
       return '<div class="rit"><button class="ritn" data-act="geditex" data-id="' + it.ex + '" data-ret="rut" aria-label="Editar ' + esc(exById(it.ex).name) + '">' + esc(exById(it.ex).name) + '</button><input type="number" inputmode="numeric" min="1" max="12" value="' + it.sets + '" data-ri="' + i + '" data-rk="sets" aria-label="Series"><span class="mul">×</span><input type="number" inputmode="numeric" min="1" value="' + it.reps + '" data-ri="' + i + '" data-rk="reps" aria-label="Repeticiones"><button class="x" data-act="grmit" data-i="' + i + '" aria-label="Quitar">×</button></div>';
     }).join('') : '<p class="cap" style="margin:10px 0">Todavía no hay ejercicios.</p>') + '</div></div>';
-    h += '<button class="btn" style="width:100%;margin-top:8px" data-act="graddex">+ añadir ejercicio</button>';
+    h += '<div class="btns" style="margin-top:8px"><button class="btn" data-act="graddex">+ añadir ejercicio</button>' + (d.items.length > 1 ? '<button class="btn" data-act="gorder" data-k="rut">⇅ ordenar</button>' : '') + '</div>';
     h += '<div class="btns"><button class="btn pri" data-act="gsaverut">Guardar</button><button class="btn" data-act="closesheet">Cancelar</button>' + (isNew ? '' : '<button class="btn warn" data-act="gdelrut">Eliminar</button>') + '</div>';
     openSheet(h);
   }
@@ -4361,6 +4373,17 @@ textarea.nbta { min-height: 200px; }
       '<div class="field"><span>Grupo</span><div class="chips">' + GRP.map(function (gp) { return '<label><input type="radio" name="xgrp" value="' + gp + '"' + (gp === x.grp ? ' checked' : '') + '><span>' + gp + '</span></label>'; }).join('') + '</div></div>' +
       '<div class="field"><span>Cómo se mide</span>' + seg('xtype', [['peso', 'Peso'], ['corporal', 'Peso corporal'], ['tiempo', 'Tiempo']], x.type) + '</div>' +
       (isNew ? '' : '<p class="cap" style="margin-top:14px">Los cambios se aplican también a tus entrenos y estadísticas anteriores.</p>') + '<div class="btns"><button class="btn pri" data-act="gsaveex" data-id="' + (isNew ? '' : x.id) + '" data-ret="' + (ret || '') + '">Guardar</button><button class="btn" data-act="gexback" data-id="' + (isNew ? '' : x.id) + '" data-ret="' + (ret || '') + '">Cancelar</button>' + (isNew ? '' : '<button class="btn warn" data-act="gdelex" data-id="' + x.id + '">Eliminar</button>') + '</div>');
+  }
+  function sheetOrder(kind) {
+    ui.gord = kind;
+    var L = kind === 'rut' ? (ui.rdraft && ui.rdraft.items) : (liveSes() && liveSes().items); if (!L) return closeSheet();
+    var h = '<h2>ordenar ejercicios</h2><p class="cap" style="margin-top:0">Sube o baja cada ejercicio. Las series que ya hayas hecho se mueven con él.</p><div class="ordl">';
+    h += L.map(function (it, i) {
+      var x = exById(it.ex), done = it.sets && it.sets.filter ? it.sets.filter(function (z) { return z.done; }).length : 0;
+      return '<div class="ordr' + (ui.gordJ === i ? ' just' : '') + '"><span class="ordn">' + (i + 1) + '</span><span class="ordt"><b>' + esc(x.name) + '</b><small>' + x.grp + (it.sets && it.sets.length ? ' · ' + done + ' de ' + it.sets.length + ' series' : it.sets ? '' : '') + (kind === 'rut' ? ' · ' + it.sets + ' × ' + it.reps : '') + '</small></span>' +
+        '<button class="ordb" data-act="gordmv" data-i="' + i + '" data-d="-1" aria-label="Subir ' + esc(x.name) + '"' + (i === 0 ? ' disabled' : '') + '>↑</button><button class="ordb" data-act="gordmv" data-i="' + i + '" data-d="1" aria-label="Bajar ' + esc(x.name) + '"' + (i === L.length - 1 ? ' disabled' : '') + '>↓</button></div>';
+    }).join('') + '</div><div class="btns"><button class="btn pri" data-act="gorddone">Listo</button></div>';
+    openSheet(h); ui.gordJ = null;
   }
   function gexReturn(ret, id, saved) {
     if (ret === 'rut' && ui.rdraft) sheetRut();
@@ -4441,6 +4464,15 @@ textarea.nbta { min-height: 200px; }
       ss.items.splice(+t.dataset.i, 1); save(); render(); return true;
     }
     if (a === 'gaddex') { sheetPickEx('live'); return true; }
+    if (a === 'gorder') { if (t.dataset.k === 'rut') syncRut(); sheetOrder(t.dataset.k); return true; }
+    if (a === 'gordmv') {
+      var L2 = ui.gord === 'rut' ? (ui.rdraft && ui.rdraft.items) : (ss && ss.items), i2 = +t.dataset.i, j2 = i2 + (+t.dataset.d);
+      if (!L2 || j2 < 0 || j2 >= L2.length) return true;
+      var mv = L2.splice(i2, 1)[0]; L2.splice(j2, 0, mv); ui.gordJ = j2;
+      if (ui.gord !== 'rut') { save(); render(); }
+      sheetOrder(ui.gord); return true;
+    }
+    if (a === 'gorddone') { if (ui.gord === 'rut') sheetRut(); else { closeSheet(); render(); } return true; }
     if (a === 'gtype' && ss) { var zz = ss.items[+t.dataset.i].sets[+t.dataset.j]; zz.t = !zz.t ? 'C' : zz.t === 'C' ? 'F' : ''; save(); render(); return true; }
     if (a === 'gplates') { sheetPlates(+t.dataset.i); return true; }
     if (a === 'gmo') { ui.gmo = Math.min(0, ui.gmo + (+t.dataset.d)); render(); return true; }
