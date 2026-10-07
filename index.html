@@ -1260,6 +1260,19 @@ html { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .tile .tick .tc .blot { left: -5px; top: -5px; width: 36px; height: 36px; }
 .tile .tick .tc .tkchk { position: relative; z-index: 1; width: 13px; height: 13px; stroke: var(--bg); fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
 @media (prefers-reduced-motion: no-preference) { .tile { transition: transform .12s, background .2s; } button.tile:active { transform: scale(.97); } }
+.exw { display: flex; align-items: center; border-top: 1px solid var(--line); }
+.exw:first-child { border-top: 0; }
+.exw .prrow { border-top: 0; flex: 1; min-width: 0; }
+.exed { flex: none; width: 38px; height: 38px; margin-right: -10px; display: grid; place-items: center; color: var(--muted); border-radius: 50%; }
+.exlw { display: flex; align-items: center; border-top: 1px solid var(--line); }
+.exlw:first-child { border-top: 0; }
+.exlw .exl { border-top: 0; flex: 1; min-width: 0; }
+.exlw .exed { margin-right: -8px; }
+.exhd { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 2px; }
+.exedl { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; color: var(--muted); padding: 6px 0; }
+.gxn { display: inline-flex; align-items: center; gap: 7px; text-align: left; color: var(--fg); padding: 0; }
+.gxn svg { color: var(--faint); flex: none; }
+.ritn { text-align: left; font-size: 14px; color: var(--fg); text-decoration: underline; text-decoration-color: var(--faint); text-underline-offset: 3px; overflow: hidden; text-overflow: ellipsis; padding: 0; min-width: 0; }
 .bkrem { display: flex; align-items: center; gap: 14px; margin: 26px 0 0; padding: 12px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 13px; color: var(--muted); }
 .bkrem span { flex: 1; }
 .bkrem button { font-size: 13px; color: var(--fg); font-weight: 600; padding: 4px 0; }
@@ -4218,7 +4231,7 @@ textarea.nbta { min-height: 200px; }
       if (!l.length) return;
       out += '<div class="exg"><div class="sec"><span>' + gp + '</span><span>' + l.length + '</span></div><div class="card" style="padding:4px 16px">' + l.map(function (x) {
         var b = st.bestSet[x.id], h = st.hist[x.id] || [];
-        return '<button class="prrow exi" data-act="gex" data-id="' + x.id + '" data-n="' + esc(x.name.toLowerCase()) + '"><div class="grow"><b style="font-weight:600">' + esc(x.name) + '</b><span>' + (h.length ? ago(h[h.length - 1].date) + ' · ' + h.length + ' ses.' : 'sin registros') + '</span></div>' + (h.length > 1 ? spark(h.slice(-8).map(function (q) { return q.sc; }), 64, 26, 'spk') : '') + '<span class="pv">' + (b ? setTxt(x, b) : '–') + '</span></button>';
+        return '<div class="exw exi" data-n="' + esc(x.name.toLowerCase()) + '"><button class="prrow" data-act="gex" data-id="' + x.id + '"><div class="grow"><b style="font-weight:600">' + esc(x.name) + '</b><span>' + (h.length ? ago(h[h.length - 1].date) + ' · ' + h.length + ' ses.' : 'sin registros') + '</span></div>' + (h.length > 1 ? spark(h.slice(-8).map(function (q) { return q.sc; }), 64, 26, 'spk') : '') + '<span class="pv">' + (b ? setTxt(x, b) : '–') + '</span></button><button class="exed" data-act="geditex" data-id="' + x.id + '" data-ret="list" aria-label="Editar ' + esc(x.name) + '">' + PENSVG + '</button></div>';
       }).join('') + '</div></div>';
     });
     return out;
@@ -4284,7 +4297,7 @@ textarea.nbta { min-height: 200px; }
       it.sets.forEach(function (z, j) { if (z.done && z.r > 0 && z.t !== 'C') { var sc = setScore(x, z); if (sc > tsc) { tsc = sc; top = j; } } });
       var isPr = top >= 0 && st.best[it.ex] != null && tsc > st.best[it.ex] + 1e-9;
       var hint = prev.length ? 'última vez: ' + prev.map(function (z) { return x.type === 'peso' ? fmt(z.w) + '×' + z.r : x.type === 'tiempo' ? z.r + 's' : z.r; }).join(' · ') : (it.target ? 'objetivo: ' + it.sets.length + ' × ' + it.target + (x.type === 'tiempo' ? ' s' : '') : 'primera vez');
-      out += '<div class="gx"><div class="gx-h"><div><b>' + esc(x.name) + '</b><span>' + hint + '</span></div><div style="display:flex;flex:none">' + (x.type === 'peso' ? '<button class="tool" data-act="gplates" data-i="' + i + '">discos</button>' : '') + '<button class="x" data-act="gdelit" data-i="' + i + '" aria-label="Quitar ' + esc(x.name) + '">quitar</button></div></div>';
+      out += '<div class="gx"><div class="gx-h"><div><button class="gxn" data-act="geditex" data-id="' + it.ex + '" data-ret="live" aria-label="Editar ' + esc(x.name) + '"><b>' + esc(x.name) + '</b>' + PENSVG + '</button><span>' + hint + '</span></div><div style="display:flex;flex:none">' + (x.type === 'peso' ? '<button class="tool" data-act="gplates" data-i="' + i + '">discos</button>' : '') + '<button class="x" data-act="gdelit" data-i="' + i + '" aria-label="Quitar ' + esc(x.name) + '">quitar</button></div></div>';
       out += '<div class="gs gs-h"><span>serie</span><span>' + (x.type === 'peso' ? 'kg' : x.type === 'corporal' ? 'lastre kg' : '') + '</span><span>' + (x.type === 'tiempo' ? 'segundos' : 'reps') + '</span><span></span></div>';
       it.sets.forEach(function (z, j) {
         out += '<div class="gs' + (z.done ? ' on' : '') + '"><button class="gi ' + (z.t || '') + '" data-act="gtype" data-i="' + i + '" data-j="' + j + '" aria-label="Tipo de serie: ' + (z.t === 'C' ? 'calentamiento' : z.t === 'F' ? 'al fallo' : 'normal') + '. Toca para cambiar">' + (z.t || (j + 1)) + '</button>' +
@@ -4321,7 +4334,7 @@ textarea.nbta { min-height: 200px; }
     GRP.forEach(function (gp) {
       var l = S.gym.ex.filter(function (x) { return x.grp === gp && !x.del; });
       if (!l.length) return;
-      h += '<div class="sec" style="margin-top:20px"><span>' + gp + '</span></div><div>' + l.map(function (x) { return '<button class="exl" data-act="gpick" data-id="' + x.id + '">' + esc(x.name) + '<span>' + (x.type === 'peso' ? '' : x.type === 'corporal' ? 'peso corporal' : 'tiempo') + '</span></button>'; }).join('') + '</div>';
+      h += '<div class="sec" style="margin-top:20px"><span>' + gp + '</span></div><div>' + l.map(function (x) { return '<div class="exlw"><button class="exl" data-act="gpick" data-id="' + x.id + '">' + esc(x.name) + '<span>' + (x.type === 'peso' ? '' : x.type === 'corporal' ? 'peso corporal' : 'tiempo') + '</span></button><button class="exed" data-act="geditex" data-id="' + x.id + '" data-ret="pick' + forWhat + '" aria-label="Editar ' + esc(x.name) + '">' + PENSVG + '</button></div>'; }).join('') + '</div>';
     });
     h += '<div class="btns"><button class="btn" data-act="gnewex">Nuevo ejercicio</button><button class="btn" data-act="' + (forWhat === 'rut' ? 'gbackrut' : 'closesheet') + '">Volver</button></div>';
     openSheet(h);
@@ -4330,7 +4343,7 @@ textarea.nbta { min-height: 200px; }
     var d = ui.rdraft, isNew = !d.id;
     var h = '<h2>' + (isNew ? 'nueva rutina' : 'editar rutina') + '</h2><label class="field"><span>Nombre</span><input type="text" id="r-name" maxlength="40" value="' + esc(d.name) + '" placeholder="Torso A, Empuje, Full body…"></label>';
     h += '<div class="field"><span>Ejercicios · series × repeticiones (o segundos)</span><div class="card" style="padding:4px 14px">' + (d.items.length ? d.items.map(function (it, i) {
-      return '<div class="rit"><span>' + esc(exById(it.ex).name) + '</span><input type="number" inputmode="numeric" min="1" max="12" value="' + it.sets + '" data-ri="' + i + '" data-rk="sets" aria-label="Series"><span class="mul">×</span><input type="number" inputmode="numeric" min="1" value="' + it.reps + '" data-ri="' + i + '" data-rk="reps" aria-label="Repeticiones"><button class="x" data-act="grmit" data-i="' + i + '" aria-label="Quitar">×</button></div>';
+      return '<div class="rit"><button class="ritn" data-act="geditex" data-id="' + it.ex + '" data-ret="rut" aria-label="Editar ' + esc(exById(it.ex).name) + '">' + esc(exById(it.ex).name) + '</button><input type="number" inputmode="numeric" min="1" max="12" value="' + it.sets + '" data-ri="' + i + '" data-rk="sets" aria-label="Series"><span class="mul">×</span><input type="number" inputmode="numeric" min="1" value="' + it.reps + '" data-ri="' + i + '" data-rk="reps" aria-label="Repeticiones"><button class="x" data-act="grmit" data-i="' + i + '" aria-label="Quitar">×</button></div>';
     }).join('') : '<p class="cap" style="margin:10px 0">Todavía no hay ejercicios.</p>') + '</div></div>';
     h += '<button class="btn" style="width:100%;margin-top:8px" data-act="graddex">+ añadir ejercicio</button>';
     h += '<div class="btns"><button class="btn pri" data-act="gsaverut">Guardar</button><button class="btn" data-act="closesheet">Cancelar</button>' + (isNew ? '' : '<button class="btn warn" data-act="gdelrut">Eliminar</button>') + '</div>';
@@ -4341,12 +4354,21 @@ textarea.nbta { min-height: 200px; }
     var n = $('#r-name'); if (n) d.name = n.value;
     document.querySelectorAll('[data-rk]').forEach(function (inp) { var v = parseInt(inp.value, 10); if (v > 0) d.items[+inp.dataset.ri][inp.dataset.rk] = v; });
   }
+  var PENSVG = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16v4z"/><path d="M13.5 6.5l4 4"/></svg>';
   function sheetEx(x, ret) {
     var isNew = !x; x = x || { name: '', grp: 'pecho', type: 'peso' };
     openSheet('<h2>' + (isNew ? 'nuevo ejercicio' : 'editar ejercicio') + '</h2><label class="field"><span>Nombre</span><input type="text" id="x-name" maxlength="40" value="' + esc(x.name) + '"></label>' +
       '<div class="field"><span>Grupo</span><div class="chips">' + GRP.map(function (gp) { return '<label><input type="radio" name="xgrp" value="' + gp + '"' + (gp === x.grp ? ' checked' : '') + '><span>' + gp + '</span></label>'; }).join('') + '</div></div>' +
       '<div class="field"><span>Cómo se mide</span>' + seg('xtype', [['peso', 'Peso'], ['corporal', 'Peso corporal'], ['tiempo', 'Tiempo']], x.type) + '</div>' +
-      '<div class="btns"><button class="btn pri" data-act="gsaveex" data-id="' + (isNew ? '' : x.id) + '" data-ret="' + (ret || '') + '">Guardar</button><button class="btn" data-act="closesheet">Cancelar</button>' + (isNew ? '' : '<button class="btn warn" data-act="gdelex" data-id="' + x.id + '">Eliminar</button>') + '</div>');
+      (isNew ? '' : '<p class="cap" style="margin-top:14px">Los cambios se aplican también a tus entrenos y estadísticas anteriores.</p>') + '<div class="btns"><button class="btn pri" data-act="gsaveex" data-id="' + (isNew ? '' : x.id) + '" data-ret="' + (ret || '') + '">Guardar</button><button class="btn" data-act="gexback" data-id="' + (isNew ? '' : x.id) + '" data-ret="' + (ret || '') + '">Cancelar</button>' + (isNew ? '' : '<button class="btn warn" data-act="gdelex" data-id="' + x.id + '">Eliminar</button>') + '</div>');
+  }
+  function gexReturn(ret, id, saved) {
+    if (ret === 'rut' && ui.rdraft) sheetRut();
+    else if (ret === 'pickrut' && ui.rdraft) sheetPickEx('rut');
+    else if (ret === 'picklive') sheetPickEx('live');
+    else if (ret === 'detail' && id) { render(); sheetExDetail(id); }
+    else { closeSheet(); if (ret !== 'live') ui.sub.gym = 'ejercicios'; render(); }
+    if (saved) toast(ast() + 'ejercicio actualizado');
   }
   function sheetExList() {
     var h = '<h2>ejercicios</h2>';
@@ -4360,7 +4382,7 @@ textarea.nbta { min-height: 200px; }
   }
   function sheetExDetail(id) {
     var x = exById(id), st = gymStats(), hs = st.hist[id] || [], b = st.bestSet[id];
-    var h = '<h2>' + esc(x.name.toLowerCase()) + '</h2><div class="cap" style="margin-top:2px">' + x.grp + ' · ' + (x.type === 'peso' ? 'con peso' : x.type === 'corporal' ? 'peso corporal' : 'tiempo') + '</div>';
+    var h = '<h2>' + esc(x.name.toLowerCase()) + '</h2><div class="exhd"><span class="cap" style="margin:0">' + x.grp + ' · ' + (x.type === 'peso' ? 'con peso' : x.type === 'corporal' ? 'peso corporal' : 'tiempo') + '</span><button class="exedl" data-act="geditex" data-id="' + id + '" data-ret="detail">' + PENSVG + ' editar</button></div>';
     if (b) {
       h += '<div class="gsum"><div><b>' + setTxt(x, b) + '</b><span>mejor serie · ' + ago(b.date) + '</span></div>' + (x.type === 'peso' ? '<div><b>' + fmt(r1(st.best[id])) + '</b><span>1RM estimado (kg)' + info('El 1RM es el peso que podrías levantar una sola vez, estimado con tu mejor serie. Debajo, lo que podrías mover a cada número de repeticiones.') + '</span></div>' : '') + '</div>';
       if (x.type === 'peso') { var e1r = st.best[id]; h += '<div class="rmt">' + [1, 3, 5, 8, 10, 12].map(function (rr) { return '<div><b>' + fmt(Math.round(e1r / (1 + (rr > 1 ? rr / 30 : 0)) * 2) / 2) + '</b><span>' + rr + ' rep.</span></div>'; }).join('') + '</div>'; }
@@ -4370,7 +4392,7 @@ textarea.nbta { min-height: 200px; }
       h += '<div class="hint">toca un punto para ver esa sesión</div>';
       h += '<div class="card" style="margin-top:14px;padding:4px 16px">' + hs.slice().reverse().slice(0, 6).map(function (q) { var d = parseDay(q.date); return '<div class="mv"><span>' + d.getDate() + ' ' + MN[d.getMonth()].slice(0, 3) + '</span><span class="amt">' + setTxt(x, q) + '</span></div>'; }).join('') + '</div>';
     } else h += '<p class="cap">Aún no hay series registradas de este ejercicio.</p>';
-    h += '<div class="btns"><button class="btn" data-act="geditex" data-id="' + id + '">Editar</button><button class="btn" data-act="closesheet">Cerrar</button></div>';
+    h += '<div class="btns"><button class="btn" data-act="geditex" data-id="' + id + '" data-ret="detail">Editar</button><button class="btn" data-act="closesheet">Cerrar</button></div>';
     openSheet(h);
   }
   function sheetSes(id) {
@@ -4460,7 +4482,8 @@ textarea.nbta { min-height: 200px; }
       S.gym.rut = S.gym.rut.filter(function (x) { return x.id !== ui.rdraft.id; }); ui.rdraft = null; save(); closeSheet(); render(); return true;
     }
     if (a === 'gnewex') { sheetEx(null, t.closest('.panel') ? ui.gpick : 'list'); return true; }
-    if (a === 'geditex') { sheetEx(exById(t.dataset.id), 'list'); return true; }
+    if (a === 'geditex') { if (ui.gpick === 'rut' || t.dataset.ret === 'rut') { try { syncRut(); } catch (er) {} } sheetEx(exById(t.dataset.id), t.dataset.ret || 'list'); return true; }
+    if (a === 'gexback') { gexReturn(t.dataset.ret, t.dataset.id, false); return true; }
     if (a === 'gsaveex') {
       var xn = $('#x-name').value.trim(); if (!xn) { $('#x-name').focus(); return true; }
       var vals = { name: xn, grp: document.querySelector('input[name=xgrp]:checked').value, type: document.querySelector('input[name=xtype]:checked').value };
@@ -4471,6 +4494,7 @@ textarea.nbta { min-height: 200px; }
       var ret = t.dataset.ret;
       if (ret === 'rut' && ui.rdraft && !t.dataset.id) { ui.rdraft.items.push({ ex: xid, sets: 3, reps: vals.type === 'tiempo' ? 45 : 10 }); sheetRut(); }
       else if (ret === 'live' && ss && !t.dataset.id) { ss.items.push(newItem(xid, 3, null)); save(); closeSheet(); render(); }
+      else if (t.dataset.id) { gexReturn(ret, xid, true); }
       else { closeSheet(); ui.sub.gym = 'ejercicios'; render(); }
       return true;
     }
