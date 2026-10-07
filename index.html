@@ -1244,6 +1244,7 @@ svg.bars rect:not([fill="transparent"]), .chart svg rect[fill^="var"], .wkd i, .
 .inst li { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-top: 1px solid var(--line); font-size: 14px; line-height: 1.45; }
 .inst li:first-child { border-top: 0; }
 .inst li > span { width: 22px; height: 22px; flex: none; border-radius: 50%; border: 1.5px solid var(--fg); font-size: 12px; display: flex; align-items: center; justify-content: center; font-weight: 600; }
+.home2 .hfirst { padding-bottom: clamp(44px, 11vh, 110px); }
 .bkrem { display: flex; align-items: center; gap: 14px; margin: 26px 0 0; padding: 12px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 13px; color: var(--muted); }
 .bkrem span { flex: 1; }
 .bkrem button { font-size: 13px; color: var(--fg); font-weight: 600; padding: 4px 0; }
@@ -5166,7 +5167,7 @@ textarea.nbta { min-height: 200px; }
     if (el && !el.closest('.nav')) {
       var r0 = el.getBoundingClientRect(), vis = Math.min(r0.height, window.innerHeight * 0.5);
       var y = r0.top + window.scrollY - Math.max(60, (window.innerHeight - vis) / 2 - 90);
-      window.scrollTo(0, Math.max(0, y));
+      try { window.scrollTo({ top: Math.max(0, y), behavior: 'instant' }); } catch (er) { window.scrollTo(0, Math.max(0, y)); }
     }
     requestAnimationFrame(function () { requestAnimationFrame(function () { tourPaint(el, st, first); }); });
   }
@@ -5180,6 +5181,16 @@ textarea.nbta { min-height: 200px; }
       '<div class="tbt"><button class="tskip" data-tour="skip">' + (last ? '' : 'saltar') + '</button><button class="tnext" data-tour="next">' + (last ? 'Entendido' : 'Siguiente') + '</button></div>' +
       (idx === 1 && n > 1 ? '<button class="toff" data-tour="off">no enseñarme más guías</button>' : '');
     b.classList.remove('in'); void b.offsetWidth; b.classList.add('in');
+    tourPlace(el);
+    clearTimeout(ui._tpT1); clearTimeout(ui._tpT2);
+    ui._tpT1 = setTimeout(function () { if (ui.tour) tourPlace(el); }, 350);
+    ui._tpT2 = setTimeout(function () { if (ui.tour) tourPlace(el); }, 900);
+    if (!ui._tpL) { ui._tpL = 1; var rp = function () { if (ui.tour && ui._tpEl !== undefined) tourPlace(ui._tpEl); }; window.addEventListener('resize', rp); window.addEventListener('scroll', rp, { passive: true }); if (window.visualViewport) visualViewport.addEventListener('resize', rp); }
+    var nx = b.querySelector('.tnext'); if (nx && first) nx.focus({ preventScroll: true });
+  }
+  function tourPlace(el) {
+    var box = $('#tour'); if (!box) return; ui._tpEl = el;
+    var sp = box.querySelector('.tspot'), b = box.querySelector('.tbub'), H = window.innerHeight, pad = 8;
     var bh = b.offsetHeight;
     if (!el) { sp.className = 'tspot none'; sp.style.cssText = 'left:50%;top:50%;width:0;height:0'; b.style.top = Math.round(H / 2 - bh / 2) + 'px'; }
     else {
@@ -5191,7 +5202,6 @@ textarea.nbta { min-height: 200px; }
       else if (top - 14 > bh + 16) b.style.top = Math.round(top - 14 - bh) + 'px';
       else b.style.top = Math.round(Math.max(16, H - bh - 120)) + 'px';
     }
-    var nx = b.querySelector('.tnext'); if (nx && first) nx.focus({ preventScroll: true });
   }
   function tourClick(e) {
     var t = e.target.closest('[data-tour]'); if (!t || !ui.tour) return;
