@@ -1292,6 +1292,98 @@ html { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .rdays button i { position: absolute; left: 50%; bottom: 5px; width: 4px; height: 4px; margin-left: -2px; border-radius: 50%; background: var(--accent); }
 .rdt { font-size: 11px; color: var(--fg); letter-spacing: .02em; }
 .gweek button em { font-style: normal; font-size: 9px; line-height: 1.1; color: var(--muted); height: 20px; max-width: 100%; overflow: hidden; text-align: center; word-break: break-word; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.fhero { margin-top: 26px; }
+.fbig { font-size: 72px; font-weight: 700; letter-spacing: -.05em; line-height: .95; margin-top: 6px; }
+.fbig small { font-size: 26px; font-weight: 500; letter-spacing: 0; margin-left: 6px; }
+.fsub { font-size: 15px; margin-top: 10px; }
+.fpos { color: var(--accent); }
+.fneg { color: #B5562E; }
+:root[data-theme="dark"] .fneg { color: #E08A62; }
+.fclose { display: flex; align-items: center; gap: 12px; width: 100%; margin-top: 18px; padding: 14px 16px; border-radius: 18px; background: var(--fg); color: var(--bg); text-align: left; }
+.fclose .ast { width: 18px; height: 18px; color: var(--bg); flex: none; }
+.fclose span:nth-child(2) { flex: 1; }
+.fclose b { display: block; font-size: 15px; }
+.fclose small { display: block; font-size: 12px; opacity: .7; margin-top: 2px; }
+.fsetup { margin-top: 18px; padding: 18px; }
+.fsetup b { font-size: 17px; }
+.fsetup .btn { width: 100%; margin-top: 6px; }
+.fflow { margin-top: 22px; padding: 16px; position: relative; }
+.ffh { display: flex; justify-content: space-between; font-size: 13px; color: var(--muted); }
+.ffh b { color: var(--fg); font-weight: 600; }
+.fin .card .num { font-size: inherit; margin-top: 0; }
+.fin .ffh b.num { font-size: 26px; letter-spacing: -.02em; }
+.ffbar { display: flex; gap: 2px; height: 14px; border-radius: 4px; overflow: hidden; margin-top: 12px; }
+.ffbar i { display: block; min-width: 3px; }
+.ffleg { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 14px; margin-top: 14px; font-size: 13px; }
+.ffleg span { display: flex; align-items: center; gap: 8px; }
+.ffleg i { width: 10px; height: 10px; border-radius: 3px; flex: none; }
+.ffleg b { font-weight: 600; }
+.ffedit { position: absolute; right: 16px; bottom: 12px; font-size: 12px; color: var(--muted); }
+.fcat { padding: 10px 0; border-top: 1px solid var(--line); }
+.fcat:first-child { border-top: 0; }
+.fch { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; font-size: 15px; }
+.fch small { font-size: 12px; color: var(--muted); }
+.fmet { position: relative; height: 4px; border-radius: 2px; background: var(--line); margin-top: 8px; }
+.fmet i { display: block; height: 100%; border-radius: inherit; background: var(--fg); }
+.fmet em { position: absolute; top: -3px; bottom: -3px; width: 1.5px; background: var(--muted); }
+.fchips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+.fchips button { padding: 6px 12px; border-radius: 999px; border: 1px solid var(--faint); font-size: 13px; color: var(--muted); }
+.fchips button[aria-pressed="true"] { border-color: var(--fg); color: var(--fg); font-weight: 600; }
+.frech { display: flex; justify-content: space-between; align-items: center; margin-top: 18px; }
+.frech b { display: block; font-size: 20px; letter-spacing: -.02em; }
+.frech .cap { margin: 2px 0 0; display: block; }
+.fgoal { padding: 12px 0; border-top: 1px solid var(--line); }
+.fgoal:first-child { border-top: 0; }
+.fgf { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: 8px; }
+.fgf .cap { margin: 0; }
+.fgf > span:last-child { display: flex; gap: 8px; align-items: center; flex: none; }
+.fgf .x { font-size: 12px; color: var(--muted); }
+.accrow { width: 100%; text-align: left; }
+.fline { display: block; width: 100%; height: auto; }
+.flab { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-top: 6px; }
+.flg { display: flex; gap: 16px; font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+.flg span { display: flex; gap: 6px; align-items: center; }
+.flg i { width: 14px; height: 0; border-top: 2.5px solid var(--accent); }
+.flg i.dash { border-top: 2px dashed var(--muted); }
+.k3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 18px; }
+.k3 > div { background: var(--card); border-radius: 16px; padding: 12px; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.k3 b { font-size: 19px; font-weight: 700; letter-spacing: -.02em; }
+.k3 span { font-size: 11px; color: var(--muted); }
+.k3 span.fpos, .k3 span.fneg { font-weight: 600; }
+.k3 span.fpos { color: var(--accent); }
+.fsplit { display: flex; gap: 2px; height: 26px; border-radius: 6px; overflow: hidden; }
+.fsplit i { display: flex; align-items: center; padding-left: 8px; font-style: normal; font-size: 12px; color: var(--card); white-space: nowrap; overflow: hidden; min-width: 4px; }
+.fp { font-size: 14px; line-height: 1.45; margin: 12px 0 0; }
+.frets { display: grid; gap: 6px; height: 110px; }
+.frets > div { display: flex; flex-direction: column; height: 100%; }
+.frets .fu, .frets .fd { flex: 1; display: flex; }
+.frets .fu { align-items: flex-end; border-bottom: 1px solid var(--line); }
+.frets .fu i { display: block; width: 100%; background: var(--accent); border-radius: 3px 3px 0 0; }
+.frets .fd i { display: block; width: 100%; background: #B5562E; border-radius: 0 0 3px 3px; }
+.frets.lab { height: auto; margin-top: 6px; }
+.frets.lab span { text-align: center; font-size: 10px; color: var(--muted); }
+.fsav { display: grid; gap: 6px; height: 140px; position: relative; }
+.fsav > div { display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 4px; height: 100%; }
+.fsav > div i { display: block; width: 100%; background: var(--fg); border-radius: 4px 4px 0 0; }
+.fsav > div span { font-size: 10px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.fsav > div.b i { background: var(--accent); }
+.fsav > div.w i { background: #B5562E; }
+.fsav > div.cur i { opacity: .35; }
+.fsav em { position: absolute; left: 0; right: 0; border-top: 1px dashed var(--muted); pointer-events: none; margin-bottom: 18px; }
+.fsav em small { position: absolute; right: 0; bottom: 2px; font-size: 10px; color: var(--muted); font-style: normal; }
+.dotc { width: 10px; height: 10px; border-radius: 3px; flex: none; display: inline-block; }
+.fcierre .sec { margin-top: 26px; }
+.cfr { padding: 12px 0; border-top: 1px solid var(--line); }
+.cfr:first-child { border-top: 0; }
+.cfr b { display: block; font-size: 15px; font-weight: 600; }
+.cfr .two { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 8px; }
+.cfr .two label { display: flex; flex-direction: column; gap: 4px; font-size: 11px; color: var(--muted); }
+.cfr input { height: 44px; border: 0; border-radius: 12px; background: var(--bg); padding: 0 12px; font: inherit; font-size: 16px; color: var(--fg); font-variant-numeric: tabular-nums; width: 100%; box-sizing: border-box; }
+.cfr input.cone { margin-top: 8px; }
+.csum { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.csum > div { display: flex; flex-direction: column; gap: 2px; }
+.csum b { font-size: 24px; font-weight: 700; letter-spacing: -.02em; }
+.csum .cap { margin: 0; }
 .bkrem { display: flex; align-items: center; gap: 14px; margin: 26px 0 0; padding: 12px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 13px; color: var(--muted); }
 .bkrem span { flex: 1; }
 .bkrem button { font-size: 13px; color: var(--fg); font-weight: 600; padding: 4px 0; }
@@ -1496,7 +1588,7 @@ textarea.nbta { min-height: 200px; }
   /* ---------- Estado y almacenamiento ---------- */
   var S = null;
   var memOnly = false;
-  var ui = { pick: {},  nday: 0, nmeal: null, sub: { gym: 'entrenar', dinero: 'resumen', nutri: 'hoy', prog: 'nivel', cont: 'trabajo', diario: 'hoy' }, dday: 0, dmo: 0, gmo: 0, gper: 12, restEnd: 0, rdraft: null, gpick: null, tab: 'inicio', wo: 0, draft: null, po: 0, fp: 'mes', fo: 0, fmode: 'gasto', fcat: null };
+  var ui = { pick: {},  nday: 0, nmeal: null, sub: { gym: 'entrenar', dinero: 'mes', nutri: 'hoy', prog: 'nivel', cont: 'trabajo', diario: 'hoy' }, dday: 0, dmo: 0, gmo: 0, gper: 12, restEnd: 0, rdraft: null, gpick: null, tab: 'inicio', wo: 0, draft: null, po: 0, fp: 'mes', fo: 0, fmode: 'gasto', fcat: null, mvf: 'todo', fy: 0, cym: null, cdone: 0 };
 
   function blank() {
     return {
@@ -1536,6 +1628,7 @@ textarea.nbta { min-height: 200px; }
     if (!s.born) { var bo = dk(new Date()); (s.objs || []).forEach(function (o) { if (o.created && o.created < bo) bo = o.created; }); s.born = bo; }
     if (!s.bk) s.bk = { last: '', snooze: '' };
     if (!s.letters || typeof s.letters !== 'object') s.letters = {};
+    try { migrateFin(s); } catch (er) {}
     if (!s.rit || typeof s.rit !== 'object') s.rit = { on: 1, mh: 12, nh: 21, d: {} };
     if (!Array.isArray(s.nb)) s.nb = (s.ideas || []).map(function (i) { return { id: 'n' + i.id, title: '', text: i.text + ' #idea', pin: 0, date: '', created: i.date, upd: i.date }; });
     if (s.layout.v !== 2) {
@@ -1646,9 +1739,9 @@ textarea.nbta { min-height: 200px; }
     var pm = new Date(now.getFullYear(), now.getMonth() - 1, 1), cm = new Date(now.getFullYear(), now.getMonth(), 1);
     st.fin.start = 1500; st.fin.startDate = dk(pm);
     st.fin.budgets = { Comida: 220, Restaurantes: 90, Ocio: 70, Transporte: 45, Ropa: 50, Suscripciones: 25, Otros: 30 };
-    [pm, cm].forEach(function (m, mi) { st.fin.inc.push({ id: 'n' + mi, date: dk(m), amount: 1200, cat: 'Nómina', note: '' }); });
+    for (var im9 = 8; im9 >= 0; im9--) st.fin.inc.push({ id: 'n' + im9, date: dk(new Date(now.getFullYear(), now.getMonth() - im9, 1)), amount: 1200, cat: 'Nómina', note: '' });
     var pool = [['Comida', 18, 45, 'Supermercado'], ['Restaurantes', 9, 32, ''], ['Ocio', 6, 25, ''], ['Transporte', 3, 12, ''], ['Ropa', 20, 60, ''], ['Otros', 4, 15, ''], ['Comida', 3, 8, 'Panadería']];
-    var rr = rng(5), eid = 0, dd2 = pm;
+    var rr = rng(5), eid = 0, dd2 = new Date(now.getFullYear(), now.getMonth() - 8, 1);
     while (dk(dd2) < dk(now)) {
       var nper = rr() < 0.35 ? 0 : (rr() < 0.7 ? 1 : 2);
       for (var q = 0; q < nper; q++) {
@@ -1657,7 +1750,8 @@ textarea.nbta { min-height: 200px; }
       }
       dd2 = addD(dd2, 1);
     }
-    var pmk = dk(pm).slice(0, 7);
+    var pmk = dk(new Date(now.getFullYear(), now.getMonth() - 8, 1)).slice(0, 7);
+    st.fin.exp.push({ id: 'xv', date: dk(new Date(now.getFullYear(), now.getMonth() - 4, 14)), total: 420, mine: 420, cat: 'Ocio', note: 'Viaje a Lisboa', shared: false, people: 1, paidByMe: true, settled: false });
     st.fin.rec = [
       { id: 'q1', name: 'Música', amt: 12.99, cat: 'Suscripciones', day: 3, freq: 'mes', from: pmk },
       { id: 'q2', name: 'Abono transporte', amt: 40, cat: 'Transporte', day: 2, freq: 'mes', from: pmk },
@@ -1682,7 +1776,26 @@ textarea.nbta { min-height: 200px; }
     }
     st.fin.exp.push({ id: 'e9', date: dk(cm), total: 100, mine: 20, cat: 'Restaurantes', note: 'Cena con amigos', shared: true, people: 5, paidByMe: true, settled: false });
     st.fin.goals = [{ id: 'g1', name: 'Ordenador nuevo', target: 1200, saved: 350 }, { id: 'g2', name: 'Viaje', target: 600, saved: 120 }];
-    st.fin.mov.push({ id: 'm1', date: dk(cm), sobre: 'ahorro', amt: 120 });
+    st.fin.mov.push({ id: 'm1', date: dk(cm), sobre: 'ahorro', amt: 120, acc: 'ac2' });
+    (function () {
+      var f = st.fin, mk = function (i) { return ymOf(new Date(now.getFullYear(), now.getMonth() - i, 1)); };
+      f.v2 = 1; f.plan = { inc: 1200, save: 150 }; f.cushion = 6; f.closes = {};
+      var R = [0.021, 0.008, -0.019, 0.03, 0.012, -0.006, 0.024, -0.011, 0.018, 0.009, -0.004, 0.015, 0.013, 0.006];
+      var A = { id: 'ac1', name: 'Cuenta nómina', kind: 'cash', since: mk(14), ap0: 0, hist: {} }, B = { id: 'ac2', name: 'Cuenta de ahorro', kind: 'save', since: mk(14), ap0: 0, hist: {} }, F = { id: 'ac3', name: 'Fondos indexados', kind: 'inv', since: mk(14), ap0: 2000, hist: {} }, E = { id: 'ac4', name: 'ETF en bróker', kind: 'inv', since: mk(9), ap0: 400, hist: {} }, C = { id: 'ac5', name: 'Cripto', kind: 'inv', since: mk(6), ap0: 300, hist: {} }, D = { id: 'ac6', name: 'Préstamo del coche', kind: 'debt', since: mk(14), ap0: 0, hist: {} };
+      var vF = 2000, vE = 400, vC = 300, c = 1250, sv = 2200, d = 3600;
+      for (var i = 14; i >= 1; i--) {
+        var k = mk(i), r = R[i % R.length];
+        if (i < 14) { vF = vF * (1 + r) + 100; F.hist[k] = { v: r2(vF), ap: 100 }; } else F.hist[k] = { v: vF };
+        if (i < 9) { vE = vE * (1 + r * 1.2) + 50; E.hist[k] = { v: r2(vE), ap: 50 }; } else if (i === 9) E.hist[k] = { v: vE };
+        if (i < 6) { vC = vC * (1 + r * 3 - 0.01); C.hist[k] = { v: r2(vC), ap: 0 }; } else if (i === 6) C.hist[k] = { v: vC };
+        c = c + ((i * 37) % 120) - 50; sv += i % 4 === 0 ? 0 : 120; d = Math.max(0, d - 150);
+        A.hist[k] = { v: r2(c) }; B.hist[k] = { v: r2(sv) }; D.hist[k] = { v: d };
+        f.closes[k] = { at: dk(new Date(now.getFullYear(), now.getMonth() - i + 1, 2)) };
+      }
+      f.acc = [A, B, F, E, C, D];
+      var d2 = dk(new Date(now.getFullYear(), now.getMonth(), Math.min(2, now.getDate())));
+      f.mov.push({ id: 'm2', date: d2, sobre: 'inversion', amt: 100, acc: 'ac3' }, { id: 'm3', date: d2, sobre: 'inversion', amt: 50, acc: 'ac4' });
+    })();
     // gimnasio de ejemplo: una sesión por cada día marcado de "Gimnasio"
     var BASE = { 'Press banca': 60, 'Remo con barra': 55, 'Press militar': 35, 'Jalón al pecho': 50, 'Curl bíceps': 12, 'Sentadilla': 80, 'Peso muerto rumano': 70, 'Zancadas': 16, 'Gemelos': 60, 'Plancha': 45, 'Press inclinado mancuernas': 22, 'Dominadas': 6, 'Elevaciones laterales': 8, 'Fondos': 8, 'Tríceps en polea': 25, 'Peso muerto': 100, 'Prensa': 140, 'Hip thrust': 90 };
     var gr = rng(23), gdays = Object.keys(st.logs).filter(function (d) { return st.logs[d].g; }).sort(), cntEx = {};
@@ -2196,6 +2309,7 @@ textarea.nbta { min-height: 200px; }
     out += '</div><div class="hcalm">' + phraseHtml() + '<input type="text" id="note" class="line" maxlength="140" placeholder="' + qd + '" value="' + esc(S.notes[day] || '') + '" aria-label="Con qué te quedas de hoy"></div></div>';
     if (S.notes[ly]) out += '<p class="ly lyh">hace un año: ' + esc(S.notes[ly]) + '</p>';
     out += instHint();
+    var cd0 = closeDue(); if (cd0) out += '<div class="bkrem"><span>cierra ' + ymLab(cd0) + ' · un minuto</span><button data-act="closego" data-k="' + cd0 + '">cerrar</button></div>';
     if (bkDue()) out += '<div class="bkrem"><span>' + (bkDays() == null ? 'aún no tienes copia de tus datos' : 'tu última copia es de ' + bkAgo()) + '</span><button data-act="bksave">guardar</button><button class="muted" data-act="bklater" aria-label="Recordar en una semana">luego</button></div>';
     var lw0 = letDue();
     if (lw0) out += '<div class="bkrem ltrem"><span>' + ast() + ' tu carta de la semana está lista</span><button data-act="letopen" data-w="' + lw0 + '">leer</button></div>';
@@ -2449,6 +2563,20 @@ textarea.nbta { min-height: 200px; }
     if (!isIOS() || isStandalone() || isFramed() || (S.tips && S.tips.inst)) return '';
     return '<div class="bkrem"><span>ponla en tu pantalla de inicio</span><button data-act="instsheet">cómo</button><button class="muted" data-act="tipx" data-k="inst" aria-label="No mostrar">luego</button></div>';
   }
+  function migrateFin(s) {
+    var f = s.fin; if (!f || f.v2) return; f.v2 = 1;
+    if (!f.plan) f.plan = { inc: 0, save: 0 }; if (!f.closes) f.closes = {};
+    if (Array.isArray(f.acc) && f.acc.length) return;
+    f.acc = [];
+    var sd = f.startDate || '2000-01-01', bal = +f.start || 0, inv = 0, sav = 0, any = !!(f.start || (f.exp || []).length || (f.inc || []).length);
+    (f.inc || []).forEach(function (x) { if (x.date >= sd) bal += x.amount; });
+    (f.exp || []).forEach(function (x) { if (x.date >= sd) bal -= cashOut(x); });
+    (f.mov || []).forEach(function (m) { if (m.date < sd) return; if (m.sobre === 'inversion') { inv += m.amt; bal -= m.amt; } else if (m.sobre === 'ahorro') sav += m.amt; });
+    var cym = ymOf(new Date()), H = function (v) { var h = {}; h[cym] = { v: r2(v) }; return h; };
+    if (any) f.acc.push({ id: 'ac1', name: 'Cuenta del día a día', kind: 'cash', since: cym, ap0: 0, hist: H(bal - sav) });
+    if (sav > 0) f.acc.push({ id: 'ac2', name: 'Fondo de ahorro', kind: 'save', since: cym, ap0: 0, hist: H(sav) });
+    if (inv > 0) f.acc.push({ id: 'ac3', name: 'Inversiones', kind: 'inv', since: cym, ap0: r2(inv), hist: H(inv) });
+  }
   /* ---------- Copia de seguridad ---------- */
   function bkS() { if (!S.bk || typeof S.bk !== 'object') S.bk = { last: '', snooze: '' }; return S.bk; }
   function bkDays() { var l = bkS().last; return l ? Math.round((new Date(dk(new Date())) - new Date(l)) / 86400000) : null; }
@@ -2551,12 +2679,7 @@ textarea.nbta { min-height: 200px; }
     return { bal: bal, inv: inv, reserved: sav + goals, free: bal - sav - goals };
   }
   function monthRange(d) { var a = new Date(d.getFullYear(), d.getMonth(), 1); return [dk(a), dk(new Date(d.getFullYear(), d.getMonth() + 1, 0))]; }
-  function ocioStats() {
-    var r = monthRange(new Date()), budget = 0, spent = 0;
-    CATS.forEach(function (c) { if (c[1] === 'ocio') budget += +(S.fin.budgets[c[0]] || 0); });
-    S.fin.exp.forEach(function (x) { if (x.date >= r[0] && x.date <= r[1] && catEnv(x.cat) === 'ocio') spent += x.mine; });
-    return { budget: budget, spent: spent, left: budget - spent };
-  }
+  function ocioStats() { return { budget: 0, spent: 0, left: 0 }; }
   var FP = [['dia', 'día'], ['semana', 'semana'], ['mes', 'mes'], ['año', 'año']];
   function frange(fp, fo) {
     var t = new Date(), a, b, n, lab;
@@ -2623,78 +2746,338 @@ textarea.nbta { min-height: 200px; }
     svg.addEventListener('pointerdown', show);
     svg.addEventListener('pointerleave', function () { tip.hidden = true; hv.style.display = 'none'; });
   }
-  function finMovs() {
-    var m = money(), fp = ui.fp, rg = frange(fp, ui.fo), prg = frange(fp, ui.fo - 1), isNow = ui.fo === 0;
-    var mode = ui.fmode, list = flows(rg), plist = flows(prg), total = 0;
-    list.forEach(function (f) { total += f.v; });
-    var out = '';
-    // Periodo
-    out += '<div class="segbar" role="group" aria-label="Periodo" style="margin-top:8px">' + FP.map(function (p) { return '<button data-act="fp" data-k="' + p[0] + '" aria-pressed="' + (fp === p[0]) + '">' + p[1] + '</button>'; }).join('') + '</div>';
-    out += '<div class="phead"><button class="round" data-act="fo" data-d="-1" aria-label="Periodo anterior">‹</button><div><button class="modebtn" data-act="fmode">' + (mode === 'gasto' ? 'gastos' : 'ingresos') + ' <span aria-hidden="true">⇅</span></button><div class="cap" style="margin-top:2px">' + rg.lab + '</div></div><button class="round" data-act="fo" data-d="1" aria-label="Periodo siguiente"' + (isNow ? ' disabled' : '') + '>›</button></div>';
-    out += '<div class="pbig num">' + eur(total).replace(' €', '') + '<small> €</small></div>';
-    // Comparación
-    var names = { dia: ['hoy', 'ayer'], semana: ['esta semana', 'la semana pasada'], mes: ['este mes', 'el mes anterior'], 'año': ['este año', 'el año pasado'] }[fp];
-    if (!isNow) names = [rg.lab, 'el periodo anterior'];
-    var nowIdx = -1;
-    if (fp !== 'dia') {
-      var t = new Date();
-      nowIdx = isNow ? bucketOf(fp, rg, dk(t)) : rg.n - 1;
-      var cur = cumul(fp, rg, list, nowIdx), prev = cumul(fp, prg, plist, null);
-      var pAt = prev.length ? prev[Math.min(nowIdx, prev.length - 1)] : 0, diff = (cur.length ? cur[cur.length - 1] : 0) - pAt;
-      out += '<div class="delta">' + (Math.abs(diff) < 0.5 ? 'igual que ' + names[1] : (diff < 0 ? '↓ ' + eur(-diff) + ' menos' : '↑ ' + eur(diff) + ' más') + ' que ' + names[1] + (isNow ? ' a estas alturas' : '')) + '</div>';
-      var short = [], long = [];
-      for (var i = 0; i < rg.n; i++) {
-        if (fp === 'semana') { var dd = addD(rg.a, i); short.push(DL[i]); long.push(DN[i] + ' ' + dd.getDate()); }
-        else if (fp === 'mes') { short.push(String(i + 1)); long.push((i + 1) + ' ' + MN[rg.a.getMonth()].slice(0, 3)); }
-        else { short.push(MN[i].slice(0, 3)); long.push(MN[i]); }
-      }
-      out += lineChart(cur, prev, rg.n, nowIdx, { short: short, long: long }, isNow ? names[0] : rg.lab, names[1]);
-    } else {
-      var pt = 0; plist.forEach(function (f) { pt += f.v; });
-      var d2 = total - pt;
-      out += '<div class="delta">' + (Math.abs(d2) < 0.5 ? 'igual que el día anterior' : (d2 < 0 ? '↓ ' + eur(-d2) + ' menos' : '↑ ' + eur(d2) + ' más') + ' que el día anterior') + '</div>';
-    }
-    // Por categoría
-    var bycat = {}, catTotal = 0;
-    var full = (function () { var keep = ui.fcat; ui.fcat = null; var l = flows(rg); ui.fcat = keep; return l; })();
-    full.forEach(function (f) { bycat[f.cat] = (bycat[f.cat] || 0) + f.v; catTotal += f.v; });
-    var cats = Object.keys(bycat).sort(function (a, b) { return bycat[b] - bycat[a]; });
-    out += '<div class="sec"><span>' + (mode === 'gasto' ? 'en qué se ha ido' : 'de dónde viene') + '</span>' + (ui.fcat ? '<button class="pill on" data-act="fcat" data-k="">' + esc(ui.fcat) + ' ×</button>' : '<span>toca para filtrar</span>') + '</div>';
-    if (cats.length) {
-      var mxc = bycat[cats[0]];
-      out += '<div class="card">' + cats.map(function (c) {
-        var on = ui.fcat === c;
-        return '<button class="catrow' + (on ? ' on' : '') + (ui.fcat && !on ? ' dim' : '') + '" data-act="fcat" data-k="' + esc(c) + '"><div class="ch"><span>' + esc(c) + '</span><span><b>' + eur(bycat[c]) + '</b> · ' + Math.round(bycat[c] / catTotal * 100) + ' %</span></div><div class="meter"><i style="width:' + Math.max(2, Math.round(bycat[c] / mxc * 100)) + '%"></i></div></button>';
-      }).join('') + '</div>';
-    } else out += '<p class="cap">No hay ' + (mode === 'gasto' ? 'gastos' : 'ingresos') + ' en este periodo.</p>';
-    // Movimientos por día
-    var byDay = {};
-    list.forEach(function (f) { (byDay[f.date] = byDay[f.date] || []).push(f); });
-    var days = Object.keys(byDay).sort().reverse();
-    out += '<div class="sec"><span>movimientos</span><span>' + list.length + '</span></div><input type="text" class="search" id="mvq" placeholder="Buscar por nota o categoría" aria-label="Buscar movimientos" autocomplete="off" style="margin:4px 0 6px">';
-    if (days.length) {
-      var today = dk(new Date()), yest = dk(addD(new Date(), -1));
-      days.slice(0, 40).forEach(function (d) {
-        var tot = 0; byDay[d].forEach(function (f) { tot += f.v; });
-        var p = d.split('-'), dt = new Date(+p[0], +p[1] - 1, +p[2]);
-        out += '<div class="mvday"><div class="dayh"><span>' + (d === today ? 'hoy' : d === yest ? 'ayer' : DN[(dt.getDay() + 6) % 7] + ' ' + dt.getDate() + ' ' + MN[dt.getMonth()].slice(0, 3)) + '</span><span>' + eur(tot) + '</span></div><div class="card" style="padding:4px 16px">';
-        byDay[d].forEach(function (f) {
-          out += '<div class="mv mvi" data-n="' + esc((f.note + ' ' + f.cat).toLowerCase()) + '"><div class="grow"><div>' + esc(f.note || f.cat) + (f.shared ? '<span class="tag">compartido</span>' : '') + '</div>' + (f.note ? '<div class="cap" style="margin-top:2px">' + esc(f.cat) + '</div>' : '') + '</div><span class="amt">' + (f.kind === 'inc' ? '+' : '−') + eur(f.v) + '</span><button class="x" data-act="' + (f.kind === 'inc' ? 'delinc' : 'delexp') + '" data-id="' + f.id + '" aria-label="Borrar">×</button></div>';
-        });
-        out += '</div></div>';
-      });
-    } else out += '<p class="cap">Nada apuntado en este periodo.</p>';
-    return out;
+  /* ---------- Dinero v2: mes · movimientos · patrimonio (+ inversiones) · año · cierre ---------- */
+  var DPAGES = [['mes', 'mes'], ['movimientos', 'movimientos'], ['patrimonio', 'patrimonio'], ['ano', 'año']];
+  var AKIND = [['cash', 'Día a día'], ['save', 'Ahorro · colchón'], ['inv', 'Inversión'], ['debt', 'Deuda']];
+  var AKN = { cash: 'día a día', save: 'ahorro · colchón', inv: 'inversión', debt: 'deuda' };
+  var RUST = '#B5562E';
+  function finX() { var f = S.fin; if (!f.plan) f.plan = { inc: 0, save: 0 }; if (!Array.isArray(f.acc)) f.acc = []; if (!f.closes || typeof f.closes !== 'object') f.closes = {}; return f; }
+  function ymAdd(ym, n) { var p = ym.split('-'); return ymOf(new Date(+p[0], +p[1] - 1 + n, 1)); }
+  function ymLab(ym, short) { var n = MN[+ym.split('-')[1] - 1]; return short ? n.slice(0, 3) : n; }
+  function e0(n) { return eur(n).split(',')[0].replace(' €', '') + ' €'; }
+  function pctS(x) { return (x >= 0 ? '+' : '−') + fmt(r1(Math.abs(x * 100))) + ' %'; }
+  function accById(id) { return finX().acc.filter(function (a) { return a.id === id; })[0]; }
+  function accKeys(a) { return Object.keys(a.hist || {}).sort(); }
+  function accVal(a, ym) { var v = null; accKeys(a).forEach(function (k) { if (k <= ym && a.hist[k].v != null) v = a.hist[k].v; }); return v; }
+  function accLast(a) { var ks = accKeys(a), v = 0; ks.forEach(function (k) { if (a.hist[k].v != null) v = a.hist[k].v; }); return v; }
+  function accAp(a, upto) { var t = (!upto || (a.since || '') <= upto) ? +(a.ap0 || 0) : 0; accKeys(a).forEach(function (k) { if (!upto || k <= upto) t += +(a.hist[k].ap || 0); }); return t; }
+  function sgn(a) { return a.kind === 'debt' ? -1 : 1; }
+  function netAt(ym) { var t = 0, any = false; finX().acc.forEach(function (a) { var v = accVal(a, ym); if (v != null) { t += sgn(a) * v; any = true; } }); return any ? t : null; }
+  function netNow() { var t = 0; finX().acc.forEach(function (a) { t += sgn(a) * accLast(a); }); return t; }
+  function histMonths() { var s = {}; finX().acc.forEach(function (a) { accKeys(a).forEach(function (k) { s[k] = 1; }); }); return Object.keys(s).sort(); }
+  function invAccs() { return finX().acc.filter(function (a) { return a.kind === 'inv'; }); }
+  function invAt(ym) { var v = 0, any = false; invAccs().forEach(function (a) { var x = accVal(a, ym); if (x != null) { v += x; any = true; } }); return any ? v : null; }
+  function invApIn(ym) { var t = 0; invAccs().forEach(function (a) { if (accVal(a, ymAdd(ym, -1)) != null && a.hist && a.hist[ym]) t += +(a.hist[ym].ap || 0); }); return t; }
+  function invRet(ym) {
+    var pm = ymAdd(ym, -1), v0 = 0, v1 = 0, n = 0;
+    invAccs().forEach(function (a) { var x0 = accVal(a, pm), x1 = accVal(a, ym); if (x0 != null && x1 != null && a.hist && a.hist[ym]) { v0 += x0; v1 += x1; n++; } });
+    if (!n || !(v0 > 0)) return null;
+    var ap = invApIn(ym), den = v0 + ap / 2;
+    return den > 0 ? (v1 - v0 - ap) / den : null;
   }
-
-
-  /* ---------- Dinero: páginas ---------- */
-  var DPAGES = [['resumen', 'resumen'], ['movimientos', 'movimientos'], ['presupuesto', 'presupuesto'], ['ahorro', 'ahorro'], ['fijos', 'fijos'], ['informes', 'informes']];
+  function monthFix(t) { var m = t.getMonth(), s = 0; S.fin.rec.forEach(function (q) { if (q.freq === 'año' ? q.month === m : true) s += q.amt; }); return s; }
+  function incPlan(t) {
+    var f = finX(), r = monthRange(t), real = monthSum(r[0], r[1], 'inc');
+    if (f.plan.inc > 0) return Math.max(f.plan.inc, real);
+    if (real > 0) return real;
+    var s = 0, n = 0; for (var i = 1; i <= 3; i++) { var rr = monthRange(new Date(t.getFullYear(), t.getMonth() - i, 1)), v = monthSum(rr[0], rr[1], 'inc'); if (v > 0) { s += v; n++; } }
+    return n ? s / n : 0;
+  }
+  function monthPlan(t) {
+    t = t || new Date();
+    var f = finX(), r = monthRange(t), inc = incPlan(t), fix = monthFix(t), sv = +(f.plan.save || 0);
+    var spent = monthSum(r[0], r[1], 'exp', function (x) { return !x.rec; });
+    var free = inc - fix - sv, left = free - spent, nd = new Date(t.getFullYear(), t.getMonth() + 1, 0).getDate(), dl = nd - t.getDate() + 1;
+    return { inc: inc, fix: fix, save: sv, spent: spent, free: free, left: left, perDay: left / dl, dl: dl, nd: nd, pace: t.getDate() / nd, used: free > 0 ? spent / free : 0 };
+  }
+  function avgSpend() {
+    var t = new Date(), s = 0, n = 0;
+    for (var i = 1; i <= 3; i++) { var rr = monthRange(new Date(t.getFullYear(), t.getMonth() - i, 1)), v = monthSum(rr[0], rr[1], 'exp'); if (v > 0) { s += v; n++; } }
+    if (!n) { var r0 = monthRange(t), v0 = monthSum(r0[0], r0[1], 'exp') + monthFix(t) * 0; return v0 > 0 ? v0 / (t.getDate() / 30) : 0; }
+    return s / n;
+  }
+  function closeDue() {
+    var f = finX(); if (S.example || !f.acc.length) return null;
+    var t = new Date(); if (t.getDate() > 12) return null;
+    var pm = ymOf(new Date(t.getFullYear(), t.getMonth() - 1, 1));
+    if (f.closes[pm]) return null;
+    if (!f.acc.some(function (a) { return (a.since || '') <= pm; })) return null;
+    return pm;
+  }
+  function closeBtn(cd) { return '<button class="fclose" data-act="closego" data-k="' + cd + '">' + ast() + '<span><b>cierra ' + ymLab(cd) + '</b><small>un minuto: saldos y valor de tus inversiones</small></span><span aria-hidden="true">›</span></button>'; }
+  function movName(m) {
+    if (m.goal) { var g = S.fin.goals.filter(function (x) { return x.id === m.goal; })[0]; return 'Para ' + (g ? g.name : 'una meta'); }
+    var a = m.acc && accById(m.acc);
+    return a ? 'A ' + a.name : m.sobre === 'inversion' ? 'Aportación a inversiones' : 'Al ahorro';
+  }
+  function finList(a, b) {
+    var L = [];
+    S.fin.exp.forEach(function (x) { if (x.date >= a && x.date <= b) L.push({ k: 'exp', id: x.id, date: x.date, v: x.mine, cat: x.cat, note: x.note, x: x }); });
+    S.fin.inc.forEach(function (x) { if (x.date >= a && x.date <= b) L.push({ k: 'inc', id: x.id, date: x.date, v: x.amount, cat: x.cat, note: x.note, x: x }); });
+    S.fin.mov.forEach(function (x) { if (x.date >= a && x.date <= b) L.push({ k: 'mov', id: x.id, date: x.date, v: x.amt, cat: x.sobre === 'inversion' ? 'inversión' : 'ahorro', note: movName(x), x: x }); });
+    return L.sort(function (p, q) { return p.date < q.date ? 1 : p.date > q.date ? -1 : 0; });
+  }
+  function mvRow(it, compact) {
+    var d = parseDay(it.date), x = it.x, bits = [];
+    if (compact) bits.push(it.date === dk(new Date()) ? 'hoy' : d.getDate() + ' ' + MN[d.getMonth()].slice(0, 3));
+    if (it.k === 'mov') bits.push('no cuenta como gasto');
+    else {
+      if (it.note) bits.push(esc(it.cat));
+      if (x.shared) bits.push('compartido entre ' + x.people + (x.settled ? '' : (x.paidByMe ? ' · te deben ' + eur(x.total - x.mine) : ' · debes ' + eur(x.mine))));
+      if (x.rec) bits.push('fijo');
+    }
+    var amt = it.k === 'inc' ? '<span class="amt fpos">+' + eur(it.v) + '</span>' : it.k === 'mov' ? '<span class="amt fpos">→ ' + eur(it.v) + '</span>' : '<span class="amt">−' + eur(it.v) + '</span>';
+    var del = compact ? '' : '<button class="x" data-act="' + (it.k === 'inc' ? 'delinc' : it.k === 'mov' ? 'delmov' : 'delexp') + '" data-id="' + it.id + '" aria-label="Borrar ' + esc(it.note || it.cat) + '">×</button>';
+    return '<div class="mv mvi" data-n="' + esc(((it.note || '') + ' ' + (it.cat || '') + ' ' + eur(it.v)).toLowerCase()) + '"><div class="grow"><div>' + esc(it.note || it.cat) + '</div>' + (bits.length ? '<div class="cap" style="margin-top:2px">' + bits.join(' · ') + '</div>' : '') + '</div>' + amt + del + '</div>';
+  }
+  function spLine(vals, vals2) {
+    var W = 350, H = 140, n = vals.length, all = vals.concat(vals2 || []).filter(function (v) { return v != null; });
+    var mn = Math.min.apply(null, all), mx = Math.max.apply(null, all); if (mx - mn < 1) { mx += 1; mn -= 1; }
+    var pd = (mx - mn) * 0.08; mn -= pd; mx += pd;
+    var P = function (arr) { var o = []; arr.forEach(function (v, i) { if (v != null) o.push((n === 1 ? W : i * W / (n - 1)).toFixed(1) + ',' + (H - 6 - (v - mn) / (mx - mn) * (H - 12)).toFixed(1)); }); return o; };
+    var p1 = P(vals), g = '';
+    if (vals2) { var p2 = P(vals2); g += '<polygon points="' + p1.join(' ') + ' ' + p2.slice().reverse().join(' ') + '" fill="var(--accent)" opacity=".13"/><polyline points="' + p2.join(' ') + '" fill="none" stroke="var(--muted)" stroke-width="2" stroke-dasharray="5 4"/>'; }
+    else g += '<polygon points="' + p1.join(' ') + ' ' + W + ',' + H + ' 0,' + H + '" fill="var(--accent)" opacity=".08"/>';
+    g += '<polyline points="' + p1.join(' ') + '" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>';
+    var lp = p1[p1.length - 1].split(','); g += '<circle cx="' + lp[0] + '" cy="' + lp[1] + '" r="4.5" fill="var(--accent)"/>';
+    return '<svg class="fline" viewBox="-6 -6 ' + (W + 12) + ' ' + (H + 12) + '" role="img" aria-hidden="true">' + g + '</svg>';
+  }
   function viewDinero() {
-    var pg = ui.sub.dinero, plus = { fijos: ['newrec', 'Nuevo gasto fijo'], ahorro: ['newgoal', 'Nueva meta'] }[pg] || ['qa', 'Añadir movimiento'];
+    finX();
+    var pg = ui.sub.dinero; if (!{ mes: 1, movimientos: 1, patrimonio: 1, ano: 1, inversiones: 1 }[pg]) pg = ui.sub.dinero = 'mes';
+    if (pg === 'inversiones') return finInv();
+    var plus = pg === 'patrimonio' ? ['accnew', 'Añadir cuenta'] : pg === 'movimientos' && ui.mvf === 'rec' ? ['newrec', 'Nuevo gasto fijo'] : ['qa', 'Apuntar dinero'];
     var out = back() + '<div class="hoyhead"><h1>dinero</h1><button class="round" data-act="' + plus[0] + '"' + (plus[0] === 'qa' ? ' data-k="gasto"' : '') + ' aria-label="' + plus[1] + '" style="background:var(--fg);color:var(--bg)">+</button></div>';
     out += subnav('dinero', DPAGES);
-    return out + ({ resumen: finSum, movimientos: finMovs, presupuesto: finBud, ahorro: finSave, fijos: finRec, informes: finRep }[pg] || finSum)();
+    return out + ({ mes: finMes, movimientos: finMov2, patrimonio: finPat, ano: finAno }[pg])();
+  }
+  function finMes() {
+    var t = new Date(), P = monthPlan(t), r = monthRange(t), out = '', cd = closeDue();
+    if (cd) out += closeBtn(cd);
+    if (!(P.inc > 0)) out += '<div class="card fsetup"><b>Para empezar</b><p class="cap">Dime cuánto entra al mes y cuánto quieres apartar. Con eso te digo cuánto puedes gastar cada día.</p><button class="btn pri" data-act="finsetup">Empezar</button></div>';
+    else {
+      out += '<div class="fhero"><div class="cap" style="margin:0">' + MN[t.getMonth()] + ' · ' + (P.left >= 0 ? 'te quedan para gastar' : 'te has pasado') + '</div><div class="fbig num">' + e0(Math.abs(P.left)).replace(' €', '') + '<small>€</small></div>' +
+        (P.left > 0 ? '<div class="fsub">unos <b>' + e0(P.perDay) + ' al día</b> durante ' + P.dl + ' día' + (P.dl === 1 ? '' : 's') + '</div>' : '<div class="fsub">Lo que gastes a partir de aquí sale de lo que ibas a ahorrar.</div>') +
+        (P.free > 0 ? '<div class="cap" style="margin-top:6px">' + (P.used <= P.pace + 0.03 ? 'vas por debajo del ritmo' : 'vas por encima del ritmo') + ': llevas el ' + Math.round(P.used * 100) + ' % y ha pasado el ' + Math.round(P.pace * 100) + ' % del mes</div>' : '') + '</div>';
+      var parts = [[P.fix, 'fijos', 'var(--fg)'], [P.save, 'a ahorrar', 'var(--accent)'], [P.spent, 'gastado', 'var(--muted)'], [Math.max(0, P.left), 'libre', 'var(--faint)']], tot = 0;
+      parts.forEach(function (q) { tot += q[0]; }); tot = tot || 1;
+      out += '<div class="card fflow"><div class="ffh"><span>entra este mes</span><b class="num">' + e0(P.inc) + '</b></div><div class="ffbar">' + parts.map(function (q) { return q[0] > 0 ? '<i style="flex:' + (q[0] / tot).toFixed(4) + ';background:' + q[2] + '"></i>' : ''; }).join('') + '</div><div class="ffleg">' + parts.map(function (q) { return '<span><i style="background:' + q[2] + '"></i>' + q[1] + ' <b class="num">' + e0(q[0]) + '</b></span>'; }).join('') + '</div><button class="ffedit" data-act="finsetup">ajustar</button></div>';
+    }
+    var cats = {}; S.fin.exp.forEach(function (x) { if (x.date >= r[0] && x.date <= r[1] && !x.rec) cats[x.cat] = (cats[x.cat] || 0) + x.mine; });
+    var ck = Object.keys(cats); Object.keys(S.fin.budgets || {}).forEach(function (c) { if (+S.fin.budgets[c] > 0 && !cats[c]) ck.push(c); });
+    ck.sort(function (a, b) { return (cats[b] || 0) - (cats[a] || 0); });
+    if (ck.length) {
+      var hot = null;
+      out += '<div class="sec"><span>en qué va el mes</span><button class="muted" data-act="finsetup" style="font-size:13px">límites</button></div><div class="card" style="padding:4px 16px">' + ck.slice(0, 7).map(function (c) {
+        var sp = cats[c] || 0, b = +(S.fin.budgets[c] || 0), fr = b ? sp / b : 0;
+        if (b && fr > P.pace + 0.2 && !hot) hot = c;
+        return '<div class="fcat"><div class="fch"><span>' + esc(c) + '</span><span class="num">' + e0(sp) + (b ? ' <small>/ ' + e0(b) + '</small>' : '') + '</span></div>' + (b ? '<div class="fmet"><i style="width:' + Math.min(100, Math.round(fr * 100)) + '%' + (fr > 1 ? ';background:' + RUST : '') + '"></i><em style="left:' + Math.round(P.pace * 100) + '%"></em></div>' : '') + '</div>';
+      }).join('') + '</div>';
+      if (hot) out += '<p class="cap" style="margin-top:8px">' + esc(hot) + ' va rápido: llevas el ' + Math.round((cats[hot] || 0) / S.fin.budgets[hot] * 100) + ' % y ha pasado el ' + Math.round(P.pace * 100) + ' % del mes.</p>';
+    }
+    var pend = S.fin.exp.filter(function (x) { return x.shared && !x.settled; });
+    if (pend.length) out += '<div class="sec"><span>pendiente de saldar</span></div><div class="card" style="padding:4px 16px">' + pend.map(function (x) { var amt = x.paidByMe ? x.total - x.mine : x.mine; return '<div class="mv"><div class="grow"><div>' + esc(x.note || x.cat) + '</div><div class="cap" style="margin-top:2px">' + (x.paidByMe ? 'te deben ' : 'debes ') + eur(amt) + ' · ' + x.people + ' personas</div></div><button class="pill" data-act="settle" data-id="' + x.id + '">saldado</button></div>'; }).join('') + '</div>';
+    var td = parseDay(dk(t)), up = S.fin.rec.map(function (q) { return { r: q, d: recNext(q) }; }).filter(function (q) { return q.d && (q.d - td) / 864e5 <= 7; }).sort(function (a, b) { return a.d - b.d; });
+    if (up.length) out += '<div class="sec"><span>próximos cargos</span><span>' + up.length + ' en 7 días</span></div><div class="card">' + up.map(recRow).join('') + '</div>';
+    var last = finList(dk(addD(t, -45)), dk(t)).slice(0, 3);
+    if (last.length) out += '<div class="sec"><span>últimos movimientos</span><button class="muted" data-act="sub" data-sp="dinero" data-k="movimientos" style="font-size:13px">ver todos ›</button></div><div class="card" style="padding:4px 16px">' + last.map(function (it) { return mvRow(it, true); }).join('') + '</div>';
+    return out;
+  }
+  function finMov2() {
+    var t = new Date(), mo = Math.min(0, ui.fo || 0), a = new Date(t.getFullYear(), t.getMonth() + mo, 1), r = monthRange(a), f = ui.mvf || 'todo', out = '';
+    out += '<input type="text" class="search" id="mvq" placeholder="Buscar: mercadona, cena, 42…" aria-label="Buscar movimientos" autocomplete="off" style="margin-top:14px">';
+    out += '<div class="fchips">' + [['todo', 'todo'], ['exp', 'gastos'], ['inc', 'ingresos'], ['rec', 'recurrentes']].map(function (c) { return '<button data-act="mvf" data-k="' + c[0] + '" aria-pressed="' + (f === c[0]) + '">' + c[1] + '</button>'; }).join('') + '</div>';
+    if (f === 'rec') return out + finRecs();
+    var all = finList(r[0], r[1]), ti = 0, te = 0;
+    all.forEach(function (it) { if (it.k === 'inc') ti += it.v; else if (it.k === 'exp') te += it.v; });
+    var L = all.filter(function (it) { return f === 'todo' || it.k === f; });
+    out += '<div class="phead" style="margin-top:14px"><button class="round" data-act="fo" data-d="-1" aria-label="Mes anterior">‹</button><div><b style="font-size:17px">' + MN[a.getMonth()] + (a.getFullYear() !== t.getFullYear() ? ' ' + a.getFullYear() : '') + '</b><div class="cap num" style="margin-top:2px">+' + e0(ti) + ' · −' + e0(te) + '</div></div><button class="round" data-act="fo" data-d="1" aria-label="Mes siguiente"' + (mo >= 0 ? ' disabled' : '') + '>›</button></div>';
+    if (!L.length) return out + '<p class="cap" style="margin-top:16px">Nada apuntado en ' + MN[a.getMonth()] + '. Toca + para apuntar un gasto o un ingreso.</p>';
+    var byD = {}; L.forEach(function (it) { (byD[it.date] = byD[it.date] || []).push(it); });
+    var today = dk(t), yest = dk(addD(t, -1));
+    Object.keys(byD).sort().reverse().forEach(function (k) {
+      var d = parseDay(k), net = 0; byD[k].forEach(function (it) { net += it.k === 'inc' ? it.v : it.k === 'exp' ? -it.v : 0; });
+      out += '<div class="mvday"><div class="dayh"><span>' + (k === today ? 'hoy' : k === yest ? 'ayer' : DN[(d.getDay() + 6) % 7] + ' ' + d.getDate()) + '</span><span class="num">' + (Math.abs(net) < 0.005 ? '' : (net > 0 ? '+' : '−') + eur(Math.abs(net))) + '</span></div><div class="card" style="padding:4px 16px">' + byD[k].map(function (it) { return mvRow(it); }).join('') + '</div></div>';
+    });
+    return out;
+  }
+  function finRecs() {
+    var tot = 0, sub = 0;
+    S.fin.rec.forEach(function (q) { tot += recMonthly(q); if (q.cat === 'Suscripciones') sub += recMonthly(q) * 12; });
+    var L = S.fin.rec.map(function (q) { return { r: q, d: recNext(q) }; }).sort(function (a, b) { return (a.d || 9e15) - (b.d || 9e15); });
+    var out = '<div class="frech"><div><b class="num">' + e0(tot) + ' al mes</b><span class="cap">' + e0(tot * 12) + ' al año en fijos</span></div><button class="pill" data-act="newrec">+ fijo</button></div>';
+    out += L.length ? '<div class="card" style="margin-top:12px">' + L.map(recRow).join('') + '</div>' : '<p class="cap">Añade el alquiler, suscripciones, cuotas o seguros. Se apuntan solos el día del cargo.</p>';
+    if (sub) out += '<p class="cap" style="margin-top:8px">Las suscripciones suman ' + eur(sub) + ' al año.</p>';
+    return out;
+  }
+  function goalRow(g) {
+    var t = new Date(), rr = g.target ? Math.min(g.saved / g.target, 1) : 0, since = dk(addD(t, -90)), ap = 0;
+    S.fin.mov.forEach(function (mm) { if (mm.goal === g.id && mm.date >= since) ap += mm.amt; });
+    var perM = ap / 3, rest = Math.max(0, g.target - g.saved), eta = rest <= 0 ? '¡conseguida!' : perM > 0 ? 'a este ritmo, en ' + Math.ceil(rest / perM) + ' mes' + (Math.ceil(rest / perM) === 1 ? '' : 'es') : 'aporta algo para estimar cuándo llegas';
+    return '<div class="fgoal"><div class="fch"><span>' + esc(g.name) + '</span><span class="num">' + e0(g.saved) + ' <small>/ ' + e0(g.target) + '</small></span></div><div class="fmet"><i style="width:' + Math.round(rr * 100) + '%;background:var(--accent)"></i></div><div class="fgf"><span class="cap">' + eta + '</span><span><button class="pill" data-act="aportar" data-goal="' + g.id + '">+ aportar</button><button class="x" data-act="delgoal" data-id="' + g.id + '" aria-label="Quitar meta">quitar</button></span></div></div>';
+  }
+  function accRow(a) {
+    var ks = accKeys(a), lk = ks[ks.length - 1];
+    return '<button class="mv accrow" data-act="accedit" data-id="' + a.id + '"><div class="grow"><div>' + esc(a.name) + '</div><div class="cap" style="margin-top:2px">' + AKN[a.kind] + (lk ? ' · ' + ymLab(lk) : '') + '</div></div><span class="amt">' + (a.kind === 'debt' ? '−' : '') + e0(accLast(a)) + '</span></button>';
+  }
+  function finPat() {
+    var f = finX(), out = '', A = f.acc, cd = closeDue();
+    if (!A.length) return '<div class="card fsetup" style="margin-top:18px"><b>Tu patrimonio</b><p class="cap">Añade tus cuentas: la del día a día, tus ahorros, tus inversiones y lo que debas. Una vez al mes actualizas los saldos y aquí ves cómo crece todo.</p><button class="btn pri" data-act="accnew">Añadir una cuenta</button></div>';
+    if (cd) out += closeBtn(cd);
+    var ms = histMonths(), nw = netNow(), lastC = Object.keys(f.closes).sort().pop();
+    var curN = lastC ? netAt(lastC) : null, prevN = lastC ? netAt(ymAdd(lastC, -1)) : null, y12 = netAt(ymAdd(ms[ms.length - 1], -12));
+    out += '<div class="fhero"><div class="cap" style="margin:0">patrimonio neto' + (lastC ? ' · al cierre de ' + ymLab(lastC) : '') + '</div><div class="fbig num" style="font-size:60px">' + (nw < 0 ? '−' : '') + e0(Math.abs(nw)).replace(' €', '') + '<small>€</small></div>' +
+      '<div class="fsub">' + (curN != null && prevN != null ? '<b class="' + (curN >= prevN ? 'fpos' : 'fneg') + '">' + (curN >= prevN ? '+' : '−') + e0(Math.abs(curN - prevN)) + '</b> en ' + ymLab(lastC) : '') + (y12 != null ? (curN != null && prevN != null ? ' · ' : '') + '<b>' + (nw >= y12 ? '+' : '−') + e0(Math.abs(nw - y12)) + '</b> en 12 meses' : '') + '</div></div>';
+    var cm = ms.slice(-13);
+    if (cm.length > 1) out += '<div class="card" style="margin-top:16px;padding:14px 16px">' + spLine(cm.map(netAt)) + '<div class="flab"><span>' + ymLab(cm[0], 1) + ' ' + cm[0].slice(2, 4) + '</span><span>' + ymLab(cm[cm.length - 1], 1) + ' ' + cm[cm.length - 1].slice(2, 4) + '</span></div></div>';
+    var have = A.filter(function (a) { return a.kind !== 'debt'; }), debt = A.filter(function (a) { return a.kind === 'debt'; }), ht = 0, dt = 0;
+    have.forEach(function (a) { ht += accLast(a); }); debt.forEach(function (a) { dt += accLast(a); });
+    var inv = invAccs(), iv = 0, ia = 0; inv.forEach(function (a) { iv += accLast(a); ia += accAp(a); });
+    out += '<div class="sec"><span>lo que tienes</span><span class="num">' + e0(ht) + '</span></div><div class="card" style="padding:4px 16px">';
+    have.filter(function (a) { return a.kind !== 'inv'; }).forEach(function (a) { out += accRow(a); });
+    if (inv.length) out += '<button class="mv accrow finv" data-act="sub" data-sp="dinero" data-k="inversiones"><div class="grow"><div>Inversiones <span class="' + (iv >= ia ? 'fpos' : 'fneg') + '" style="font-size:12px;font-weight:600">' + pctS(ia ? (iv - ia) / ia : 0) + '</span></div><div class="cap" style="margin-top:2px">' + inv.length + ' cuenta' + (inv.length === 1 ? '' : 's') + ' · ver detalle ›</div></div><span class="amt">' + e0(iv) + '</span></button>';
+    out += '</div>';
+    if (debt.length) out += '<div class="sec"><span>lo que debes</span><span class="num">−' + e0(dt) + '</span></div><div class="card" style="padding:4px 16px">' + debt.map(accRow).join('') + '</div>';
+    var sv = 0, hasSave = false; A.forEach(function (a) { if (a.kind === 'save') { sv += accLast(a); hasSave = true; } });
+    var avg = avgSpend();
+    if (avg > 0 && hasSave) {
+      var mths = sv / avg, goalM = f.cushion || 6, miss = Math.max(0, goalM * avg - sv);
+      out += '<div class="sec"><span>colchón de emergencia</span><span>meta: ' + goalM + ' meses</span></div><div class="card fcush" style="padding:16px"><div style="display:flex;align-items:baseline;gap:8px"><span class="num" style="font-size:34px;font-weight:700;letter-spacing:-.03em">' + fmt(r1(mths)) + '</span><span>meses cubiertos</span></div><div class="fmet" style="height:8px;margin-top:12px"><i style="width:' + Math.min(100, Math.round(mths / goalM * 100)) + '%"></i></div><p class="cap" style="margin:10px 0 0">Con tus gastos medios (' + e0(avg) + ' al mes).' + (miss > 0 ? ' Te faltan ' + e0(miss) + ' para ' + goalM + ' meses.' : ' Ya tienes tu colchón completo.') + '</p></div>';
+    }
+    out += '<div class="sec"><span>metas</span><button class="muted" data-act="newgoal" style="font-size:13px">+ nueva</button></div>';
+    out += S.fin.goals.length ? '<div class="card" style="padding:4px 16px">' + S.fin.goals.map(goalRow).join('') + '</div>' : '<p class="cap">Añade lo que quieres conseguir: un viaje, la entrada de un piso…</p>';
+    out += '<div class="btns" style="margin-top:16px"><button class="btn" data-act="aportar" data-k="ahorro">Apartar dinero</button><button class="btn" data-act="closego" data-k="' + (cd || ymOf(new Date())) + '">Actualizar saldos</button></div>';
+    return out;
+  }
+  function finInv() {
+    var A = invAccs(), f = finX(), out = '<button class="back" data-act="sub" data-sp="dinero" data-k="patrimonio">‹ patrimonio</button><div class="hoyhead"><h1>inversiones</h1><button class="round" data-act="accnew" data-k="inv" aria-label="Añadir inversión" style="background:var(--fg);color:var(--bg)">+</button></div>';
+    var ms = histMonths(), lastC = Object.keys(f.closes).sort().pop();
+    out += '<p class="cap" style="margin-top:4px">' + (lastC ? 'valores al cierre de ' + ymLab(lastC) + ' · ' : '') + 'se actualizan una vez al mes</p>';
+    if (!A.length) return out + '<div class="card fsetup"><b>Tus inversiones</b><p class="cap">Añade cada sitio donde inviertes (fondos, un bróker, cripto, plan de pensiones) con lo que has aportado y lo que vale hoy. Cada mes, en el cierre, apuntas su valor y lo que metiste.</p><button class="btn pri" data-act="accnew" data-k="inv">Añadir inversión</button></div>';
+    var v = 0, ap = 0; A.forEach(function (a) { v += accLast(a); ap += accAp(a); }); var g = v - ap;
+    out += '<div class="k3"><div><span>has aportado</span><b class="num">' + e0(ap) + '</b></div><div><span>valen hoy</span><b class="num">' + e0(v) + '</b></div><div><span>ganancia</span><b class="num ' + (g >= 0 ? 'fpos' : 'fneg') + '">' + (g >= 0 ? '+' : '−') + e0(Math.abs(g)) + '</b><span class="' + (g >= 0 ? 'fpos' : 'fneg') + '">' + pctS(ap ? g / ap : 0) + '</span></div></div>';
+    var im = ms.filter(function (m) { return invAt(m) != null; }).slice(-13);
+    if (im.length > 1) {
+      var vv = im.map(invAt), aa = im.map(function (m) { var tt = 0; A.forEach(function (a) { if (accVal(a, m) != null) tt += accAp(a, m); }); return tt; });
+      out += '<div class="card finvc" style="margin-top:12px;padding:14px 16px"><div class="flg"><span><i class="dash"></i>aportado</span><span><i></i>lo que vale</span></div>' + spLine(vv, aa) + '<div class="flab"><span>' + ymLab(im[0], 1) + ' ' + im[0].slice(2, 4) + '</span><span>' + ymLab(im[im.length - 1], 1) + ' ' + im[im.length - 1].slice(2, 4) + '</span></div><p class="cap" style="margin:8px 0 0">El hueco entre las dos líneas es lo que han ganado tus inversiones, sin contar el dinero que has metido.</p></div>';
+    }
+    var lm = null; for (var q = im.length - 1; q >= 1; q--) { if (invRet(im[q]) != null) { lm = im[q]; break; } }
+    if (lm) {
+      var v1 = invAt(lm), v0 = invAt(ymAdd(lm, -1)), apm = invApIn(lm), upv = v1 - v0, earn = upv - apm, rr = invRet(lm), tt2 = Math.abs(apm) + Math.abs(earn) || 1;
+      out += '<div class="sec"><span>' + ymLab(lm) + '</span><span>' + (upv >= 0 ? 'subió ' : 'bajó ') + e0(Math.abs(upv)) + '</span></div><div class="card fmonth" style="padding:16px"><div class="fsplit">' + (apm > 0 ? '<i style="flex:' + (apm / tt2).toFixed(3) + ';background:var(--muted)">' + (apm / tt2 > 0.22 ? e0(apm) + ' tuyos' : '') + '</i>' : '') + (Math.abs(earn) > 0.5 ? '<i style="flex:' + (Math.abs(earn) / tt2).toFixed(3) + ';background:' + (earn >= 0 ? 'var(--accent)' : RUST) + '">' + (Math.abs(earn) / tt2 > 0.22 ? e0(Math.abs(earn)) + (earn >= 0 ? ' ganados' : ' perdidos') : '') + '</i>' : '') + '</div>' +
+        '<p class="fp">De ' + e0(v0) + ' a ' + e0(v1) + '. ' + (apm > 0 ? 'Metiste ' + e0(apm) + ' y el resto es ' + (earn >= 0 ? 'rendimiento' : 'pérdida') : 'No metiste dinero: todo es ' + (earn >= 0 ? 'rendimiento' : 'pérdida')) + (rr != null ? ': <b class="' + (rr >= 0 ? 'fpos' : 'fneg') + '">' + pctS(rr) + '</b> en el mes.' : '.') + '</p></div>';
+    }
+    var yr = String(new Date().getFullYear()), yms = ms.filter(function (m) { return m.slice(0, 4) === yr && invRet(m) != null; });
+    if (yms.length) {
+      var rs = yms.map(invRet), mxr = Math.max.apply(null, rs.map(Math.abs).concat([0.005]));
+      out += '<div class="sec"><span>rentabilidad mes a mes · ' + yr + '</span><span>sin tus aportaciones</span></div><div class="card" style="padding:16px"><div class="frets" style="grid-template-columns:repeat(' + yms.length + ',minmax(0,1fr))">' + rs.map(function (x, i) { var h = Math.max(3, Math.round(Math.abs(x) / mxr * 100)); return '<div aria-label="' + ymLab(yms[i]) + ': ' + pctS(x) + '"><div class="fu">' + (x >= 0 ? '<i style="height:' + h + '%"></i>' : '') + '</div><div class="fd">' + (x < 0 ? '<i style="height:' + h + '%"></i>' : '') + '</div></div>'; }).join('') + '</div><div class="frets lab" style="grid-template-columns:repeat(' + yms.length + ',minmax(0,1fr))">' + yms.map(function (m) { return '<span>' + ymLab(m).charAt(0).toUpperCase() + '</span>'; }).join('') + '</div></div>';
+      var twr = 1; rs.forEach(function (x) { twr *= 1 + x; }); twr -= 1;
+      var V0 = invAt(ymAdd(yms[0], -1)) || 0, V1 = invAt(yms[yms.length - 1]), n = yms.length, sAp = 0, wAp = 0;
+      yms.forEach(function (m, i) { var a2 = invApIn(m); invAccs().forEach(function (q) { if (accVal(q, ymAdd(m, -1)) == null && accVal(q, m) != null) a2 += accVal(q, m); }); sAp += a2; wAp += a2 * (n - i - 0.5) / n; });
+      var mwr = (V0 + wAp) > 0 ? (V1 - V0 - sAp) / (V0 + wAp) : null, ipc = f.ipc;
+      out += '<div class="sec"><span>en lo que va de año</span></div><div class="card" style="padding:4px 16px"><div class="mv"><div class="grow"><div>Lo que han hecho tus inversiones</div><div class="cap" style="margin-top:2px">para compararte con un índice</div></div><span class="amt ' + (twr >= 0 ? 'fpos' : 'fneg') + '">' + pctS(twr) + '</span></div>' +
+        (mwr != null ? '<div class="mv"><div class="grow"><div>Lo que has ganado tú</div><div class="cap" style="margin-top:2px">cuenta cuándo metiste cada euro</div></div><span class="amt ' + (mwr >= 0 ? 'fpos' : 'fneg') + '">' + pctS(mwr) + '</span></div>' : '') +
+        '<button class="mv" data-act="ipcset" style="width:100%;text-align:left"><div class="grow"><div>Frente a la inflación</div><div class="cap" style="margin-top:2px">' + (ipc != null ? 'inflación del ' + fmt(ipc) + ' % · toca para cambiarla' : 'toca para apuntar la inflación del año') + '</div></div><span class="amt">' + (ipc != null ? (twr * 100 - ipc >= 0 ? '+' : '−') + fmt(r1(Math.abs(twr * 100 - ipc))) + ' pts' : '—') + '</span></button></div>';
+    }
+    var COLS = ['var(--fg)', 'var(--accent)', 'var(--muted)', 'var(--accent-soft)', 'var(--faint)'];
+    out += '<div class="sec"><span>tus cuentas</span><span>reparto</span></div><div class="ffbar" style="height:10px">' + A.map(function (a, i) { return '<i style="flex:' + Math.max(0.001, accLast(a)).toFixed(2) + ';background:' + COLS[i % COLS.length] + '"></i>'; }).join('') + '</div>';
+    out += '<div class="card" style="margin-top:10px;padding:4px 16px">' + A.map(function (a, i) { var av = accLast(a), a2 = accAp(a), gg = av - a2; return '<button class="mv accrow" data-act="accedit" data-id="' + a.id + '"><div class="grow"><div style="display:flex;gap:8px;align-items:center"><i class="dotc" style="background:' + COLS[i % COLS.length] + '"></i>' + esc(a.name) + '</div><div class="cap" style="margin-top:2px">aportado ' + e0(a2) + ' · ' + (v ? Math.round(av / v * 100) : 0) + ' %</div></div><div style="text-align:right"><div class="amt">' + e0(av) + '</div><div class="' + (gg >= 0 ? 'fpos' : 'fneg') + '" style="font-size:12px;font-weight:600">' + (gg >= 0 ? '+' : '−') + e0(Math.abs(gg)) + ' · ' + pctS(a2 ? gg / a2 : 0) + '</div></div></button>'; }).join('') + '</div>';
+    out += '<div class="btns" style="margin-top:14px"><button class="btn" data-act="aportar" data-k="inversion">Apuntar aportación</button></div>';
+    return out;
+  }
+  function finAno() {
+    var t = new Date(), y = t.getFullYear() + Math.min(0, ui.fy || 0), out = '';
+    out += '<div class="phead" style="margin-top:14px"><button class="round" data-act="fy" data-d="-1" aria-label="Año anterior">‹</button><div><b style="font-size:20px">' + y + '</b></div><button class="round" data-act="fy" data-d="1" aria-label="Año siguiente"' + ((ui.fy || 0) >= 0 ? ' disabled' : '') + '>›</button></div>';
+    var rows = [], lastM = y === t.getFullYear() ? t.getMonth() : 11;
+    for (var m = 0; m <= lastM; m++) { var r = monthRange(new Date(y, m, 1)), inc = monthSum(r[0], r[1], 'inc'), exp = monthSum(r[0], r[1], 'exp'); rows.push({ m: m, inc: inc, exp: exp, rate: inc > 0 ? (inc - exp) / inc : null, cur: y === t.getFullYear() && m === t.getMonth() }); }
+    var done = rows.filter(function (q) { return q.rate != null && !q.cur; }), sI = 0, sE = 0;
+    done.forEach(function (q) { sI += q.inc; sE += q.exp; });
+    if (!done.length) return out + '<p class="cap" style="margin-top:16px">Cuando tengas un mes completo con ingresos y gastos apuntados, aquí verás cuánto ahorras y en qué se va tu dinero.</p>';
+    var avgR = sI > 0 ? (sI - sE) / sI : 0;
+    out += '<div class="fhero"><div class="cap" style="margin:0">ahorras de media</div><div class="fbig num" style="font-size:60px">' + Math.round(avgR * 100) + '<small>%</small></div><div class="fsub">de lo que ganas · <b>' + (sI - sE < 0 ? '−' : '') + e0(Math.abs(sI - sE)) + '</b> en ' + (y === t.getFullYear() ? 'lo que va de año' : y) + '</div></div>';
+    var mx = Math.max.apply(null, rows.map(function (q) { return Math.max(0, q.rate || 0); }).concat([0.3])), best = null, worst = null;
+    done.forEach(function (q) { if (!best || q.rate > best.rate) best = q; if (!worst || q.rate < worst.rate) worst = q; });
+    out += '<div class="card fsavc" style="margin-top:16px;padding:16px"><div class="fsav" style="grid-template-columns:repeat(' + rows.length + ',minmax(0,1fr))">' + rows.map(function (q) { var h = q.rate == null ? 0 : Math.max(2, Math.round(Math.max(0, q.rate) / mx * 100)); return '<div class="' + (q === best ? 'b' : q === worst ? 'w' : '') + (q.cur ? ' cur' : '') + '"><span>' + (q.rate == null ? '' : Math.round(q.rate * 100)) + '</span><i style="height:' + h + '%"></i></div>'; }).join('') + '<em style="bottom:' + Math.round(Math.max(0, avgR) / mx * 100) + '%"></em></div><div class="frets lab" style="grid-template-columns:repeat(' + rows.length + ',minmax(0,1fr))">' + rows.map(function (q) { return '<span>' + MN[q.m].charAt(0).toUpperCase() + '</span>'; }).join('') + '</div>' + '<p class="cap" style="margin:10px 0 0">La línea discontinua es tu media (' + Math.round(avgR * 100) + ' %).' + (best && worst && best !== worst ? ' Mejor mes, ' + MN[best.m] + ' (' + Math.round(best.rate * 100) + ' %). Peor, ' + MN[worst.m] + ' (' + Math.round(worst.rate * 100) + ' %).' : '') + '</p></div>';
+    var ys = String(y), hm = histMonths().filter(function (mm) { return mm.slice(0, 4) === ys; });
+    if (hm.length > 1 || (hm.length && netAt(String(y - 1) + '-12') != null)) {
+      var startY = netAt(String(y - 1) + '-12'), first = hm[0], endY = netAt(hm[hm.length - 1]), base = startY != null ? startY : netAt(first), gr = endY - base, invG = 0;
+      hm.forEach(function (mm) { if (startY == null && mm === first) return; var rr2 = invRet(mm); if (rr2 == null) return; invG += invAt(mm) - invAt(ymAdd(mm, -1)) - invApIn(mm); });
+      var sav = gr - invG;
+      out += '<div class="sec"><span>cómo ha crecido tu patrimonio</span><span class="num ' + (gr >= 0 ? 'fpos' : 'fneg') + '">' + (gr >= 0 ? '+' : '−') + e0(Math.abs(gr)) + '</span></div><div class="card" style="padding:16px">';
+      if (gr > 0) { var tt = Math.max(0, sav) + Math.abs(invG) || 1; out += '<div class="fsplit">' + (sav > 0 ? '<i style="flex:' + (sav / tt).toFixed(3) + ';background:var(--fg)">' + (sav / tt > 0.3 ? e0(sav) + ' de tu ahorro' : '') + '</i>' : '') + (Math.abs(invG) > 0.5 ? '<i style="flex:' + (Math.abs(invG) / tt).toFixed(3) + ';background:' + (invG >= 0 ? 'var(--accent)' : RUST) + '">' + (Math.abs(invG) / tt > 0.3 ? e0(Math.abs(invG)) : '') + '</i>' : '') + '</div>'; }
+      out += '<p class="fp">De ' + e0(base) + ' a ' + e0(endY) + '. ' + (invG >= 0 ? 'Tus inversiones han puesto <b class="fpos">' + e0(invG) + '</b>' : 'Tus inversiones han restado <b class="fneg">' + e0(-invG) + '</b>') + '; el resto sale de lo que ahorras y de lo que has ido pagando de deudas.</p></div>';
+    }
+    var cats = {}, nmo = done.length, lastFull = done[done.length - 1];
+    done.forEach(function (q) { var r3 = monthRange(new Date(y, q.m, 1)); S.fin.exp.forEach(function (x) { if (x.date >= r3[0] && x.date <= r3[1]) { var c = cats[x.cat] = cats[x.cat] || { t: 0, last: 0 }; c.t += x.mine; if (q === lastFull) c.last += x.mine; } }); });
+    var ck = Object.keys(cats).sort(function (a, b) { return cats[b].t - cats[a].t; }).slice(0, 7), hiC = null, hiD = 0;
+    if (ck.length) {
+      out += '<div class="sec"><span>en qué gastas</span><span>media al mes · ' + MN[lastFull.m] + ' frente a ella</span></div><div class="card" style="padding:4px 16px">' + ck.map(function (c) { var avg = cats[c].t / nmo, d = avg > 0 ? (cats[c].last - avg) / avg : 0; if (d > hiD && cats[c].last > 20) { hiD = d; hiC = c; } return '<div class="mv"><div class="grow">' + esc(c) + '</div><span class="amt">' + e0(avg) + ' <small class="' + (d > 0.1 ? 'fneg' : d < -0.1 ? 'fpos' : 'cap') + '" style="font-size:12px">' + (Math.abs(d) < 0.05 ? '=' : (d > 0 ? '+' : '−') + Math.round(Math.abs(d) * 100) + ' %') + '</small></span></div>'; }).join('') + '</div>';
+      if (hiC && hiD > 0.15) out += '<p class="cap" style="margin-top:8px">' + esc(hiC) + ' es lo que más ha subido en ' + MN[lastFull.m] + '.</p>';
+    }
+    var fx = 0, sb = 0; S.fin.rec.forEach(function (q) { fx += recMonthly(q) * 12; if (q.cat === 'Suscripciones') sb += recMonthly(q) * 12; });
+    var mi = sI / nmo;
+    if (fx) out += '<div class="sec"><span>fijos y suscripciones</span><span class="num">' + e0(fx) + ' al año</span></div><div class="card" style="padding:16px"><p class="fp" style="margin:0">' + (mi ? 'Son el <b>' + Math.round(fx / 12 / mi * 100) + ' %</b> de lo que ganas. ' : '') + (sb ? 'Las suscripciones suman <b>' + eur(sb) + '</b> al año.' : '') + '</p></div>';
+    return out;
+  }
+  function viewCierre() {
+    var f = finX(), t = new Date(), ym = ui.cym || ymOf(new Date(t.getFullYear(), t.getMonth() - 1, 1)), isCur = ym === ymOf(t), r = monthRange(parseDay(ym + '-01'));
+    if (ui.cdone) return cierreSum(ym, isCur);
+    var out = '<div class="ritw fcierre"><span class="ritk" aria-hidden="true">金</span><button class="back" data-act="closeback">‹ dinero</button><p class="ritd" style="margin-top:12px">' + longDate(t) + '</p><h1>' + (isCur ? 'actualizar saldos' : 'cierre de ' + ymLab(ym)) + '</h1><p class="cap" style="margin-top:6px">Un minuto: lo que hay en cada sitio hoy. Con esto calculamos el mes.</p>';
+    var ok = function (a) { return isCur || (a.since || '') <= ym; };
+    var g1 = f.acc.filter(function (a) { return (a.kind === 'cash' || a.kind === 'save') && ok(a); }), g2 = invAccs().filter(ok), g3 = f.acc.filter(function (a) { return a.kind === 'debt' && ok(a); });
+    if (!g1.length && !g2.length && !g3.length) out += '<div class="card fsetup"><p class="cap" style="margin-top:0">Aún no tienes cuentas. Añade la del día a día, tus ahorros, tus inversiones o tus deudas.</p></div>';
+    out += cGroup(g1, '1 · tus cuentas', 'saldo de hoy', ym, r) + cGroup(g2, '2 · tus inversiones', 'lo que pone tu bróker', ym, r) + cGroup(g3, '3 · lo que debes', 'lo que queda por pagar', ym, r);
+    if (g2.length) out += '<p class="cap" style="margin-top:8px">«Metiste este mes» sale de las aportaciones que has apuntado; cámbialo si no cuadra.</p>';
+    out += '<button class="btn" style="width:100%;margin-top:14px" data-act="accnew">+ añadir cuenta</button>';
+    if (f.acc.length) out += '<div class="btns" style="margin-top:22px"><button class="btn pri" data-act="closesave" data-k="' + ym + '">' + (isCur ? 'Guardar' : 'Cerrar ' + ymLab(ym)) + '</button></div>';
+    return out + '<button class="ritskip" data-act="closeback">luego</button></div>';
+  }
+  function cGroup(L, tit, sub, ym, r) {
+    if (!L.length) return '';
+    return '<div class="sec"><span>' + tit + '</span><span>' + sub + '</span></div><div class="card" style="padding:4px 16px">' + L.map(function (a) {
+      var h = (a.hist || {})[ym], v = h && h.v != null ? h.v : accVal(a, ym), ap = '';
+      if (v == null) v = accLast(a);
+      if (a.kind === 'inv') { if (h && h.ap != null) ap = h.ap; else { var s = 0; S.fin.mov.forEach(function (m) { if (m.acc === a.id && m.date >= r[0] && m.date <= r[1]) s += m.amt; }); ap = s; } }
+      return '<div class="cfr"><b>' + esc(a.name) + '</b>' + (a.kind === 'inv' ? '<div class="two"><label>vale hoy<input type="number" inputmode="decimal" step="any" data-cv="' + a.id + '" value="' + r2(v) + '"></label><label>metiste este mes<input type="number" inputmode="decimal" step="any" data-ca="' + a.id + '" value="' + r2(ap) + '"></label></div>' : '<input class="cone" type="number" inputmode="decimal" step="any" data-cv="' + a.id + '" value="' + r2(v) + '" aria-label="' + (a.kind === 'debt' ? 'Lo que queda de ' : 'Saldo de ') + esc(a.name) + '">') + '</div>';
+    }).join('') + '</div>';
+  }
+  function cierreSum(ym, isCur) {
+    var r = monthRange(parseDay(ym + '-01')), inc = monthSum(r[0], r[1], 'inc'), exp = monthSum(r[0], r[1], 'exp'), sv = inc - exp;
+    var n1 = netAt(ym), n0 = netAt(ymAdd(ym, -1)), rr = invRet(ym), cs = 0, avg = avgSpend();
+    finX().acc.forEach(function (a) { if (a.kind === 'save') cs += accVal(a, ym) || 0; });
+    var out = '<div class="ritw fcierre"><span class="ritk" aria-hidden="true">金</span><p class="ritd">' + (isCur ? 'saldos actualizados' : 'cerrado') + '</p><h1>tu ' + ymLab(ym) + '</h1><div class="card" style="padding:18px;margin-top:22px"><div class="csum">';
+    if (inc > 0) out += '<div><span class="cap">ahorraste</span><b class="num">' + (sv < 0 ? '−' : '') + e0(Math.abs(sv)) + '</b><span class="cap">el ' + Math.round(sv / inc * 100) + ' % de lo que ganaste</span></div>';
+    if (n1 != null && n0 != null) out += '<div><span class="cap">patrimonio</span><b class="num ' + (n1 >= n0 ? 'fpos' : 'fneg') + '">' + (n1 >= n0 ? '+' : '−') + e0(Math.abs(n1 - n0)) + '</b><span class="cap">ahora ' + e0(n1) + '</span></div>';
+    else if (n1 != null) out += '<div><span class="cap">patrimonio</span><b class="num">' + e0(n1) + '</b><span class="cap">tu punto de partida</span></div>';
+    if (rr != null) out += '<div><span class="cap">inversiones</span><b class="num ' + (rr >= 0 ? 'fpos' : 'fneg') + '">' + pctS(rr) + '</b><span class="cap">aparte de lo que metiste</span></div>';
+    if (cs && avg) out += '<div><span class="cap">colchón</span><b class="num">' + fmt(r1(cs / avg)) + ' m</b><span class="cap">meses cubiertos</span></div>';
+    return out + '</div></div><div class="btns" style="margin-top:26px"><button class="btn pri" data-act="closeback" data-k="patrimonio">Listo</button></div></div>';
+  }
+  function sheetAcc(a, kind) {
+    var isNew = !a; a = a || { name: '', kind: kind || 'cash' };
+    var hl = '';
+    if (!isNew) { var ks = accKeys(a).slice(-6).reverse(); if (ks.length) hl = '<div class="field"><span>Últimos meses</span><div class="card" style="padding:4px 14px">' + ks.map(function (k) { var h = a.hist[k]; return '<div class="mv" style="padding:9px 0"><span>' + ymLab(k) + ' ' + k.slice(0, 4) + '</span><span class="amt">' + (h.v != null ? e0(h.v) : '—') + (a.kind === 'inv' && h.ap ? ' <small class="cap">+' + e0(h.ap) + ' metidos</small>' : '') + '</span></div>'; }).join('') + '</div></div>'; }
+    openSheet('<h2>' + (isNew ? 'nueva cuenta' : 'editar cuenta') + '</h2><label class="field"><span>Nombre</span><input type="text" id="ac-name" maxlength="40" value="' + esc(a.name) + '" placeholder="Cuenta nómina, fondos indexados, préstamo…"></label>' +
+      '<div class="field"><span>Qué es</span><div class="chips">' + AKIND.map(function (k) { return '<label><input type="radio" name="ackind" value="' + k[0] + '"' + (k[0] === a.kind ? ' checked' : '') + '><span>' + k[1] + '</span></label>'; }).join('') + '</div></div>' +
+      '<label class="field"><span id="ac-vl">' + (a.kind === 'debt' ? 'Lo que queda por pagar hoy (€)' : a.kind === 'inv' ? 'Lo que vale hoy (€)' : 'Lo que hay hoy (€)') + '</span><input type="number" id="ac-v" inputmode="decimal" step="any" value="' + (isNew ? '' : r2(accLast(a))) + '"></label>' +
+      '<label class="field" id="ac-apw"' + (a.kind === 'inv' ? '' : ' hidden') + '><span>Lo que has metido en total hasta hoy (€)</span><input type="number" id="ac-ap" inputmode="decimal" step="any" value="' + (isNew ? '' : r2(accAp(a))) + '"><small class="cap">Así separamos lo que has puesto tú de lo que ha ganado o perdido.</small></label>' + hl +
+      '<div class="btns"><button class="btn pri" data-act="accsave" data-id="' + (isNew ? '' : a.id) + '">Guardar</button><button class="btn" data-act="closesheet">Cancelar</button>' + (isNew ? '' : '<button class="btn warn" data-act="accdel" data-id="' + a.id + '">Eliminar</button>') + '</div>');
+  }
+  function saveAcc(id) {
+    var f = finX(), nm = $('#ac-name').value.trim(), kd = (document.querySelector('input[name=ackind]:checked') || { value: 'cash' }).value, v = parseFloat($('#ac-v').value), apT = parseFloat($('#ac-ap').value), cym = ymOf(new Date());
+    if (!nm) { $('#ac-name').focus(); return false; }
+    if (!id) {
+      var a = { id: nid('ac'), name: nm, kind: kd, since: cym, ap0: 0, hist: {} };
+      a.hist[cym] = { v: isNaN(v) ? 0 : r2(v) };
+      if (kd === 'inv') a.ap0 = isNaN(apT) ? (isNaN(v) ? 0 : r2(v)) : r2(apT);
+      f.acc.push(a);
+    } else {
+      var b = accById(id); if (!b) return true;
+      b.name = nm; b.kind = kd;
+      if (!isNaN(v) && Math.abs(v - accLast(b)) > 0.004) { b.hist = b.hist || {}; var h = b.hist[cym] = b.hist[cym] || {}; h.v = r2(v); }
+      if (kd === 'inv' && !isNaN(apT)) { var cur = accAp(b); if (Math.abs(apT - cur) > 0.004) b.ap0 = r2(+(b.ap0 || 0) + apT - cur); }
+    }
+    save(); return true;
   }
   function ymOf(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1); }
   function recDue(r, y, m) { var last = new Date(y, m + 1, 0).getDate(); return new Date(y, m, Math.min(r.day, last)); }
@@ -2738,75 +3121,9 @@ textarea.nbta { min-height: 200px; }
     var sp = monthSum(r[0], r[1], 'exp', function (x) { return x.cat === cat; });
     return { b: b + Math.max(0, b - sp), carry: Math.max(0, b - sp) };
   }
-  function finSum() {
-    var m = money(), t = new Date(), r = monthRange(t), inc = monthSum(r[0], r[1], 'inc'), exp = monthSum(r[0], r[1], 'exp'), net = inc - exp;
-    var nov = !S.fin.exp.some(function (x) { return !x.rec; }) && !S.fin.start && !Object.keys(S.fin.budgets || {}).length;
-    var out = (nov ? spIntro('din', 'para empezar', 'Tres pasos y dinero empieza a decirte cuánto puedes gastar cada día.', [['Dinos cuánto tienes hoy', 'en tu cuenta, más o menos', '<button data-act="finsetup">ajustar</button>'], ['Pon un presupuesto al mes', 'por categorías: comida, ocio…', '<button data-act="sub" data-sp="dinero" data-k="presupuesto">poner</button>'], ['Apunta cada gasto', 'con el + de abajo, en 3 segundos', '<button data-act="qa" data-k="gasto">+ gasto</button>']]) : '') + '<div class="moneyc" style="margin-top:10px"><div class="wl">tienes</div><div class="num">' + (function () { var p2 = eur(m.bal).replace(' €', '').split(','); return p2[0] + '<small>' + (p2[1] ? ',' + p2[1] : '') + ' €</small>'; })() + '</div>' +
-      '<div class="mstats"><div><b>' + eur(m.free) + '</b><span>disponible</span></div><div><b>' + eur(m.reserved) + '</b><span>ahorrado</span></div><div><b>' + eur(m.inv) + '</b><span>invertido</span></div></div>' +
-      '<div class="mbtns"><button data-act="aportar" data-k="ahorro">ahorrar</button><button data-act="aportar" data-k="inversion">invertir</button><button data-act="finsetup">ajustar</button></div></div>';
-    // puedes gastar
-    var bud = 0, spentB = 0, dl = new Date(t.getFullYear(), t.getMonth() + 1, 0).getDate() - t.getDate() + 1, fixedLeft = 0;
-    CATS.forEach(function (c) { var bb = budgetOf(c[0], t).b; if (bb) { bud += bb; spentB += Math.min(bb, monthSum(r[0], r[1], 'exp', function (x) { return x.cat === c[0]; })); } });
-    S.fin.rec.forEach(function (q) { var nd = recNext(q); if (nd && dk(nd) <= r[1] && +(S.fin.budgets[q.cat] || 0)) fixedLeft += q.amt; });
-    if (bud) {
-      var left = Math.max(0, bud - spentB - fixedLeft), perDay = left / dl, frac = Math.min(1, spentB / bud);
-      out += '<div class="safe"><div><span>puedes gastar</span><b>' + eur(perDay) + '<span style="font-size:14px"> al día</span></b><span>' + eur(left) + ' libres para ' + dl + ' día' + (dl === 1 ? '' : 's') + (fixedLeft ? ', ya descontados ' + eur(fixedLeft) + ' de fijos' : '') + '</span></div>' +
-        '<svg class="ring2" viewBox="0 0 54 54" aria-hidden="true"><circle cx="27" cy="27" r="22" fill="none" stroke="var(--faint)" stroke-width="6"/><circle cx="27" cy="27" r="22" fill="none" stroke="' + (frac > 0.85 ? 'var(--fg)' : 'var(--accent)') + '" stroke-width="6" stroke-linecap="round" stroke-dasharray="' + (frac * 138.2).toFixed(1) + ' 200" transform="rotate(-90 27 27)"/></svg></div>';
-    }
-    out += '<div class="sec"><span>este mes</span><span>' + MN[t.getMonth()] + '</span></div><div class="kgrid" style="margin-top:4px">' +
-      '<div class="kc"><b>' + eur(inc).replace(' €', '') + '<small>€</small></b><span>ingresos</span></div><div class="kc"><b>' + eur(exp).replace(' €', '') + '<small>€</small></b><span>gastos</span></div>' +
-      '<div class="kc"><b>' + (net < 0 ? '−' : '') + eur(Math.abs(net)).replace(' €', '') + '<small>€</small></b><span>' + (net >= 0 ? 'te sobran' : 'gastas de más') + '</span></div><div class="kc"><b>' + (inc ? Math.round(net / inc * 100) : 0) + '<small>%</small></b><span>tasa de ahorro</span></div></div>';
-    // gráfico acumulado del mes
-    var rg = frange('mes', 0), prg = frange('mes', -1), keep = [ui.fmode, ui.fcat]; ui.fmode = 'gasto'; ui.fcat = null;
-    var nowIdx = bucketOf('mes', rg, dk(t)), cur = cumul('mes', rg, flows(rg), nowIdx), prev = cumul('mes', prg, flows(prg), null);
-    ui.fmode = keep[0]; ui.fcat = keep[1];
-    var short = [], long = [];
-    for (var i = 0; i < rg.n; i++) { short.push(String(i + 1)); long.push((i + 1) + ' ' + MN[t.getMonth()].slice(0, 3)); }
-    out += '<div class="sec"><span>gasto acumulado</span><span>frente al mes pasado</span></div>' + lineChart(cur, prev, rg.n, nowIdx, { short: short, long: long }, 'este mes', 'el mes pasado');
-    // avisos
-    var al = [];
-    CATS.forEach(function (c) { var bb = budgetOf(c[0], t).b; if (!bb) return; var sp = monthSum(r[0], r[1], 'exp', function (x) { return x.cat === c[0]; }); if (sp > bb) al.push(['hi', c[0] + ': te has pasado ' + eur(sp - bb)]); else if (sp / bb >= 0.8) al.push(['', c[0] + ': llevas el ' + Math.round(sp / bb * 100) + ' % del presupuesto']); });
-    var pend = S.fin.exp.filter(function (x) { return x.shared && !x.settled; });
-    pend.forEach(function (x) { al.push(['', (x.paidByMe ? 'Te deben ' + eur(x.total - x.mine) : 'Debes ' + eur(x.mine)) + ' · ' + (x.note || x.cat)]); });
-    if (al.length) out += '<div class="sec"><span>atención</span></div><div class="card">' + al.map(function (a2) { return '<div class="alert"><i class="' + a2[0] + '"></i><span>' + esc(a2[1]) + '</span></div>'; }).join('') + '</div>';
-    if (pend.length) {
-      out += '<div class="sec"><span>pendiente de saldar</span></div><div class="card">' + pend.map(function (x) {
-        var amt = x.paidByMe ? x.total - x.mine : x.mine;
-        return '<div class="mv"><div class="grow"><div>' + esc(x.note || x.cat) + '</div><div class="cap" style="margin-top:2px">' + (x.paidByMe ? 'te deben ' : 'debes ') + eur(amt) + ' · ' + x.people + ' personas</div></div><button class="pill" data-act="settle" data-id="' + x.id + '">saldado</button></div>';
-      }).join('') + '</div>';
-    }
-    // próximos cargos
-    var up = S.fin.rec.map(function (q) { return { r: q, d: recNext(q) }; }).filter(function (q) { return q.d && (q.d - t) / 864e5 <= 10; }).sort(function (a, b) { return a.d - b.d; });
-    if (up.length) out += '<div class="sec"><span>próximos cargos</span><button class="muted" data-act="sub" data-sp="dinero" data-k="fijos">ver fijos</button></div><div class="card">' + up.map(recRow).join('') + '</div>';
-    return out;
-  }
   function recRow(q) {
     var d = q.d || recNext(q.r), r = q.r, n = d ? Math.round((parseDay(dk(d)) - parseDay(dk(new Date()))) / 864e5) : null;
     return '<button class="recrow" data-act="editrec" data-id="' + r.id + '"><span class="rdd">' + (d ? '<b>' + d.getDate() + '</b><span>' + MN[d.getMonth()].slice(0, 3) + '</span>' : '<b>–</b>') + '</span><div class="grow">' + esc(r.name) + '<span>' + esc(r.cat) + ' · ' + (r.freq === 'año' ? 'cada año' : 'cada mes') + (n != null ? ' · ' + (n === 0 ? 'hoy' : n === 1 ? 'mañana' : 'en ' + n + ' días') : '') + '</span></div><span class="amt">' + eur(r.amt) + '</span></button>';
-  }
-  function finBud() {
-    var t = new Date(), r = monthRange(t), day = t.getDate(), nd = new Date(t.getFullYear(), t.getMonth() + 1, 0).getDate(), pace = day / nd;
-    var tb = 0, ts = 0, rows = { fijos: '', ocio: '' }, cnt = { fijos: [0, 0], ocio: [0, 0] };
-    CATS.forEach(function (c) {
-      var bo = budgetOf(c[0], t), sp = monthSum(r[0], r[1], 'exp', function (x) { return x.cat === c[0]; });
-      if (!bo.b && !sp) return;
-      tb += bo.b; ts += sp; cnt[c[1]][0] += bo.b; cnt[c[1]][1] += sp;
-      var ratio = bo.b ? sp / bo.b : 1, st = !bo.b ? 'sin presupuesto' : sp > bo.b ? 'te pasas ' + eur(sp - bo.b) : 'quedan ' + eur(bo.b - sp);
-      var bopen = ui.pick.bc === c[0], bl = bopen ? S.fin.exp.filter(function (x) { return x.cat === c[0] && x.date >= r[0] && x.date <= r[1]; }).sort(function (a, b2) { return a.date < b2.date ? 1 : -1; }) : [];
-      rows[c[1]] += '<div class="env tap' + (bopen ? ' open' : '') + '" data-act="pick" data-c="bc" data-k="' + esc(c[0]) + '" role="button" tabindex="0" aria-expanded="' + bopen + '"><div class="eh"><span>' + esc(c[0]) + (bo.carry ? ' <span class="tag">+' + eur(bo.carry) + ' del mes pasado</span>' : '') + '</span><span>' + eur(sp) + (bo.b ? ' de ' + eur(bo.b) : '') + '</span></div><div class="meter pace' + (ratio >= 0.8 ? ' hi' : '') + '"><i style="width:' + Math.round(Math.min(ratio, 1) * 100) + '%"></i>' + (bo.b ? '<span class="mk" style="left:' + (pace * 100).toFixed(1) + '%"></span>' : '') + '</div><div class="cap" style="margin-top:6px">' + st + (bo.b && ratio < 1 && ratio > pace + 0.1 ? ' · vas más rápido de lo previsto' : '') + '</div>' + (bopen ? '<div class="selp">' + (bl.length ? bl.map(function (x) { var dx = parseDay(x.date); return '<div class="mv"><div class="grow"><div>' + esc(x.note || x.cat) + '</div><div class="cap" style="margin-top:2px">' + dx.getDate() + ' ' + MN[dx.getMonth()].slice(0, 3) + '</div></div><span class="amt">' + eur(x.mine) + '</span></div>'; }).join('') : '<p class="cap">Nada apuntado aún este mes.</p>') + '</div>' : '') + '</div>';
-    });
-    var out = '<div class="ringwrap" style="margin-top:8px"><div class="num">' + (tb ? Math.round(ts / tb * 100) : 0) + '<small>%</small></div><div class="cap">del presupuesto de ' + MN[t.getMonth()] + ' · ' + eur(ts) + ' de ' + eur(tb) + ' · día ' + day + ' de ' + nd + info('La raya de la barra marca dónde deberías ir a día de hoy si gastaras al mismo ritmo todo el mes. Toca una categoría para ver en qué se ha ido.') + '</div></div>';
-    out += '<div class="meter pace" style="margin-top:14px;height:8px;border-radius:4px"><i style="width:' + Math.round(Math.min(tb ? ts / tb : 0, 1) * 100) + '%"></i><span class="mk" style="left:' + (pace * 100).toFixed(1) + '%"></span></div>';
-    var os = ocioStats();
-    if (os.budget) out += '<div class="sec"><span>ocio para premios' + info('Lo que queda de las categorías de ocio paga los premios de la tienda. Si se acaba, los premios con gasto se bloquean aunque tengas puntos.') + '</span><span>' + eur(Math.max(0, os.left)) + ' libres</span></div><div class="card"><div class="meter' + (os.spent / os.budget >= 0.8 ? ' hi' : '') + '"><i style="width:' + Math.round(Math.min(os.spent / os.budget, 1) * 100) + '%"></i></div></div>';
-    ['fijos', 'ocio'].forEach(function (gk) {
-      if (!rows[gk]) return;
-      out += '<div class="sec"><span>' + (gk === 'fijos' ? 'necesarios' : 'caprichos y ocio') + '</span><span>' + eur(cnt[gk][1]) + ' de ' + eur(cnt[gk][0]) + '</span></div><div class="card">' + rows[gk] + '</div>';
-    });
-    if (!tb) out += '<p class="cap">Aún no hay presupuestos. Ponlos con «editar presupuestos».</p>';
-    out += '<div class="card" style="margin-top:14px"><label class="tog"><span>Lo que sobra de un mes pasa al siguiente</span><input type="checkbox" id="f-roll"' + (S.fin.roll ? ' checked' : '') + '></label></div>';
-    out += '<button class="btn" style="width:100%;margin-top:10px" data-act="finsetup">Editar presupuestos</button>';
-    return out;
   }
   function balAt(k) {
     var sd = S.fin.startDate; if (k < sd) return null;
@@ -2815,49 +3132,6 @@ textarea.nbta { min-height: 200px; }
     S.fin.exp.forEach(function (x) { if (x.date >= sd && x.date <= k) bal -= cashOut(x); });
     S.fin.mov.forEach(function (mm) { if (mm.date >= sd && mm.date <= k && mm.sobre === 'inversion') { inv += mm.amt; bal -= mm.amt; } });
     return bal + inv;
-  }
-  function finSave() {
-    var m = money(), sav = 0, gl = 0, t = new Date();
-    S.fin.mov.forEach(function (mm) { if (mm.date >= S.fin.startDate && mm.sobre === 'ahorro') sav += mm.amt; });
-    S.fin.goals.forEach(function (g) { gl += g.saved; });
-    var nw = m.bal + m.inv, parts = [[m.free, 'disponible', 'var(--fg)'], [sav, 'fondo de ahorro', 'var(--accent)'], [gl, 'metas', 'var(--accent-soft)'], [m.inv, 'invertido', 'var(--muted)']];
-    var out = '<div class="ringwrap" style="margin-top:8px"><div class="num">' + eur(nw).replace(' €', '').split(',')[0] + '<small> €</small></div><div class="cap">patrimonio: todo lo que tienes, sumando lo invertido</div></div>';
-    out += '<div class="nwbar">' + parts.filter(function (q) { return q[0] > 0; }).map(function (q) { return '<i style="flex:' + q[0].toFixed(2) + ';background:' + q[2] + '"></i>'; }).join('') + '</div>';
-    out += '<div class="nwleg">' + parts.map(function (q) { return '<div><i style="background:' + q[2] + '"></i><div><b>' + eur(q[0]) + '</b><span>' + q[1] + '</span></div></div>'; }).join('') + '</div>';
-    var vals = [], labs = [], longs = [];
-    for (var i = 5; i >= 0; i--) { var me = i ? new Date(t.getFullYear(), t.getMonth() - i + 1, 0) : t, v = balAt(dk(me)); if (v == null) continue; vals.push(v); labs.push(MN[me.getMonth()].slice(0, 3)); longs.push(i ? 'final de ' + MN[me.getMonth()] : 'hoy'); }
-    if (vals.length > 1) {
-      var ns = pk('nw', vals.length - 1, vals.length), nd = ns > 0 ? vals[ns] - vals[ns - 1] : null;
-      out += '<div class="sec"><span>evolución</span><span>a final de cada mes</span></div><div class="card">' + barChart(vals, labs, ns, function (v) { return eur(v).split(',')[0].replace(' €', '') + ' €'; }, 'nw', longs) +
-        '<div class="selp"><div class="sh"><b>' + longs[ns] + '</b></div><div class="sk"><div><b>' + eur(vals[ns]) + '</b><span>patrimonio</span></div>' + (nd != null ? '<div><b>' + (nd >= 0 ? '+' : '−') + eur(Math.abs(nd)) + '</b><span>frente al mes anterior</span></div>' : '') + '</div></div></div>';
-    }
-    out += '<div class="mbtns" style="margin-top:16px"><button data-act="aportar" data-k="ahorro">al fondo de ahorro</button><button data-act="aportar" data-k="inversion">invertir</button></div>';
-    out += '<div class="sec"><span>metas</span><button class="muted" data-act="newgoal">+ meta</button></div>';
-    if (S.fin.goals.length) {
-      out += '<div class="card">' + S.fin.goals.map(function (g) {
-        var rr = g.target ? Math.min(g.saved / g.target, 1) : 0, since = dk(addD(t, -90)), ap = 0;
-        S.fin.mov.forEach(function (mm) { if (mm.goal === g.id && mm.date >= since) ap += mm.amt; });
-        var perM = ap / 3, rest = Math.max(0, g.target - g.saved), eta = rest <= 0 ? '¡conseguida!' : perM > 0 ? 'a este ritmo, en ' + Math.ceil(rest / perM) + ' mes' + (Math.ceil(rest / perM) === 1 ? '' : 'es') : 'aporta algo para estimar cuándo llegas';
-        return '<div class="goal2"><div class="gh"><b>' + esc(g.name) + '</b><span>' + eur(g.saved) + ' de ' + eur(g.target) + '</span></div><div class="meter"><i style="width:' + Math.round(rr * 100) + '%"></i></div><div class="gf"><span>' + Math.round(rr * 100) + ' % · ' + eta + '</span><span class="mrow"><button class="pill" data-act="aportar" data-goal="' + g.id + '">aportar</button><button class="x muted" data-act="delgoal" data-id="' + g.id + '" style="font-size:12px">quitar</button></span></div></div>';
-      }).join('') + '</div>';
-    } else out += '<p class="cap">Añade lo que quieres conseguir, como un ordenador o un viaje.</p>';
-    var mv = S.fin.mov.slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; }).slice(0, 8);
-    if (mv.length) out += '<div class="sec"><span>últimos movimientos</span></div><div class="card" style="padding:4px 16px">' + mv.map(function (mm) {
-      var d = parseDay(mm.date), gn = mm.goal ? (S.fin.goals.filter(function (g) { return g.id === mm.goal; })[0] || { name: 'meta' }).name : null;
-      return '<div class="mv"><div class="grow"><div>' + (gn ? esc(gn) : mm.sobre === 'inversion' ? 'Inversión' : 'Fondo de ahorro') + '</div><div class="cap" style="margin-top:2px">' + d.getDate() + ' ' + MN[d.getMonth()].slice(0, 3) + '</div></div><span class="amt">+' + eur(mm.amt) + '</span></div>';
-    }).join('') + '</div>';
-    return out;
-  }
-  function finRec() {
-    var tot = 0, t = new Date(), r3 = [dk(new Date(t.getFullYear(), t.getMonth() - 3, 1)), dk(t)], inc3 = monthSum(r3[0], r3[1], 'inc') / 3;
-    S.fin.rec.forEach(function (q) { tot += recMonthly(q); });
-    var out = '<div class="ringwrap" style="margin-top:8px"><div class="num">' + eur(tot).replace(' €', '').split(',')[0] + '<small> €/mes</small></div><div class="cap">en gastos fijos' + (inc3 ? ' · el ' + Math.round(tot / inc3 * 100) + ' % de lo que ingresas' : '') + info('Se apuntan solos el día que toca, así no tienes que acordarte. Los anuales se reparten entre 12 en este total.') + '</div></div>';
-    var L = S.fin.rec.map(function (q) { return { r: q, d: recNext(q) }; }).sort(function (a, b) { return (a.d || 9e15) - (b.d || 9e15); });
-    out += L.length ? '<div class="sec"><span>próximos</span><span>' + L.length + '</span></div><div class="card">' + L.map(recRow).join('') + '</div>' : '<p class="cap">Añade el alquiler, suscripciones, cuotas o seguros con el botón +.</p>';
-    var bc = {}; S.fin.rec.forEach(function (q) { bc[q.cat] = (bc[q.cat] || 0) + recMonthly(q); });
-    var ks = Object.keys(bc).sort(function (a, b) { return bc[b] - bc[a]; });
-    if (ks.length) out += '<div class="sec"><span>por categoría</span><span>al mes</span></div><div class="card">' + ks.map(function (k) { return '<div class="catrow" style="cursor:default"><div class="ch"><span>' + esc(k) + '</span><span><b>' + eur(bc[k]) + '</b></span></div><div class="meter"><i style="width:' + Math.round(bc[k] / bc[ks[0]] * 100) + '%"></i></div></div>'; }).join('') + '</div>';
-    return out;
   }
   function sheetRec(r) {
     var isNew = !r; r = r || { name: '', amt: '', cat: 'Suscripciones', day: new Date().getDate(), freq: 'mes', month: new Date().getMonth() };
@@ -2868,52 +3142,6 @@ textarea.nbta { min-height: 200px; }
       '<div class="field"><span>Categoría</span><div class="chips">' + CATS.map(function (c) { return '<label><input type="radio" name="qcat" value="' + c[0] + '"' + (c[0] === r.cat ? ' checked' : '') + '><span>' + c[0] + '</span></label>'; }).join('') + '</div></div>' +
       '<div class="btns"><button class="btn pri" data-act="saverec" data-id="' + (isNew ? '' : r.id) + '">Guardar</button><button class="btn" data-act="closesheet">Cancelar</button>' + (isNew ? '' : '<button class="btn warn" data-act="delrec" data-id="' + r.id + '">Eliminar</button>') + '</div>');
   }
-  function finRep() {
-    var t = new Date(), out = '', inc = [], exp = [], labs = [], mds = [];
-    for (var i = 5; i >= 0; i--) { var a = new Date(t.getFullYear(), t.getMonth() - i, 1), r = monthRange(a); inc.push(monthSum(r[0], r[1], 'inc')); exp.push(monthSum(r[0], r[1], 'exp')); labs.push(MN[a.getMonth()].slice(0, 3)); mds.push(a); }
-    var ms = pk('rm', 5, 6), selM = mds[ms];
-    // barras dobles
-    var W = 340, H = 160, pb = 22, pt = 12, n = 6, mx = Math.max.apply(null, inc.concat(exp).concat([1])), g = '', bw = W / n * 0.28;
-    for (var k = 0; k < n; k++) {
-      var x0 = k * W / n + W / n * 0.18, hI = (H - pb - pt) * inc[k] / mx, hE = (H - pb - pt) * exp[k] / mx;
-      var son = k === ms;
-      g += '<g class="pk" data-act="pick" data-c="rm" data-i="' + k + '" role="button" tabindex="0" aria-pressed="' + son + '" aria-label="' + MN[mds[k].getMonth()] + ': ingresos ' + eur(inc[k]) + ', gastos ' + eur(exp[k]) + '" opacity="' + (son ? 1 : .38) + '"><rect x="' + (k * W / n).toFixed(1) + '" y="0" width="' + (W / n).toFixed(1) + '" height="' + H + '" fill="transparent"/>';
-      g += '<rect x="' + x0.toFixed(1) + '" y="' + (H - pb - hI).toFixed(1) + '" width="' + bw.toFixed(1) + '" height="' + Math.max(1.5, hI).toFixed(1) + '" rx="3" fill="var(--accent)"></rect>';
-      g += '<rect x="' + (x0 + bw + 3).toFixed(1) + '" y="' + (H - pb - hE).toFixed(1) + '" width="' + bw.toFixed(1) + '" height="' + Math.max(1.5, hE).toFixed(1) + '" rx="3" fill="var(--fg)"></rect>';
-      g += '<text x="' + (x0 + bw + 1.5).toFixed(1) + '" y="' + (H - 6) + '" text-anchor="middle" font-size="10" font-weight="' + (son ? 700 : 400) + '" fill="' + (son ? 'var(--fg)' : 'var(--muted)') + '">' + labs[k] + '</text></g>';
-    }
-    var withData = exp.filter(function (v, i2) { return v > 0 || inc[i2] > 0; }).length || 1, sE = 0, sI = 0; exp.forEach(function (v) { sE += v; }); inc.forEach(function (v) { sI += v; });
-    out += '<div class="sec" style="margin-top:14px"><span>ingresos y gastos · 6 meses' + info('Toca un mes para ver su resumen. Todo lo de abajo de esta página cambia al mes que elijas.') + '</span></div><div class="card"><svg class="bars" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Ingresos y gastos por mes">' + g + '</svg><div class="clegend"><span><i style="background:var(--accent)"></i>ingresos</span><span><i style="background:var(--fg)"></i>gastos</span></div>' +
-      '<div class="selp"><div class="sh"><b>' + MN[selM.getMonth()] + ' ' + selM.getFullYear() + '</b><span>' + (ms === 5 ? 'mes en curso' : '') + '</span></div><div class="sk"><div><b>' + eur(inc[ms]) + '</b><span>ingresos</span></div><div><b>' + eur(exp[ms]) + '</b><span>gastos</span></div><div><b>' + (inc[ms] - exp[ms] < 0 ? '−' : '') + eur(Math.abs(inc[ms] - exp[ms])) + '</b><span>' + (inc[ms] ? Math.round((inc[ms] - exp[ms]) / inc[ms] * 100) + ' % ahorrado' : 'ahorro') + '</span></div></div></div></div>';
-    out += '<div class="kgrid"><div class="kc"><b>' + eur(sE / withData).split(',')[0].replace(' €', '') + '<small>€</small></b><span>gasto medio al mes</span></div><div class="kc"><b>' + eur((sI - sE) / withData).split(',')[0].replace(' €', '') + '<small>€</small></b><span>ahorro medio al mes</span></div></div>';
-    // categorías: este mes frente a la media de los 3 anteriores
-    var rc = monthRange(selM), cats = {};
-    CATS.forEach(function (c) { var cur = monthSum(rc[0], rc[1], 'exp', function (x) { return x.cat === c[0]; }), pv = 0, pn = 0; for (var j = 1; j <= 3; j++) { var am = new Date(selM.getFullYear(), selM.getMonth() - j, 1), rr = monthRange(am); if (rr[1] < S.fin.startDate) continue; pv += monthSum(rr[0], rr[1], 'exp', function (x) { return x.cat === c[0]; }); pn++; } if (cur || pv) cats[c[0]] = [cur, pn ? pv / pn : 0]; });
-    var ck = Object.keys(cats).sort(function (a, b) { return cats[b][0] - cats[a][0]; }), cmx = Math.max.apply(null, ck.map(function (k2) { return Math.max(cats[k2][0], cats[k2][1]); }).concat([1]));
-    if (ck.length) out += '<div class="sec"><span>' + (ms === 5 ? 'este mes' : MN[selM.getMonth()]) + ' frente a tu media' + info('La raya de cada barra es tu media de los tres meses anteriores. Toca una categoría para ver sus gastos.') + '</span></div><div class="card">' + ck.map(function (k2) {
-      var c = cats[k2], d = c[1] ? (c[0] - c[1]) / c[1] : 0, copen = ui.pick.rc === k2;
-      var cl = copen ? S.fin.exp.filter(function (x) { return x.cat === k2 && x.date >= rc[0] && x.date <= rc[1]; }).sort(function (a3, b3) { return b3.mine - a3.mine; }) : [];
-      return '<div class="cmp tap' + (copen ? ' open' : '') + '" data-act="pick" data-c="rc" data-k="' + esc(k2) + '" role="button" tabindex="0" aria-expanded="' + copen + '"><span>' + esc(k2) + '</span><span class="ctr"><i style="width:' + (c[0] / cmx * 100).toFixed(1) + '%"></i>' + (c[1] ? '<em style="left:' + (c[1] / cmx * 100).toFixed(1) + '%"></em>' : '') + '</span><b>' + Math.round(c[0]) + ' €<small>' + (c[1] ? (d > 0.1 ? '↑ ' : d < -0.1 ? '↓ ' : '') + 'media ' + Math.round(c[1]) : 'sin media') + '</small></b></div>' + (copen ? '<div class="selp">' + (cl.length ? cl.slice(0, 8).map(function (x) { var dx = parseDay(x.date); return '<div class="mv"><div class="grow"><div>' + esc(x.note || x.cat) + '</div><div class="cap" style="margin-top:2px">' + dx.getDate() + ' ' + MN[dx.getMonth()].slice(0, 3) + '</div></div><span class="amt">' + eur(x.mine) + '</span></div>'; }).join('') + '<button class="lnk" data-act="gomovs" data-k="' + esc(k2) + '" data-m="' + ms + '">ver todos en movimientos ›</button>' : '<p class="cap">Sin gastos en ' + MN[selM.getMonth()] + '.</p>') + '</div>' : '');
-    }).join('') + '</div>';
-    // día de la semana
-    var wd = [0, 0, 0, 0, 0, 0, 0], wn = [0, 0, 0, 0, 0, 0, 0], since = addD(t, -84);
-    for (var q = 0; q < 84; q++) wn[(addD(since, q).getDay() + 6) % 7]++;
-    S.fin.exp.forEach(function (x) { if (x.date >= dk(since) && !x.rec) wd[(parseDay(x.date).getDay() + 6) % 7] += x.mine; });
-    var avg = wd.map(function (v, i3) { return v / (wn[i3] || 1); }), am = Math.max.apply(null, avg.concat([1])), hi = avg.indexOf(am), wsel = pk('wd', (t.getDay() + 6) % 7, 7);
-    var occ = []; for (var q2 = 0; q2 < 84; q2++) { var dq = addD(since, q2); if ((dq.getDay() + 6) % 7 === wsel && dk(dq) <= dk(t)) occ.push(dk(dq)); }
-    var dayTot = occ.slice(-6).reverse().map(function (k5) { var tt = 0, nn = 0; S.fin.exp.forEach(function (x) { if (x.date === k5 && !x.rec) { tt += x.mine; nn++; } }); return [k5, tt, nn]; });
-    var topw = S.fin.exp.filter(function (x) { return x.date >= dk(since) && !x.rec && (parseDay(x.date).getDay() + 6) % 7 === wsel; }).sort(function (a4, b4) { return b4.mine - a4.mine; }).slice(0, 4);
-    out += '<div class="sec"><span>qué días gastas más' + info('Media de lo que gastas cada día de la semana en las últimas 12 semanas, sin contar los gastos fijos. Toca un día para ver el detalle.') + '</span><span>12 semanas</span></div><div class="card"><div class="wkd">' + avg.map(function (v, i4) { return '<button data-act="pick" data-c="wd" data-i="' + i4 + '" aria-pressed="' + (i4 === wsel) + '" aria-label="' + DN[i4] + ': media ' + eur(v) + '"><i style="height:' + Math.max(4, v / am * 80) + '%"></i>' + DL[i4] + '</button>'; }).join('') + '</div>' +
-      '<div class="selp"><div class="sh"><b>los ' + DN[wsel] + '</b><span>' + (wsel === hi ? 'tu día de más gasto' : wsel === (t.getDay() + 6) % 7 ? 'hoy es ' + DN[wsel] : '') + '</span></div><div class="sk"><div><b>' + eur(avg[wsel]) + '</b><span>de media</span></div><div><b>' + eur(wd[wsel]) + '</b><span>en ' + wn[wsel] + ' ' + DN[wsel] + (wn[wsel] === 1 || /s$/.test(DN[wsel]) ? '' : 's') + '</span></div></div>' +
-      '<div style="margin-top:6px">' + dayTot.map(function (q3) { var dd = parseDay(q3[0]); return '<div class="mv"><div class="grow"><div>' + (q3[0] === dk(t) ? 'hoy' : dd.getDate() + ' de ' + MN[dd.getMonth()]) + '</div><div class="cap" style="margin-top:2px">' + (q3[2] ? q3[2] + ' gasto' + (q3[2] > 1 ? 's' : '') : 'sin gastos') + '</div></div><span class="amt">' + eur(q3[1]) + '</span></div>'; }).join('') + '</div>' +
-      (topw.length ? '<div class="cap" style="margin-top:12px">Lo más grande en ' + DN[wsel] + ': ' + topw.map(function (x) { return esc(x.note || x.cat) + ' (' + eur(x.mine) + ')'; }).join(', ') + '.</div>' : '') + '</div></div>';
-    // mayores gastos del mes
-    var big = S.fin.exp.filter(function (x) { return x.date >= rc[0] && x.date <= rc[1]; }).sort(function (a, b) { return b.mine - a.mine; }).slice(0, 5);
-    if (big.length) out += '<div class="sec"><span>los gastos más grandes de ' + MN[selM.getMonth()] + '</span></div><div class="card" style="padding:4px 16px">' + big.map(function (x) { var d = parseDay(x.date); return '<div class="mv"><div class="grow"><div>' + esc(x.note || x.cat) + '</div><div class="cap" style="margin-top:2px">' + esc(x.cat) + ' · ' + d.getDate() + ' ' + MN[d.getMonth()].slice(0, 3) + '</div></div><span class="amt">' + eur(x.mine) + '</span></div>'; }).join('') + '</div>';
-    return out;
-  }
-
-
   /* ---------- Nutrición ---------- */
   // Valores aproximados por 100 g (o 100 ml). u = [nombre de la unidad, gramos].
   var FOODS = [
@@ -3486,7 +3714,6 @@ textarea.nbta { min-height: 200px; }
     if (a === 'ctfromidea') { var gi = S.ideas.filter(function (q) { return q.id === t.dataset.id; })[0]; if (gi) { S.cont.items.push(ctNew({ id: nid('c'), title: gi.text })); S.ideas = S.ideas.filter(function (q) { return q !== gi; }); save(); ui.tab = 'cont'; ui.sub.cont = 'trabajo'; render(); window.scrollTo(0, 0); } return true; }
     return false;
   }
-  function e0(t) { return t; }
 
 
   /* ---------- Diario ---------- */
@@ -3761,7 +3988,7 @@ textarea.nbta { min-height: 200px; }
 
   /* ---------- Editor del inicio ---------- */
   var HBLK = { todo: ['lo de hoy', 'todo lo del día en pequeño, para marcarlo sin salir'], esp: ['tus espacios hoy', 'tarjetas pequeñas con lo más importante'], semana: ['tu semana', 'el % de cada día de esta semana'], gasto: ['dinero de hoy', 'lo gastado hoy y lo que puedes gastar al día'], cont: ['siguiente paso en contenido', 'el próximo vídeo y su paso'], mis: ['misiones', 'los retos de la semana y cuánto te falta'] };
-  var HCARD = { nivel: 'nivel', nutri: 'nutrición', gym: 'gimnasio', ocio: 'ocio libre', cont: 'contenido', diario: 'cuaderno', puntos: 'puntos', peso: 'peso' };
+  var HCARD = { nivel: 'nivel', nutri: 'nutrición', gym: 'gimnasio', ocio: 'dinero del mes', cont: 'contenido', diario: 'cuaderno', puntos: 'puntos', peso: 'peso' };
   var SPC = { dinero: ['dinero', '金'], gym: ['gimnasio', '鍛'], nutri: ['nutrición', '食'], cont: ['contenido', '創'], diario: ['cuaderno', '帳'] };
   function layBlank() {
     return { v: 2, home: [{ k: 'esp', on: 1 }, { k: 'todo', on: 1 }, { k: 'mis', on: 1 }, { k: 'semana', on: 0 }, { k: 'gasto', on: 0 }, { k: 'cont', on: 0 }], cards: ['nivel', 'nutri', 'gym', 'ocio'], spaces: [{ k: 'dinero', on: 1 }, { k: 'gym', on: 1 }, { k: 'nutri', on: 1 }, { k: 'cont', on: 1 }, { k: 'diario', on: 1 }] };
@@ -3784,7 +4011,7 @@ textarea.nbta { min-height: 200px; }
     if (k === 'nivel') return '<button class="sc tree" data-act="tab" data-tab="progreso"><span class="tt"><span>nivel</span></span><span><span class="bg">' + gm.level + '</span><span class="sb">' + STAGES[stageOf(gm.level)][0] + ' · ' + gm.xp + '/' + gm.need + ' XP</span></span>' + inkTree(gm.level, gm.xp / gm.need, true) + '</button>';
     if (k === 'nutri') { var nt = nutTot(day), ng = S.nut.goal; return '<button class="sc" data-act="tab" data-tab="nutri"><span class="tt"><span>nutrición</span><span class="kjx" aria-hidden="true">食</span></span><span><span class="bg">' + th(Math.max(0, ng.kcal - nt.kcal)) + '<small> kcal</small></span><span class="sb">te quedan hoy</span></span></button>'; }
     if (k === 'gym') { var gs = gymStats().list.filter(function (x) { return x.date >= wk; }).length, go = gymObj(); return '<button class="sc" data-act="tab" data-tab="gym"><span class="tt"><span>gimnasio</span><span class="kjx" aria-hidden="true">鍛</span></span><span><span class="bg">' + gs + '<small> de ' + (go && go.freq === 'weekly' ? go.n : 4) + '</small></span><span class="sb">esta semana</span></span></button>'; }
-    if (k === 'ocio') { var os2 = ocioStats(); return '<button class="sc" data-act="tab" data-tab="dinero"><span class="tt"><span>ocio libre</span><span class="kjx" aria-hidden="true">金</span></span><span><span class="bg">' + (os2.budget ? eur(Math.max(0, os2.left)).replace(' €', '').split(',')[0] + '<small> €</small>' : eur(money().free).split(',')[0]) + '</span><span class="sb">' + (os2.budget ? 'para el resto del mes' : 'disponible') + '</span></span></button>'; }
+    if (k === 'ocio') { var mp = monthPlan(new Date()); return '<button class="sc" data-act="tab" data-tab="dinero"><span class="tt"><span>dinero</span><span class="kjx" aria-hidden="true">金</span></span><span><span class="bg">' + (mp.inc > 0 ? (mp.left < 0 ? '−' : '') + e0(Math.abs(mp.left)).replace(' €', '') + '<small> €</small>' : '–') + '</span><span class="sb">' + (mp.inc > 0 ? (mp.left >= 0 ? 'te quedan este mes' : 'te has pasado este mes') : 'toca para empezar') + '</span></span></button>'; }
     if (k === 'cont') { var cw = weekPubs(0).length; return '<button class="sc" data-act="tab" data-tab="cont"><span class="tt"><span>contenido</span><span class="kjx" aria-hidden="true">創</span></span><span><span class="bg">' + cw + '<small> de ' + (S.cont.goal || 1) + '</small></span><span class="sb">publicados esta semana</span></span></button>'; }
     if (k === 'diario') { var dn0 = 0, mk0 = day.slice(0, 8); Object.keys(S.notes).forEach(function (k2) { if (k2.slice(0, 8) === mk0) dn0++; }); return '<button class="sc" data-act="tab" data-tab="diario"><span class="tt"><span>cuaderno</span><span class="kjx" aria-hidden="true">帳</span></span><span><span class="bg">' + dn0 + '<small> días</small></span><span class="sb">escritos este mes</span></span></button>'; }
     if (k === 'puntos') return '<button class="sc" data-act="tab" data-tab="tienda"><span class="tt"><span>puntos</span>' + ast() + '</span><span><span class="bg">' + th(walletPts()) + '</span><span class="sb">para la tienda</span></span></button>';
@@ -3981,7 +4208,7 @@ textarea.nbta { min-height: 200px; }
       return '<button class="sitem sc ' + cls + '" data-key="' + tab + '" data-act="tab" data-tab="' + tab + '">' + (edS ? rmb('spaces', tab, name) : '') + '<span class="tt"><span>' + name + '</span><span class="kjx" aria-hidden="true">' + kj + '</span></span><span>' + (big ? '<span class="bg">' + big + '</span>' : '') + '<span class="sb">' + esc(sub) + '</span>' + (viz || '') + '</span></button>';
     }
     var C = {}, out = '<div class="hoyhead"><h1>espacios</h1>' + (edS ? '' : '<span class="hhr"><button class="muted" data-act="layedit" style="font-size:13px">editar</button><button class="gear" data-act="tab" data-tab="ajustes" aria-label="Ajustes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg></button></span>') + '</div>' + oneTip('esp', 'Cada espacio es una herramienta con sus propias páginas. Mantén pulsado uno para ordenarlos o esconder los que no uses.') + '<div class="bento' + (edS ? ' editing' : '') + '" data-sort="spaces">';
-    C.dinero = function (cls) { return card(cls, 'dinero', 'dinero', '金', balP[0] + '<small>' + (balP[1] ? ',' + balP[1] : '') + ' €</small>', bud ? 'llevas el ' + Math.round(sp / bud * 100) + ' % del presupuesto de ' + MN[now.getMonth()] : 'disponible ' + eur(m.free), bud ? '<span class="mbar"><i style="width:' + Math.round(Math.min(1, sp / bud) * 100) + '%"></i><em style="left:' + (pace * 100).toFixed(1) + '%"></em></span>' : ''); };
+    C.dinero = function (cls) { var mp = monthPlan(now); return card(cls, 'dinero', 'dinero', '金', mp.inc > 0 ? (mp.left < 0 ? '−' : '') + e0(Math.abs(mp.left)).replace(' €', '') + '<small> €</small>' : '–', mp.inc > 0 ? (mp.left >= 0 ? 'te quedan este mes · unos ' + e0(Math.max(0, mp.perDay)) + ' al día' : 'te has pasado este mes') : 'dime cuánto entra al mes', mp.free > 0 ? '<span class="mbar"><i style="width:' + Math.round(Math.min(1, mp.used) * 100) + '%"></i><em style="left:' + (mp.pace * 100).toFixed(1) + '%"></em></span>' : ''); };
     C.gym = function (cls) { return card(cls, 'gym', 'gimnasio', '鍛', gs.length + '<small> de ' + (go && go.freq === 'weekly' ? go.n : 4) + '</small>', glv ? 'entrenando ahora' : nr ? 'te toca ' + nr.name : 'esta semana', '<span class="mdots">' + dots + '</span>'); };
     C.nutri = function (cls) { return card(cls, 'nutri', 'nutrición', '食', th(Math.abs(ng.kcal - nt.kcal)) + '<small> kcal</small>', (nt.kcal <= ng.kcal ? 'te quedan hoy' : 'por encima hoy') + ' · ' + Math.round(nt.p) + ' de ' + ng.p + ' g de proteína', '<span class="mbar"><i style="width:' + Math.round(Math.min(1, nt.kcal / (ng.kcal || 1)) * 100) + '%"></i></span>'); };
     C.cont = function (cls) { return card(cls, 'cont', 'contenido', '創', cw + '<small> de ' + (S.cont.goal || 1) + ' esta semana</small>', cn ? 'siguiente: ' + CNEXT[cn.stage][1].toLowerCase() + ' «' + cn.title + '»' : 'apunta tu próxima idea', ''); };
@@ -4793,32 +5020,29 @@ textarea.nbta { min-height: 200px; }
       ui.fmode = 'gasto';
     }
     ui.fo = 0; ui.fcat = null;
-    save(); closeSheet(); ui.tab = 'dinero'; if (ui.sub.dinero !== 'resumen') ui.sub.dinero = 'movimientos'; render();
+    save(); closeSheet(); ui.tab = 'dinero'; if (ui.sub.dinero !== 'mes') ui.sub.dinero = 'movimientos'; render();
   }
   function sheetFin() {
-    var m = money();
-    openSheet('<h2>ajustar dinero</h2>' +
-      '<label class="field"><span>¿Cuánto dinero tienes ahora en total? (€)</span><input type="number" id="f-bal" inputmode="decimal" value="' + r2(m.bal) + '"></label>' +
-      '<p class="cap">Si lo cambias, la app toma esa cifra como punto de partida desde hoy.</p>' +
-      '<div class="field"><span>Presupuesto mensual por categoría (€) · 0 = sin límite</span><div class="card">' + CATS.map(function (c) { return '<div class="wgt"><div style="flex:1">' + c[0] + (c[1] === 'ocio' ? ' <span class="tag">ocio</span>' : '') + '</div><input type="number" inputmode="decimal" min="0" id="f-b-' + c[0] + '" value="' + (S.fin.budgets[c[0]] || 0) + '" aria-label="Presupuesto de ' + c[0] + '"></div>'; }).join('') + '</div></div>' +
-      '<p class="cap">Las categorías marcadas como ocio forman el presupuesto que paga los premios de la tienda.</p>' +
+    var f = finX(), t = new Date(), sugg = r2(incPlan(t));
+    openSheet('<h2>tu mes</h2><p class="cap" style="margin-top:0">Con esto calculamos cuánto puedes gastar cada mes.</p>' +
+      '<label class="field"><span>Lo que entra al mes (€)</span><input type="number" id="f-inc" inputmode="decimal" min="0" step="any" value="' + (f.plan.inc || (sugg > 0 ? sugg : '')) + '" placeholder="tu nómina, por ejemplo"></label>' +
+      '<label class="field"><span>Lo que quieres apartar cada mes (€)</span><input type="number" id="f-save" inputmode="decimal" min="0" step="any" value="' + (f.plan.save || '') + '" placeholder="ahorro e inversiones"></label>' +
+      '<p class="cap">Los gastos fijos (' + e0(monthFix(t)) + ' este mes) se descuentan solos. Se apuntan en movimientos › recurrentes.</p>' +
+      '<div class="field"><span>Límites por categoría (€ al mes) · opcional, 0 = sin límite</span><div class="card">' + CATS.map(function (c) { return '<div class="wgt"><div style="flex:1">' + c[0] + '</div><input type="number" inputmode="decimal" min="0" id="f-b-' + c[0] + '" value="' + (+(S.fin.budgets[c[0]] || 0) || '') + '" placeholder="0" aria-label="Límite de ' + c[0] + '" style="width:90px"></div>'; }).join('') + '</div></div>' +
+      '<label class="field"><span>Colchón de emergencia: meses de gastos que quieres cubrir</span><input type="number" id="f-cush" inputmode="numeric" min="1" max="24" value="' + (f.cushion || 6) + '"></label>' +
       '<div class="btns"><button class="btn pri" data-act="savefin">Guardar</button><button class="btn" data-act="closesheet">Cancelar</button></div>');
   }
   function saveFin() {
-    var nb = parseFloat($('#f-bal').value), m = money();
-    if (!isNaN(nb) && Math.abs(nb - m.bal) > 0.004) {
-      var today = dk(new Date()), base = 0;
-      S.fin.inc.forEach(function (x) { if (x.date >= today) base += x.amount; });
-      S.fin.exp.forEach(function (x) { if (x.date >= today) base -= cashOut(x); });
-      S.fin.mov.forEach(function (mm) { if (mm.date >= today && mm.sobre === 'inversion') base -= mm.amt; });
-      S.fin.start = r2(nb - base); S.fin.startDate = today;
-    }
+    var f = finX(), inc = parseFloat($('#f-inc').value), sv = parseFloat($('#f-save').value), cu = parseInt($('#f-cush').value, 10);
+    f.plan.inc = inc > 0 ? r2(inc) : 0; f.plan.save = sv > 0 ? r2(sv) : 0; if (cu > 0) f.cushion = Math.min(24, cu);
     CATS.forEach(function (c) { var v = parseFloat($('#f-b-' + c[0]).value); S.fin.budgets[c[0]] = v > 0 ? v : 0; });
     save(); closeSheet(); render();
   }
   function sheetAportar(k, gid) {
-    var g = gid ? S.fin.goals.filter(function (x) { return x.id === gid; })[0] : null;
-    openSheet('<h2>' + (k === 'inversion' ? 'invertir' : 'ahorrar') + '</h2><p class="cap">' + (g ? 'Para tu meta "' + esc(g.name) + '".' : (k === 'ahorro' ? 'A tu fondo de ahorro: dinero que apartas para imprevistos.' : 'Sale de tu saldo y pasa a invertido.')) + '</p>' +
+    var g = gid ? S.fin.goals.filter(function (x) { return x.id === gid; })[0] : null, L = [];
+    if (!g) L = finX().acc.filter(function (a) { return k === 'inversion' ? a.kind === 'inv' : a.kind === 'save'; });
+    openSheet('<h2>' + (g ? 'aportar a una meta' : k === 'inversion' ? 'aportación a inversiones' : 'apartar dinero') + '</h2><p class="cap" style="margin-top:0">' + (g ? 'Para «' + esc(g.name) + '».' : k === 'inversion' ? 'Lo que metes en una inversión. No cuenta como gasto y en el cierre de mes se separa de lo que gana.' : 'Dinero que pasas a tu colchón o a tus ahorros. No cuenta como gasto.') + '</p>' +
+      (L.length ? '<div class="field"><span>' + (k === 'inversion' ? 'En cuál' : 'A qué cuenta') + '</span><div class="chips">' + L.map(function (a, i) { return '<label><input type="radio" name="apacc" value="' + a.id + '"' + (i === 0 ? ' checked' : '') + '><span>' + esc(a.name) + '</span></label>'; }).join('') + '</div></div>' : (g ? '' : '<p class="cap">Consejo: añade tus cuentas en patrimonio para saber dónde está cada euro.</p>')) +
       '<label class="field"><span>Importe (€)</span><input type="number" id="a-amt" class="bigin" inputmode="decimal" min="0" step="0.01" placeholder="0"></label>' +
       '<div class="btns"><button class="btn pri" data-act="saveap" data-k="' + (k || '') + '" data-goal="' + (gid || '') + '">Guardar</button><button class="btn" data-act="closesheet">Cancelar</button></div>');
     setTimeout(function () { var i = $('#a-amt'); if (i) i.focus(); }, 50);
@@ -5208,9 +5432,35 @@ textarea.nbta { min-height: 200px; }
       ['.hoyhead .round', 'Tus premios', 'Crea los tuyos: que sean cosas que de verdad te apetezcan. Si cuestan dinero, se apuntan como gasto.']
     ],
     dinero: [
-      ['.moneyc', 'Lo que tienes', 'Tu dinero total y, debajo, cuánto está disponible, ahorrado o invertido.'],
-      ['.subnav', 'Páginas', 'Movimientos, presupuesto por categorías, ahorro, gastos fijos e informes.'],
-      ['.hoyhead .round', 'Añadir', 'Apunta un gasto o un ingreso. También desde el + de abajo.']
+      ['.fhero', 'Lo que te queda', 'Lo que puedes gastar este mes sin descuadrarte: lo que entra, menos los fijos, menos lo que quieres apartar, menos lo ya gastado. Debajo, cuánto es al día.'],
+      ['.fflow', 'Tu mes en una barra', 'A dónde va lo que entra: fijos, lo que apartas, lo gastado y lo libre. «Ajustar» cambia tu ingreso, tu ahorro y los límites.'],
+      ['.subnav', 'Cuatro páginas', 'Mes, movimientos, patrimonio (con tus inversiones) y año para ver cómo vas a largo plazo.'],
+      ['.hoyhead .round', 'Apuntar', 'Un gasto o un ingreso en dos toques. También desde el + de abajo.']
+    ],
+    'dinero:movimientos': [
+      ['#mvq', 'Busca', 'Por nombre, categoría o importe.'],
+      ['.fchips', 'Filtra', 'Solo gastos, solo ingresos o tus recurrentes: alquiler, suscripciones y cuotas, con lo que cuestan al año.'],
+      ['.phead', 'Cambia de mes', 'Con ‹ y › ves meses anteriores. Las aportaciones a inversiones salen con → y no cuentan como gasto.']
+    ],
+    'dinero:patrimonio': [
+      ['.fhero', 'Todo lo que tienes', 'Tus cuentas e inversiones menos lo que debes. Se actualiza una vez al mes, en el cierre.'],
+      ['.finv', 'Tus inversiones', 'Toca para ver lo que has aportado, lo que vale y lo que has ganado o perdido aparte de tu dinero.'],
+      ['.fcush', 'Tu colchón', 'Cuántos meses de gastos podrías cubrir con tus ahorros si mañana dejara de entrar dinero.']
+    ],
+    'dinero:inversiones': [
+      ['.k3', 'Lo esencial', 'Lo que has metido tú, lo que vale hoy y la diferencia: tu ganancia o tu pérdida real.'],
+      ['.finvc', 'Dos líneas', 'La discontinua es tu dinero; la azul, lo que vale. El hueco entre las dos es lo que han ganado tus inversiones.'],
+      ['.fmonth', 'El último mes', 'Separa lo que subió por tu aportación de lo que subió (o bajó) por el mercado.'],
+      ['.frets', 'Mes a mes', 'La rentabilidad de cada mes sin contar tus aportaciones. Azul, gana; teja, pierde. Lo normal es que haya de los dos.']
+    ],
+    'dinero:ano': [
+      ['.fhero', 'Tu tasa de ahorro', 'Qué parte de lo que ganas no gastas. Es el mejor indicador de cómo vas a largo plazo.'],
+      ['.fsavc', 'Mes a mes', 'Cada barra es un mes; la raya, tu media. Azul el mejor, teja el peor.']
+    ],
+    cierre: [
+      ['.fcierre .sec', 'Saldos de hoy', 'Mira tu banco y tu bróker y apunta lo que hay. Te lo dejamos relleno con lo último que sabemos.'],
+      ['.cfr .two', 'Inversiones', '«Vale hoy» es lo que pone tu bróker. «Metiste este mes» lo proponemos con tus aportaciones; con eso separamos tu dinero de lo que gana.'],
+      ['.fcierre .btn.pri', 'Cerrar el mes', 'Guarda los valores y te enseña el resumen: lo que ahorraste, cómo cambió tu patrimonio y lo que hicieron tus inversiones.']
     ],
     gym: [
       ['.gweek', 'Tu semana', 'Los días que has entrenado y lo que te toca hoy.'],
@@ -5244,7 +5494,7 @@ textarea.nbta { min-height: 200px; }
   function tourOff() { try { return !!localStorage.getItem('hibi:notour'); } catch (e) { return false; } }
   function tourMaybe() {
     if (S.onb || ui.tour || ui.edit || S.toursOff || tourOff()) return;
-    var SUBK = { progreso: ['prog', 'nivel'], gym: ['gym', 'entrenar'], dinero: ['dinero', 'resumen'], nutri: ['nutri', 'hoy'], cont: ['cont', 'trabajo'], diario: ['diario', 'hoy'] }[ui.tab];
+    var SUBK = { progreso: ['prog', 'nivel'], gym: ['gym', 'entrenar'], dinero: ['dinero', 'mes'], nutri: ['nutri', 'hoy'], cont: ['cont', 'trabajo'], diario: ['diario', 'hoy'] }[ui.tab];
     var k = ui.tab;
     if (SUBK) { var sb = ui.sub[SUBK[0]] || SUBK[1]; if (TOURS[k + ':' + sb]) k = k + ':' + sb; else if (sb !== SUBK[1]) return; }
     if (!TOURS[k] || (S.tours && S.tours[k])) return;
@@ -5380,14 +5630,14 @@ textarea.nbta { min-height: 200px; }
     if (ui.tab === 'progreso' || ui.tab === 'tienda') { S.seen = S.seen || {}; if (!S.seen[ui.tab]) { S.seen[ui.tab] = 1; save(); } }
     try { firstCheck(); } catch (er0) {}
     try { misCheck(); } catch (er) {}
-    var V = { carta: viewCarta, ritual: viewRitual, diario: viewDiario, cont: viewCont, nutri: viewNutri, gym: viewGym, gymlive: viewGymLive, inicio: viewInicio, hoy: viewHoy, progreso: viewProgreso, espacios: viewEspacios, dinero: viewDinero, tienda: viewTienda, ideas: viewIdeas, objetivos: viewObjetivos, ajustes: viewAjustes };
+    var V = { cierre: function () { return '<div class="fin">' + viewCierre() + '</div>'; }, carta: viewCarta, ritual: viewRitual, diario: viewDiario, cont: viewCont, nutri: viewNutri, gym: viewGym, gymlive: viewGymLive, inicio: viewInicio, hoy: viewHoy, progreso: viewProgreso, espacios: viewEspacios, dinero: function () { return '<div class="fin">' + viewDinero() + '</div>'; }, tienda: viewTienda, ideas: viewIdeas, objetivos: viewObjetivos, ajustes: viewAjustes };
     if (ui.edit && !({ inicio: 1, espacios: 1 })[ui.tab]) ui.edit = null;
     var exb = S.example ? '<div class="exbar' + (ui.tab === 'inicio' ? ' top' : '') + '"><span>estás viendo un ejemplo</span><button data-act="onbstart">empezar lo mío</button></div>' : '';
     var html = exb + (V[ui.tab] || viewInicio)() + editBar();
     $('#view').innerHTML = html; $('#view').classList.toggle('isedit', !!ui.edit);
     if (ui.tab === 'dinero') bindChart();
     tourMaybe();
-    var nt = { dinero: 1, tienda: 1, ideas: 1, objetivos: 1, ajustes: 1, gym: 1, gymlive: 1, nutri: 1, cont: 1, diario: 1 }[ui.tab] ? 'espacios' : ui.tab;
+    var nt = { cierre: 1, dinero: 1, tienda: 1, ideas: 1, objetivos: 1, ajustes: 1, gym: 1, gymlive: 1, nutri: 1, cont: 1, diario: 1 }[ui.tab] ? 'espacios' : ui.tab;
     document.querySelectorAll('.nav button').forEach(function (b) { if (b.dataset.tab) { b.setAttribute('aria-current', b.dataset.tab === nt ? 'true' : 'false'); if (ui._ltab !== nt) b.classList.toggle('inkin', b.dataset.tab === nt && !!ui._ltab); } });
     ui._ltab = nt;
   }
@@ -5670,6 +5920,30 @@ textarea.nbta { min-height: 200px; }
       if (t.dataset.armed) { S.fin.exp = S.fin.exp.filter(function (x) { return x.id !== t.dataset.id; }); S.shop.buys.forEach(function (b) { if (b.exp === t.dataset.id) b.exp = null; }); save(); render(); }
       else { t.dataset.armed = '1'; t.textContent = 'borrar'; }
     }
+    else if (a === 'mvf') { ui.mvf = t.dataset.k; render(); }
+    else if (a === 'fy') { ui.fy = Math.min(0, (ui.fy || 0) + (+t.dataset.d)); render(); }
+    else if (a === 'closego') { ui.cym = t.dataset.k || null; ui.cdone = 0; ui.tab = 'cierre'; closeSheet(); render(); window.scrollTo(0, 0); }
+    else if (a === 'closeback') { ui.cdone = 0; ui.tab = 'dinero'; if (t.dataset.k) ui.sub.dinero = t.dataset.k; render(); window.scrollTo(0, 0); }
+    else if (a === 'closesave') {
+      var cy = t.dataset.k, fz = finX();
+      document.querySelectorAll('[data-cv]').forEach(function (inp) { var ac = accById(inp.dataset.cv); if (!ac || inp.value === '') return; ac.hist = ac.hist || {}; var hh = ac.hist[cy] = ac.hist[cy] || {}; hh.v = r2(parseFloat(inp.value) || 0); });
+      document.querySelectorAll('[data-ca]').forEach(function (inp) { var ac = accById(inp.dataset.ca); if (!ac) return; ac.hist = ac.hist || {}; var hh = ac.hist[cy] = ac.hist[cy] || {}; hh.ap = r2(parseFloat(inp.value) || 0); });
+      if (cy < ymOf(new Date())) fz.closes[cy] = { at: dk(new Date()) };
+      save(); ui.cdone = 1; render(); window.scrollTo(0, 0);
+    }
+    else if (a === 'accnew') sheetAcc(null, t.dataset.k);
+    else if (a === 'accedit') { var ae = accById(t.dataset.id); if (ae) sheetAcc(ae); }
+    else if (a === 'accsave') { if (saveAcc(t.dataset.id)) { closeSheet(); render(); } }
+    else if (a === 'accdel') {
+      if (!t.dataset.armed) { t.dataset.armed = '1'; t.textContent = 'Toca otra vez: se borra su historial'; return; }
+      finX().acc = finX().acc.filter(function (x) { return x.id !== t.dataset.id; }); save(); closeSheet(); render();
+    }
+    else if (a === 'delmov') {
+      if (t.dataset.armed) { var mv0 = S.fin.mov.filter(function (x) { return x.id === t.dataset.id; })[0]; if (mv0 && mv0.goal) S.fin.goals.forEach(function (g) { if (g.id === mv0.goal) g.saved = r2(Math.max(0, g.saved - mv0.amt)); }); S.fin.mov = S.fin.mov.filter(function (x) { return x.id !== t.dataset.id; }); save(); render(); }
+      else { t.dataset.armed = '1'; t.textContent = 'borrar'; }
+    }
+    else if (a === 'ipcset') { var ip = finX().ipc; openSheet('<h2>inflación del año</h2><p class="cap" style="margin-top:0">El dato oficial lo publica el INE cada mes (IPC interanual). Sirve para ver si tus inversiones ganan poder adquisitivo de verdad.</p><label class="field"><span>Inflación (%)</span><input type="number" id="ipc-v" inputmode="decimal" step="0.1" value="' + (ip != null ? ip : '') + '"></label><div class="btns"><button class="btn pri" data-act="saveipc">Guardar</button><button class="btn" data-act="closesheet">Cancelar</button></div>'); }
+    else if (a === 'saveipc') { var iv0 = parseFloat($('#ipc-v').value); finX().ipc = isNaN(iv0) ? null : r1(iv0); save(); closeSheet(); render(); }
     else if (a === 'settle') { S.fin.exp.forEach(function (x) { if (x.id === t.dataset.id) x.settled = true; }); save(); render(); }
     else if (a === 'finsetup') sheetFin();
     else if (a === 'savefin') saveFin();
@@ -5679,7 +5953,8 @@ textarea.nbta { min-height: 200px; }
       if (am > 0) {
         var gid = t.dataset.goal;
         if (gid) S.fin.goals.forEach(function (g) { if (g.id === gid) g.saved = r2(g.saved + am); });
-        S.fin.mov.push({ id: nid('m'), date: dk(new Date()), sobre: gid ? 'metas' : t.dataset.k, amt: r2(am), goal: gid || null });
+        var apc = document.querySelector('input[name=apacc]:checked');
+        S.fin.mov.push({ id: nid('m'), date: dk(new Date()), sobre: gid ? 'metas' : t.dataset.k, amt: r2(am), goal: gid || null, acc: apc ? apc.value : null });
         save();
       }
       closeSheet(); render();
@@ -5788,6 +6063,7 @@ textarea.nbta { min-height: 200px; }
       fr.onload = function () { try { var s = JSON.parse(fr.result); if (!bkValid(s)) throw new Error('x'); bkRestoreSheet(s); } catch (er) { if (bm) bm.textContent = 'Ese archivo no es una copia de Hibi.'; } t.value = ''; };
       fr.readAsText(t.files[0]); return;
     }
+    if (t.name === 'ackind') { var apw = $('#ac-apw'), vl = $('#ac-vl'); if (apw) apw.hidden = t.value !== 'inv'; if (vl) vl.textContent = t.value === 'debt' ? 'Lo que queda por pagar hoy (€)' : t.value === 'inv' ? 'Lo que vale hoy (€)' : 'Lo que hay hoy (€)'; return; }
     if (t.id === 'ritf') { ritSet(dk(new Date()), 'focus', t.value.trim()); return; }
     if (t.id === 'lnext') { var lw2 = t.dataset.w, L2 = letS()[lw2] = letS()[lw2] || {}; if (t.value.trim()) L2.next = t.value.trim(); else delete L2.next; save(); return; }
     if (t.id === 'note') { var k = dk(new Date()); if (t.value.trim()) S.notes[k] = t.value.trim(); else delete S.notes[k]; save(); return; }
