@@ -5766,7 +5766,7 @@ textarea.nbta { min-height: 200px; }
     if (a === 'badoff') { delete S.bad[dk(new Date())]; G = null; save(); render(); return; }
     if (a.slice(0, 2) === 'ct' && ctAct(a, t)) return;
     if (a === 'tab') { ui.edit = null; ui.tab = t.dataset.tab; if (t.dataset.sub) ui.sub[{ gym: 'gym', progreso: 'prog' }[ui.tab] || ui.tab] = t.dataset.sub; render(); window.scrollTo(0, 0); }
-    else if (a === 'pick') {
+    else if (a === 'pick' && t.dataset.c) {
       var pc = t.dataset.c, pv = t.dataset.k != null ? t.dataset.k : +t.dataset.i;
       if (pc === 'bc' || pc === 'rc' || pc === 'pet' || pc === 'hfa') ui.pick[pc] = ui.pick[pc] === pv ? null : pv; else ui.pick[pc] = pv;
       if (pc === 'rm') ui.pick.rc = null;
