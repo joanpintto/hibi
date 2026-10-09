@@ -1290,6 +1290,39 @@ html { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .rdays button[aria-pressed="true"] { color: var(--bg); background: transparent; }
 .rdays button[aria-pressed="true"]::before { content: ''; position: absolute; inset: 0; background: var(--fg); z-index: -1; -webkit-mask-box-image: var(--m-pill) 40 fill / 12px stretch; mask-border: var(--m-pill) 40 fill / 12px stretch; }
 .rdays button i { position: absolute; left: 50%; bottom: 5px; width: 4px; height: 4px; margin-left: -2px; border-radius: 50%; background: var(--accent); }
+.ghero { background: var(--card); border-radius: 24px; padding: 20px 20px 18px; margin-top: 10px; }
+.ghero.done { box-shadow: none; }
+.ghh { display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--muted); }
+.ghh .red { display: flex; align-items: center; gap: 4px; font-size: 12px; color: var(--muted); padding: 4px; margin: -4px; }
+.ghero h2 { margin: 6px 0 0; font-size: 40px; font-weight: 800; letter-spacing: -.04em; line-height: 1; }
+.ghm { margin: 8px 0 0; font-size: 13px; color: var(--muted); }
+.ghx { margin-top: 14px; }
+.ghr { display: grid; grid-template-columns: minmax(0, 1fr) 52px 76px; gap: 8px; padding: 8px 0; border-top: 1px solid var(--line); font-size: 14px; align-items: baseline; }
+.ghr span:first-child { min-width: 0; overflow-wrap: anywhere; }
+.ghr span:nth-child(2), .ghr span:nth-child(3) { text-align: right; font-variant-numeric: tabular-nums; }
+.ghr span:nth-child(2) { color: var(--muted); }
+.ghr.ghl { border-top: 0; padding: 0 0 4px; font-size: 11px; color: var(--muted); }
+.ghgo { width: 100%; margin-top: 14px; height: 52px; font-size: 16px; }
+.grest { display: flex; flex-direction: column; gap: 2px; margin: 12px 0 10px; }
+.grest b { font-size: 22px; font-weight: 700; letter-spacing: -.02em; }
+.grest span { font-size: 14px; color: var(--muted); }
+.rcard .rgo { gap: 4px; }
+.rcard .rday { font-style: normal; font-size: 11px; color: var(--fg); letter-spacing: .04em; text-transform: uppercase; }
+.rcard .rst { margin-top: 6px; }
+.rcard.did .rst { color: var(--accent); }
+.rcard .red { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; top: 6px; right: 6px; padding: 0; opacity: .45; }
+.ghh .red { opacity: .45; }
+.gfree, .gfoot { margin: 12px 0 0; text-align: center; }
+.gfree button, .gfoot button { font-size: 13px; color: var(--muted); padding: 6px 10px; }
+.gfoot { margin-top: 22px; }
+.rcards .rgo { min-height: 92px; }
+.rcards.r3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.rcards.r3 .rgo { padding: 12px 10px; min-height: 84px; }
+.rcards.r3 b { font-size: 15px; padding-right: 0; }
+.rcards.r3 span { font-size: 11px; }
+.rcards.r3 .red { width: 28px; height: 28px; top: 4px; right: 2px; }
+.gset { display: flex; justify-content: space-between; align-items: center; gap: 10px; width: 100%; margin-top: 18px; padding: 14px 16px; background: var(--card); border-radius: 16px; font-size: 13px; color: var(--muted); text-align: left; }
+.gset b { color: var(--fg); font-weight: 600; }
 .rdt { font-size: 11px; color: var(--fg); letter-spacing: .02em; }
 .gweek button em { font-style: normal; font-size: 9px; line-height: 1.1; color: var(--muted); height: 20px; max-width: 100%; overflow: hidden; text-align: center; word-break: break-word; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .fhero { margin-top: 26px; }
@@ -4323,6 +4356,7 @@ textarea.nbta { min-height: 200px; }
     }
     out += '</div>';
     var ss = list.filter(function (x) { return x.date === sel; }), d = parseDay(sel), o = gymObj(), rdS = rutOnDay((d.getDay() + 6) % 7), planned = rdS.length > 0 || (o && planFor(o, dk(wkD)).indexOf((d.getDay() + 6) % 7) >= 0);
+    if (sel === td && !ss.length) return out;
     out += '<div class="selp" style="border-top:0;padding-top:4px"><div class="sh"><b>' + (sel === td ? 'hoy' : DN[(d.getDay() + 6) % 7] + ' ' + d.getDate()) + '</b><span>' + (ss.length ? ss.length + ' sesión' + (ss.length > 1 ? 'es' : '') : sel > td ? (rdS.length ? 'toca ' + esc(rdS.map(function (r) { return r.name; }).join(' o ')) : planned ? 'previsto' : 'sin plan') : sel === td && rdS.length ? 'hoy toca ' + esc(rdS.map(function (r) { return r.name; }).join(' o ')) : planned ? 'previsto, sin registrar' : 'descanso') + '</span></div>' + (ss.length ? ss.map(sesRow).join('') : '') + '</div>';
     return out;
   }
@@ -4337,34 +4371,69 @@ textarea.nbta { min-height: 200px; }
     out += subnav('gym', GPAGES);
     return out + ({ entrenar: gymTrain, historial: gymHist, estadisticas: gymStatsView, ejercicios: gymExView, cuerpo: bodyView }[pg] || gymTrain)();
   }
+  var PEN = '<svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M11 2.5l2.5 2.5L6 12.5 3 13l.5-3z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>';
+  function rutOrder() {
+    return S.gym.rut.map(function (r, i) { var d = rutDays(r).slice().sort(); return { r: r, k: d.length ? d[0] : 7, i: i }; }).sort(function (a, b) { return a.k - b.k || a.i - b.i; }).map(function (x) { return x.r; });
+  }
+  function rutMins(r, st) {
+    var L = st.list.filter(function (x) { return x.rut === r.id && x.end; }).slice(-4);
+    if (L.length) { var t = 0; L.forEach(function (x) { t += x.end - x.start; }); return Math.round(t / L.length / 60000 / 5) * 5; }
+    var n = 0; r.items.forEach(function (it) { n += +it.sets || 0; }); return Math.max(15, Math.round((n * 2.5 + 5) / 5) * 5);
+  }
+  function exLastTxt(id) {
+    var d = lastSets(id), ty = exById(id).type; if (!d.length) return '';
+    if (ty === 'peso') { var w = Math.max.apply(null, d.map(function (z) { return +z.w || 0; })); return w > 0 ? String(w).replace('.', ',') + ' kg' : ''; }
+    var r = Math.max.apply(null, d.map(function (z) { return +z.r || 0; })); return r ? r + (ty === 'tiempo' ? ' s' : ' rep') : '';
+  }
+  function gymHero(r, st, tdk) {
+    var done = st.list.filter(function (x) { return x.rut === r.id && x.date === tdk; })[0], last = st.list.filter(function (x) { return x.rut === r.id && x.date < tdk; }).pop(), ns = 0;
+    r.items.forEach(function (it) { ns += +it.sets || 0; });
+    var h = '<div class="ghero' + (done ? ' done' : '') + '"><div class="ghh"><span>hoy · ' + DN[(new Date().getDay() + 6) % 7] + '</span><button class="red" data-act="geditrut" data-id="' + r.id + '" aria-label="Editar ' + esc(r.name) + '">' + PEN + '</button></div>';
+    h += '<h2>' + esc(r.name) + '</h2>';
+    if (done) {
+      h += '<p class="ghm">✓ hecho · ' + Math.max(1, Math.round((done.end - done.start) / 60000)) + ' min</p><p class="gfree" style="text-align:left;margin:10px 0 0"><button data-act="gses" data-id="' + done.id + '">ver la sesión</button></p></div>';
+      return h;
+    }
+    h += '<p class="ghm">' + r.items.length + ' ejercicios · unos ' + rutMins(r, st) + ' min</p>';
+    h += '<button class="btn pri ghgo" data-act="gstart" data-id="' + r.id + '">Empezar</button></div>';
+    return h;
+  }
+  function sheetGymSets() {
+    var g = S.gym, o = gymObj(), wo = S.objs.filter(function (x) { return x.freq === 'weekly'; });
+    openSheet('<h2>ajustes del gimnasio</h2><div class="field"><span>Descanso entre series</span>' + seg('grest', [[60, '1:00'], [90, '1:30'], [120, '2:00'], [180, '3:00']], g.rest) + '</div>' +
+      '<label class="field"><span>Al terminar un entreno, marca</span><select id="g-obj"><option value="none">nada</option>' + wo.map(function (x) { return '<option value="' + x.id + '"' + (o && o.id === x.id ? ' selected' : '') + '>' + esc(x.name) + '</option>'; }).join('') + '</select></label>' +
+      '<div class="btns"><button class="btn pri" data-act="gsetsok">Listo</button></div>');
+  }
   function gymTrain() {
     var g = S.gym, st = gymStats(), o = gymObj(), now = new Date(), wkD = mon(now), wa = dk(wkD), wb = dk(addD(wkD, 6)), lv = liveSes();
     var wk = st.list.filter(function (x) { return x.date >= wa && x.date <= wb; }), vol = 0;
     wk.forEach(function (x) { vol += sesVol(x); });
-    var out = '<div class="ringwrap" style="margin-top:8px"><div class="num">' + wk.length + (o && o.freq === 'weekly' ? '<small> de ' + o.n + '</small>' : '') + '</div><div class="cap">sesiones esta semana · ' + th(vol) + ' kg movidos</div></div>';
-    out += weekDots(wk);
+    var ti = (now.getDay() + 6) % 7, tdk = dk(now), last = {}, wkR = {};
+    st.list.forEach(function (x) { if (x.rut) last[x.rut] = x.date; });
+    wk.forEach(function (x) { if (x.rut) wkR[x.rut] = x.date; });
+    var hasDays = g.rut.some(function (r) { return rutDays(r).length; }), todayR = lv ? null : rutOnDay(ti)[0] || null;
+    var out = '<div class="gplan">';
     if (lv) {
       var c = sesSets(lv);
       out += '<button class="glive" data-act="tab" data-tab="gymlive"><i></i><div><b>entrenando · ' + esc(lv.name.toLowerCase()) + '</b><span>' + Math.max(0, Math.floor((Date.now() - lv.start) / 60000)) + ' min · ' + c[0] + ' de ' + c[1] + ' series</span></div><span aria-hidden="true">›</span></button>';
-    } else {
-      var nx = nextRut(), last = {};
-      st.list.forEach(function (x) { if (x.rut) last[x.rut] = x.date; });
-      out += '<div class="sec"><span>empezar</span><span>toca una rutina</span></div><div class="rcards">';
-      g.rut.forEach(function (r) {
-        out += '<div class="rcard' + (nx && nx.id === r.id ? ' next' : '') + '"><button class="rgo" data-act="gstart" data-id="' + r.id + '"><b>' + esc(r.name) + '</b><span>' + r.items.length + ' ejercicios<br>' + (rutDays(r).length ? '<span class="rdt">' + rutDaysTxt(r) + '</span><br>' : '') + (nx && nx.id === r.id ? '<span class="rtag">' + (rutDays(r).indexOf((now.getDay() + 6) % 7) >= 0 ? 'hoy toca' : 'te toca') + '</span>' : (last[r.id] ? ago(last[r.id]) : 'sin estrenar')) + '</span></button><button class="red" data-act="geditrut" data-id="' + r.id + '" aria-label="Editar ' + esc(r.name) + '">editar</button></div>';
-      });
-      out += '</div><button class="btn" style="width:100%;margin-top:8px" data-act="gstart" data-id="">Sesión libre</button>';
+    } else if (todayR) out += gymHero(todayR, st, tdk);
+    else if (g.rut.length) {
+      var nd = null;
+      if (hasDays) for (var dd = 1; dd <= 7 && !nd; dd++) { var rr = rutOnDay((ti + dd) % 7)[0]; if (rr) nd = [dd, rr]; }
+      out += '<div class="grest"><b>' + (hasDays ? 'descanso' : 'elige qué entrenar') + '</b><span>' + (nd ? (nd[0] === 1 ? 'mañana' : 'el ' + DN[(ti + nd[0]) % 7]) + ' toca ' + esc(nd[1].name) : hasDays ? '' : 'ponles días a tus rutinas y te diremos cuál toca') + '</span></div>';
     }
-    // grupos musculares de la semana
-    var mg = musSets(wa, wb), mk = GRP.filter(function (x) { return x !== 'cardio'; });
-    out += '<div class="sec"><span>series por grupo · esta semana' + info('Series hechas por grupo muscular, sin calentamientos. La franja marca la zona de 10 a 20 series semanales que suele recomendarse para ganar músculo.') + '</span></div><div class="card">' + mk.map(function (gp) {
-      var n = mg[gp] || 0;
-      return '<div class="hbar"><span>' + gp + '</span><span class="tr"><em style="left:' + (10 / 24 * 100) + '%;width:' + (10 / 24 * 100) + '%"></em><i style="width:' + Math.min(100, n / 24 * 100) + '%"></i></span><b>' + n + '</b></div>';
-    }).join('') + '</div>';
-    var wo = S.objs.filter(function (x) { return x.freq === 'weekly'; });
-    out += '<div class="sec"><span>ajustes</span></div><div class="card">';
-    out += '<div class="gopt"><span>Al terminar, marca</span><select id="g-obj" aria-label="Objetivo que se marca al terminar"><option value="none">nada</option>' + wo.map(function (x) { return '<option value="' + x.id + '"' + (o && o.id === x.id ? ' selected' : '') + '>' + esc(x.name) + '</option>'; }).join('') + '</select></div>';
-    out += '<div class="gopt col"><span>Descanso entre series</span>' + seg('grest', [[60, '1:00'], [90, '1:30'], [120, '2:00'], [180, '3:00']], g.rest) + '</div></div>';
+    var others = rutOrder().filter(function (r) { return !todayR || r.id !== todayR.id; }), nx = hasDays ? null : nextRut();
+    if (others.length) {
+      if (todayR || lv) out += '<div class="sec"><span>' + (todayR ? 'el resto' : 'tus rutinas') + '</span></div>';
+      out += '<div class="rcards' + (todayR && others.length === 3 ? ' r3' : '') + '">' + others.map(function (r) {
+        var dl = rutDays(r).slice().sort(), st2 = wkR[r.id] ? '✓ hecha' : '';
+        return '<div class="rcard' + (wkR[r.id] ? ' did' : '') + '"><button class="rgo" data-act="gstart" data-id="' + r.id + '"><em class="rday">' + (dl.length ? (dl.length === 7 ? 'cada día' : dl.map(function (i) { return DNS[i]; }).join(' · ')) : 'sin día') + '</em><b>' + esc(r.name) + '</b><span class="rst">' + (nx && nx.id === r.id ? '<span class="rtag">te toca</span>' : st2) + '</span></button><button class="red" data-act="geditrut" data-id="' + r.id + '" aria-label="Editar ' + esc(r.name) + '">' + PEN + '</button></div>';
+      }).join('') + '</div>';
+    }
+    out += '<p class="gfree"><button data-act="gstart" data-id="">o una sesión libre</button></p></div>';
+    out += '<div class="sec"><span>esta semana</span><span>' + wk.length + (o && o.freq === 'weekly' ? ' de ' + o.n : '') + '</span></div>';
+    out += weekDots(wk);
+    out += '<p class="gfoot"><button data-act="gsets">ajustes</button></p>';
     return out;
   }
   function musSets(a, b) {
@@ -4694,6 +4763,8 @@ textarea.nbta { min-height: 200px; }
   }
   function gymAct(a, t) {
     var ss = liveSes(), it, k;
+    if (a === 'gsets') { sheetGymSets(); return true; }
+    if (a === 'gsetsok') { closeSheet(); render(); return true; }
     if (a === 'gstart') { if (ss) { ui.tab = 'gymlive'; render(); } else startSes(t.dataset.id); return true; }
     if (a === 'gset' && ss) {
       var z = ss.items[+t.dataset.i].sets[+t.dataset.j];
@@ -5463,8 +5534,8 @@ textarea.nbta { min-height: 200px; }
       ['.fcierre .btn.pri', 'Cerrar el mes', 'Guarda los valores y te enseña el resumen: lo que ahorraste, cómo cambió tu patrimonio y lo que hicieron tus inversiones.']
     ],
     gym: [
-      ['.gweek', 'Tu semana', 'Los días que has entrenado y lo que te toca hoy.'],
-      ['.rcards', 'Empieza a entrenar', 'Toca una rutina para registrar series, pesos y descansos. Al terminar se marca tu objetivo de gimnasio.'],
+      ['.gplan', 'Lo que toca', 'Arriba, el entreno de hoy con lo que levantaste la última vez. Debajo, el resto de rutinas en el orden de tu semana. Toca una para empezar.'],
+      ['.gweek', 'Tu semana', 'Los días que has entrenado y qué rutina va cada día.'],
       ['.subnav', 'Más páginas', 'Historial, estadísticas, ejercicios con tus récords y medidas del cuerpo.']
     ],
     nutri: [
