@@ -1,5 +1,5 @@
-// Hibi · funciona sin conexión. Versión c4118eba
-var CACHE = 'hibi-c4118eba';
+// Hibi · funciona sin conexión. Versión 161debe5
+var CACHE = 'hibi-161debe5';
 var CORE = ['./', 'index.html', 'manifest.webmanifest', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png'];
 self.addEventListener('install', function (e) {
   e.waitUntil(caches.open(CACHE).then(function (c) { return c.addAll(CORE); }).then(function () { return self.skipWaiting(); }));
