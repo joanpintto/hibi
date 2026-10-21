@@ -8052,6 +8052,69 @@ Object.defineProperty(App10X.prototype, 'rutPick', { get() { try { return window
   });
 })();
 
+/* ===== Hibi 10 · apuntar un entreno de otro día ===== */
+(function () {
+  const baseExtra = App10X.prototype.extraVals;
+  Object.assign(App10X.prototype, {
+    extraVals(v) {
+      baseExtra.call(this, v);
+      const rows = v.gymRows || [], i = rows.findIndex(r => r.n === 'Entrenos hechos');
+      const row = { n: 'Apuntar un entreno pasado', s: '¿Se te olvidó apuntar alguno? Ponlo aquí', r: '', sc: this.MUT, go: () => { this.pd = null; this.openX('pasado'); } };
+      if (i >= 0) rows.splice(i + 1, 0, row); else rows.push(row);
+      v.gymRows = rows;
+    },
+    x_pasado() {
+      const H = window.H, S = H.S(), L = [], today = this.today();
+      const days = []; for (let k = 1; k <= 14; k++) days.push(H.dk(H.addD(new Date(), -k)));
+      if (!this.pd) {
+        const TI = (new Date().getDay() + 6) % 7, y = H.addD(new Date(), -1), yi = (y.getDay() + 6) % 7, r0 = H.rutOnDay(yi)[0] || S.gym.rut[0];
+        this.pd = { day: days[0], rut: r0 ? r0.id : null, items: [] }; this.pdFill(r0);
+      }
+      const d = this.pd;
+      L.push(this.note('Elige el día y la rutina. Te pongo lo que hiciste la última vez: cambia lo que no cuadre y quita lo que no hiciste.'));
+      L.push(this.lab('Qué día'));
+      L.push(this.chipsM(days.slice(0, 7).map(k => [k, k === days[0] ? 'Ayer' : this.dayLab(k).split(' ').slice(0, 2).join(' ')]), (k) => k === d.day, (k) => { d.day = k; }));
+      if (days.slice(0, 7).indexOf(d.day) < 0) L.push(this.note('Día elegido: ' + this.dayLab(d.day)));
+      L.push(this.btn2(this.xf('more', '') ? 'Ocultar días anteriores' : 'Más días atrás', () => this.setX({ more: this.xf('more', '') ? '' : '1' })));
+      if (this.xf('more', '')) L.push(this.chipsM(days.slice(7).map(k => [k, this.dayLab(k).split(' ').slice(0, 2).join(' ')]), (k) => k === d.day, (k) => { d.day = k; }));
+      L.push(this.lab('Qué rutina'));
+      L.push(this.chipsM(S.gym.rut.map(r => [r.id, r.name]), (id) => id === d.rut, (id) => { d.rut = id; this.pdFill(H.rutById(id)); this.setX(this.pdClear()); }));
+      L.push(this.lab('Ejercicios · kilos, repeticiones y series'));
+      if (!d.items.length) L.push(this.note('No hay ejercicios. Añade los que hiciste.'));
+      d.items.forEach((it, i) => {
+        const x = H.exById(it.ex), useW = x.type !== 'tiempo';
+        L.push(this.row(x.name, '', '', () => { this.pdSync(); d.items.splice(i, 1); this.setX(this.pdClear()); }, null, '×'));
+        L.push(this.flds(3, [this.field('w' + i + it.ex, useW ? 'Kilos' : '—', it.w, '0', 'decimal'), this.field('r' + i + it.ex, x.type === 'tiempo' ? 'Segundos' : 'Reps', it.r, '10', 'numeric'), this.field('s' + i + it.ex, 'Series', it.s, '3', 'numeric')]));
+      });
+      L.push(this.btn2('+ Añadir ejercicio', () => { this.pdSync(); const keep = Object.assign({}, this.state.xf); this.openX('exlist', { pick: (exId) => { const prev = H.lastSets(exId), top = prev.length ? this.topOf(prev) : null; d.items.push({ ex: exId, w: top ? top.w : 0, r: top ? top.r : 10, s: prev.length || 3 }); this.openX('pasado', null, keep); } }); }));
+      L.push(this.btn('Guardar entreno', () => {
+        this.pdSync(); const items = d.items.filter(it => it.s > 0 && it.r > 0); if (!items.length) { this.toast('Añade al menos un ejercicio'); return; }
+        const r = d.rut ? H.rutById(d.rut) : null, start = H.parseDay(d.day).getTime() + 18 * 3600e3;
+        let n = 0; items.forEach(it => { n += it.s; });
+        const ses = { id: H.nid('s'), date: d.day, rut: r ? r.id : null, name: r ? r.name : 'Sesión libre', start, end: start + Math.min(120, Math.max(20, n * 3)) * 60000, past: true,
+          items: items.map(it => ({ ex: it.ex, sets: Array.from({ length: it.s }, () => ({ w: it.w, r: it.r, done: true })) })) };
+        S.gym.ses.push(ses);
+        const o = H.gymObj(); if (o && !H.logOf(o, d.day)) H.setLog(o, d.day, 1); else H.save();
+        this.pd = null; this.hx('success'); this.openX('sesion', ses.id); this.toast('Entreno del ' + this.dayLab(d.day) + ' guardado');
+      }));
+      return { title: 'Entreno pasado', blocks: L };
+    },
+    pdFill(r) {
+      const H = window.H; if (!this.pd) return;
+      this.pd.items = r ? r.items.map(it => { const prev = H.lastSets(it.ex), top = prev.length ? this.topOf(prev) : null; return { ex: it.ex, w: top ? top.w : (it.kg || 0), r: top ? top.r : (+it.reps || 10), s: +it.sets || prev.length || 3 }; }) : [];
+    },
+    pdClear() { const o = {}; Object.keys(this.state.xf || {}).forEach(k => { if (/^[wrs]\d/.test(k)) o[k] = null; }); return o; },
+    pdSync() {
+      const d = this.pd; if (!d) return;
+      d.items.forEach((it, i) => {
+        const w = this.num(this.xf('w' + i + it.ex, it.w)), r = parseInt(this.xf('r' + i + it.ex, it.r), 10), s = parseInt(this.xf('s' + i + it.ex, it.s), 10);
+        it.w = isNaN(w) ? 0 : Math.max(0, Math.round(w * 10) / 10); it.r = isNaN(r) ? 0 : Math.max(0, r); it.s = isNaN(s) ? 0 : Math.max(0, Math.min(12, s));
+      });
+      this.setX(this.pdClear());
+    }
+  });
+})();
+
 ReactDOM.createRoot(document.getElementById("v10root")).render(h(App10X, {}));
 })();
 </script>
